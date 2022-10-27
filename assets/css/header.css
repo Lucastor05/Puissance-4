@@ -1,0 +1,35 @@
+#imagesBackGround{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/BG2.jpeg");
+
+    background-size: cover;
+}
+
+
+#SiteName{
+    text-align: left;
+    color: white;
+}
+
+#ongletAccueil{
+    text-align: right;
+    color: white;
+}
+
+#ongletJeu{
+    text-align: right;
+    color: white;
+}
+
+#ongletScores{
+    text-align: right;
+    color: white;
+}
+
+#ongletContact{
+    text-align: right;
+    color: white;
+}
+
+
