@@ -1,0 +1,40 @@
+h2{
+    color:white;
+    font-size: medium;
+
+}
+p{
+    font-size: small;
+}
+
+.OrangeCharacter{
+    color: orange;
+    font-size: small;
+}
+
+footer{
+    background-color:#0d0b26;
+}
+.Lfacebook{
+    width: 35px;
+    height: 35px;
+}
+.Ltwitter{
+    width: 35px;
+    height: 35px;
+}
+.Lgoogle{
+    width: 35px;
+    height: 35px;
+}
+.Lpinterest{
+    width: 35px;
+    height: 35px;
+}
+.Linstagram{
+    width: 35px;
+    height: 35px;
+}
+.BlockPowerOfMemory{
+    position: relative;
+}

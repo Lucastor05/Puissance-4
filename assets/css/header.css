@@ -1,0 +1,41 @@
+#HeadInsciption{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/hell-bg.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}
+
+.topnav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a {
+    color: white;
+}
+
+.topnav a:hover {
+    color: #eb9023;
+} 
