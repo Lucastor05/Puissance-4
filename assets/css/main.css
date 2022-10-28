@@ -71,40 +71,34 @@ body{
 
 /*Tableau Utilisateur (truc Watchdogs 2)*/
 
-/*.logoJeu{
-    width: 10px;
-    height: 10px;
-}
-
-.PartiJouer{
+.cellule2{
+    width: 200px;
+    height: 100px;
     background-color: #3724a0;
     color: white;
 }
 
-.JoueurCo{
+.cellule3{
+    width: 200px;
+    height: 100px;
     color: white;
     background-color: #18a15f;
 }
 
-.TempsRecord{
+.cellule4{
+    width: 200px;
+    height: 100px;
     color: white;
     background-color: #b91ca8;
 }
 
-.joueurInscrits{
+.cellule5{
+    width: 200px;
+    height: 100px;
     color: white;
     background-color: #ec9123;
-}
 
-.TableauUtilisateur tr td{
-    font-size: medium;
-    font-weight: normal;
 }
-
-.nombreTableau{
-    font-size: large;
-    font-weight: bold;
-}*/
 
 .flex-parentPicture{
     padding-top: 20px;
@@ -112,25 +106,44 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 25px;
 }
+
+.SousParti1{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.SousParti2{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.Parti2{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
 
 .Watchdogs2{
-    width: 500px;
-    height: 250px;
+    width: 450px;
+    height: 225px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+.contentPicture{
+    margin-bottom: 130px;
+}
 
 
 /*Notre equipe, tableau avec les profils*/
