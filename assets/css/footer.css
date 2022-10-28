@@ -1,0 +1,65 @@
+
+
+/*INDEX.HTML*/
+footer{
+    background-color: #0d0b26;
+}
+
+.TitreFooter{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 15px;
+}
+
+
+.OrangeCharacter{
+    color: #e98d24;
+}
+
+.flex-parentFooter{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 300px;
+}
+
+
+.informationFooter{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.informationFooter p{
+    margin: 10px;
+    font-size: smaller;
+}
+
+.TowerMemoryFooter{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.ListeGeneralFooter{
+    list-style: none;
+}
+
+.ListeGeneralFooter li::before{
+    content: "• ";
+    color: #e98d24;
+}
+
+.listeFooter{
+    color: white;
+    height: 35px;
+}
+
+
+
+
+.copyright{
+    font-size: 10px;
+}

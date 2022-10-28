@@ -1,0 +1,193 @@
+
+*{
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    background-color: #11102f;
+    color: white;
+    font-family: "Gill Sans", sans-serif;
+}
+
+#corpPincipal{
+    text-align: center;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+
+
+
+
+.AlignLeftTitre{
+    text-align: left;
+    font-weight: bold;
+}
+
+.AlignLeft{
+    text-align: left;
+    font-weight: normal;
+}
+
+
+
+
+/*Tableau avec les images*/
+
+
+
+#computer{
+    width: 430px;
+    height: 270px;
+
+}
+
+#bycicle{
+    width: 215px;
+    height: 270px;
+    margin: 3px;
+}
+
+#poker{
+    width: 215px;
+    height: 270px;
+}
+
+
+/*Tableau avec les paragraphes en Latin */
+#tableauP{
+    /*Taille du tableau*/
+    width: 900px;
+    margin-bottom: 130px;
+}
+
+.NumeroTab{
+    /*Numero de section dans le tableau*/
+    color: #3724a0;
+}
+
+
+/*Tableau Utilisateur (truc Watchdogs 2)*/
+
+.cellule2{
+    width: 200px;
+    height: 100px;
+    background-color: #3724a0;
+    color: white;
+}
+
+.cellule3{
+    width: 200px;
+    height: 100px;
+    color: white;
+    background-color: #18a15f;
+}
+
+.cellule4{
+    width: 200px;
+    height: 100px;
+    color: white;
+    background-color: #b91ca8;
+}
+
+.cellule5{
+    width: 200px;
+    height: 100px;
+    color: white;
+    background-color: #ec9123;
+
+}
+
+.flex-parentPicture{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+.SousParti1{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.SousParti2{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.Parti2{
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+.Watchdogs2{
+    width: 450px;
+    height: 225px;
+}
+
+
+.contentPicture{
+    margin-bottom: 130px;
+}
+
+
+/*Notre equipe, tableau avec les profils*/
+
+.notreEquipeh2{
+    margin-bottom: 0;
+}
+
+h3{
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+
+.flex-parent{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.profil{
+    height: 265px;
+    width: 300px;
+    background-color: #0d0b26;
+}
+
+.photoProfil{
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+
+.profilGras{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.profil{
+    font-weight: normal;
+}
