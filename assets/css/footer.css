@@ -1,10 +1,14 @@
+*{
+    color: white;
+}
+    
 h2{
     color:white;
     font-size: medium;
 
 }
 p{
-    font-size: small;
+    font-size: medium;
 }
 
 .OrangeCharacter{
@@ -16,25 +20,47 @@ footer{
     background-color:#0d0b26;
 }
 .Lfacebook{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 .Ltwitter{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 .Lgoogle{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 .Lpinterest{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 .Linstagram{
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 .BlockPowerOfMemory{
-    position: relative;
+    position: absolute;
+    top: 1000px;
+    right: 100px;
+    width: 200px;
+    height: 100px;
+}
+.BlockInformation{
+    position: absolute;
+    top: 1000px;
+    right: 1230px;
+    width: 200px;
+    height: 100px;
+    color: white;
+}
+.Copyright {
+    position: absolute;
+    top: 1500px;
+    right: 1230px;
+    width: 100px;
+    height: 100px;
+}
+li{
+    text-decoration: none;
 }

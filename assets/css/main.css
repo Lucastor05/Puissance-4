@@ -13,6 +13,15 @@ input{
     background-color: rgba(39,38,69,255);
     width: 30%;
     padding: 10px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;    
+    margin: 8px 0;  
+    border: 2px solid rgba(39,38,70,255);
+    border-radius: 4px;
+    color: white;
+} 
+.InscriptionButton{
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
 }
