@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <!--En Tete (bandeau) avec les different lien vers les autres pages-->
+    <!--Barre de navigation avec les different lien vers les autres pages-->
     <nav class="topnav">
         <a href="#" class="nomSite">The Tower Of Mermory</a>
         <div class="topnav-right">
@@ -22,23 +22,24 @@
         </div>
     </nav>
         
-
-        <!--Titre de la pages avec sous titre et lien vers le jeu-->
+    <!--Titre de la pages avec sous titre et lien vers le jeu-->
     <header id="head">
-        <h1>BIENVENUE DANS NOTRE STUDIO !</h1> 
-        <h2>Venez challenger les cerveaux les plus agiles !</h2>
-        <p>JOUEZ !</p>
+        <h1 id="TitreAccueil">BIENVENUE DANS <br>NOTRE STUDIO !</h1> 
+        <h2 id="TitreSecondaireAccueil">Venez challenger les cerveaux les plus agiles !</h2>
+        <button class="boutonPlay" type="button"><a href="#">JOUEZ !</a></button>
     </header>    
 
-    
     <div id="corpPincipal">
         <!--Corp du site, Zone principal de la page Accueil-->
-        <table align="center">
+        <table align="center" id="tableauImg">
             <!--Tableau Avec les trois images comme sur la maquettes-->
-            <tr id="tableauImg">
+            <tr>
                 <td colspan="2"><img src="assets/Images/computer.jpg" id="computer"></td>
+                <td class="spaceBetweenImage"></td>
                 <td><img src="assets/Images/Trotinettes.jpeg" id="bycicle"></td>
+                <td class="spaceBetweenImage"></td>
                 <td><img src="assets/Images/poker.jpg" id="poker"></td>
+                <td class="spaceBetweenImage"></td>
             </tr>
         </table>
 
@@ -47,11 +48,11 @@
             <!--Tableau avec les differents paragraphes-->
             <tr>
                 <td class="NumeroTab">01</td>
-                <td class="AlignLeft">Lorem ipsum</td>
+                <td class="AlignLeftTitre">Lorem ipsum</td>
                 <td class="NumeroTab">02</td>
-                <td class="AlignLeft">Lorem ipsum</td>
+                <td class="AlignLeftTitre">Lorem ipsum</td>
                 <td class="NumeroTab">03</td>
-                <td class="AlignLeft">Lorem ipsum</td>
+                <td class="AlignLeftTitre">Lorem ipsum</td>
             </tr>
             <tr class="AlignLeft">
                 <td></td>
@@ -65,26 +66,25 @@
 
         
         <!--Debut de la section dedier a la presentation de l'equipe-->
-        <h2>Notre equipe</h2>
+        <h2 class="notreEquipeh2">Notre equipe</h2>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-        <img src="#">
         <table align="center" id="tableauprofil">
             <!--Tableau avec photo, prenom, profession et reseau sociaux de l'equipes-->
             <tr>
-                <td><img src="assets/Images/photo de profil provisoir.png" class="profil"></td>
-                <td><img src="assets/Images/photo de profil provisoir.png" class="profil"></td>
-                <td><img src="assets/Images/Profil-Lucas.jpg" class="profil"></td>
+                <td class="profil"><img src="assets/Images/photo de profil provisoir.png" class="photoProfil"></td>
+                <td class="profil"><img src="assets/Images/photo de profil provisoir.png" class="photoProfil"></td>
+                <td class="profil"><img src="assets/Images/Profil-Lucas.jpg" class="photoProfil"></td>
             </tr>
             <tr>
-                <td>Mathéo</td>
-                <td>Zineb</td>
-                <td>Lucas</td>
+                <td class="profilGras">Mathéo</td>
+                <td class="profilGras">Zineb</td>
+                <td class="profilGras">Lucas</td>
 
             </tr>
             <tr>
-                <td>Developer</td>
-                <td>Developer</td>
-                <td>Developer</td>-
+                <td class="profil" class="profession">Developer</td>
+                <td class="profil" class="profession">Developer</td>
+                <td class="profil" class="profession">Developer</td>-
             </tr>
             <tr>
                 <td><img src=""><img src=""><img src=""></td>
@@ -94,7 +94,6 @@
         </table>
             
     </div>
-
 
     <footer>
         <!--Pied de Page avec informtions et lien utile vers le jeu-->

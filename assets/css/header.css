@@ -1,15 +1,31 @@
+/*Ensemble du header, nav + titre*/
 #head{
     color: white;
     background-color: #11102f;
     background-image: url("../Images/BG2.jpeg");
-    font-weight: bold;
     text-align: center;
-    padding-top: 250px;
-    padding-bottom: 250px;
+    padding-top: 200px;
+    padding-bottom: 200px;
     background-size: cover;
 }
 
 
+/*Titre h1 et h2*/
+#TitreAccueil{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:60px;
+    font-weight: bold;
+}
+
+#TitreSecondaireAccueil{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: medium;
+    font-weight: normal;
+}
+
+/*Barre de Navigation*/
 .topnav {
     position: absolute;
     padding-top: 20px;
@@ -43,4 +59,16 @@
 
 .topnav a:hover {
     color: #eb9023;
+}
+
+/* Bouton JOUEZ*/
+
+.boutonPlay{
+    color: white;
+    background-color: #eb9023;
+    border-color: #eb9023;
+    border: none;
+    border-radius: 2px;
+    width: 130px;
+    height: 40px;
 }

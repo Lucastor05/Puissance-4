@@ -3,7 +3,6 @@
     text-decoration: none;
 }
 
-
 body{
     background-color: #11102f;
     color: white;
@@ -18,47 +17,93 @@ body{
 }
 
 
+
+
+
+
+.AlignLeftTitre{
+    text-align: left;
+    font-weight: bold;
+}
+
 .AlignLeft{
     text-align: left;
+    font-weight: normal;
 }
 
-.NumeroTab{
-    color: #3724a0;
-}
 
-#tableauP{
-    width: 1000px;
-}
 
+
+/*Tableau avec les images*/
 #computer{
-    width: 500px;
-    height: 250px;
+    width: 430px;
+    height: 270px;
+    margin: 3px;
+
 }
 
 #bycicle{
-    width: 250px;
-    height: 250px;
+    width: 215px;
+    height: 270px;
+    margin: 3px;
 }
 
 #poker{
-    width: 250px;
-    height: 250px;
+    width: 215px;
+    height: 270px;
+    margin: 3px;
 }
 
-#tableauImg{
-    border: 100px;
+
+/*Tableau avec les paragraphes en Latin */
+#tableauP{
+    /*Taille du tableau*/
+    width: 900px;
 }
 
-table{
-    border-collapse: collapse;
+.NumeroTab{
+    /*Numero de section dans le tableau*/
+    color: #3724a0;
+}
+
+
+/*Notre equipe, tableau avec les profils*/
+
+.notreEquipeh2{
+    margin-bottom: 0;
+}
+
+h3{
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: normal;
 }
 
 #tableauprofil{
     background-color: #0d0b26;
+    width: 600px;
+    height: 250px;
 }
 
+
 .profil{
-    border-radius: 50px;
-    width: 50px;
-    height: 50px;
+    border-right: 3px;
+    border-left: 3px;
+    font-weight: normal;
+    font-size: small;
 }
+
+.profilGras{
+    border-right: 3px;
+    border-left: 3px;
+    font-weight: bold;
+}
+
+
+.photoProfil{
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+
