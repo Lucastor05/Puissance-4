@@ -35,10 +35,12 @@ body{
 
 
 /*Tableau avec les images*/
+
+
+
 #computer{
     width: 430px;
     height: 270px;
-    margin: 3px;
 
 }
 
@@ -51,7 +53,6 @@ body{
 #poker{
     width: 215px;
     height: 270px;
-    margin: 3px;
 }
 
 
@@ -59,12 +60,77 @@ body{
 #tableauP{
     /*Taille du tableau*/
     width: 900px;
+    margin-bottom: 130px;
 }
 
 .NumeroTab{
     /*Numero de section dans le tableau*/
     color: #3724a0;
 }
+
+
+/*Tableau Utilisateur (truc Watchdogs 2)*/
+
+.logoJeu{
+    width: 10px;
+    height: 10px;
+}
+
+.PartiJouer{
+    background-color: #3724a0;
+    color: white;
+}
+
+.JoueurCo{
+    color: white;
+    background-color: #18a15f;
+}
+
+.TempsRecord{
+    color: white;
+    background-color: #b91ca8;
+}
+
+.joueurInscrits{
+    color: white;
+    background-color: #ec9123;
+}
+
+.TableauUtilisateur tr td{
+    font-size: medium;
+    font-weight: normal;
+}
+
+.nombreTableau{
+    font-size: large;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*Notre equipe, tableau avec les profils*/
@@ -79,26 +145,22 @@ h3{
     font-weight: normal;
 }
 
-#tableauprofil{
-    background-color: #0d0b26;
-    width: 600px;
-    height: 250px;
-}
 
+.flex-parent{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+
+}
 
 .profil{
-    border-right: 3px;
-    border-left: 3px;
-    font-weight: normal;
-    font-size: small;
+    height: 300px;
+    width: 300px;
+    background-color: #0d0b26;
 }
-
-.profilGras{
-    border-right: 3px;
-    border-left: 3px;
-    font-weight: bold;
-}
-
 
 .photoProfil{
     border-radius: 50px;
@@ -107,3 +169,11 @@ h3{
 }
 
 
+.profilGras{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.profil{
+    font-weight: normal;
+}
