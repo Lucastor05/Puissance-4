@@ -1,9 +1,13 @@
+
+*{
+    text-decoration: none;
+}
+
+
 body{
     background-color: #11102f;
     color: white;
     font-family: "Gill Sans", sans-serif;
-    border-style : none;
-
 }
 
 #corpPincipal{
@@ -42,16 +46,11 @@ body{
 }
 
 #tableauImg{
-    border-bottom: 100px;
+    border: 100px;
 }
 
-#head{
-    font-weight: bold;
-    text-align: center;
-
-
-    padding-top: 200px;
-    padding-bottom: 200px;
+table{
+    border-collapse: collapse;
 }
 
 #tableauprofil{

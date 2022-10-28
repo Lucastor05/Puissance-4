@@ -11,32 +11,31 @@
 </head>
 <body>
 
-    <!--Division de l'enTete avec la titre pour la photo en arriere plans-->
-    <div id="imagesBackGround">
-        <header>
-            <!--En Tete (bandeau) avec les different lien vers les autres pages-->
-                <a href="" id="SiteName">The Tower Of Mermory</a>
-                <a href="index.html" id="ongletAccueil">ACCUEIL</a>
-                <a href="" id="ongletJeu">JEU</a>
-                <a href="" id="ongletScores">SCORES</a>
-                <a href="contact.html" id="ongletContact">NOUS CONTACTER</a>
-            </header>
+    <!--En Tete (bandeau) avec les different lien vers les autres pages-->
+    <nav class="topnav">
+        <a href="#" class="nomSite">The Tower Of Mermory</a>
+        <div class="topnav-right">
+            <a href="index.html" class="active">ACCUEIL</a>
+            <a href="#">JEU</a>
+            <a href="#">SCORES</a>
+            <a href="contact.html">NOUS CONTACTER</a>
+        </div>
+    </nav>
+        
 
-            <!--Titre de la pages avec sous titre et lien vers le jeu-->
-            <div id="head">
-                <h1>BIENVENUE DANS NOTRE STUDIO !</h1> 
-                <h2>Venez challenger les cerveaux les plus agiles !</h2>
-                <p>JOUEZ !</p>
-            </div>
-    </div>
-    
+        <!--Titre de la pages avec sous titre et lien vers le jeu-->
+    <header id="head">
+        <h1>BIENVENUE DANS NOTRE STUDIO !</h1> 
+        <h2>Venez challenger les cerveaux les plus agiles !</h2>
+        <p>JOUEZ !</p>
+    </header>    
 
     
     <div id="corpPincipal">
         <!--Corp du site, Zone principal de la page Accueil-->
-        <table align="center" id="tableauImg">
+        <table align="center">
             <!--Tableau Avec les trois images comme sur la maquettes-->
-            <tr>
+            <tr id="tableauImg">
                 <td colspan="2"><img src="assets/Images/computer.jpg" id="computer"></td>
                 <td><img src="assets/Images/Trotinettes.jpeg" id="bycicle"></td>
                 <td><img src="assets/Images/poker.jpg" id="poker"></td>
@@ -68,8 +67,7 @@
         <!--Debut de la section dedier a la presentation de l'equipe-->
         <h2>Notre equipe</h2>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-        <img src="">
-
+        <img src="#">
         <table align="center" id="tableauprofil">
             <!--Tableau avec photo, prenom, profession et reseau sociaux de l'equipes-->
             <tr>
