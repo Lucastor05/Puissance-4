@@ -71,7 +71,7 @@ body{
 
 /*Tableau Utilisateur (truc Watchdogs 2)*/
 
-.logoJeu{
+/*.logoJeu{
     width: 10px;
     height: 10px;
 }
@@ -104,20 +104,20 @@ body{
 .nombreTableau{
     font-size: large;
     font-weight: bold;
+}*/
+
+.flex-parentPicture{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+.Watchdogs2{
+    width: 500px;
+    height: 250px;
+}
 
 
 
