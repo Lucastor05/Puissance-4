@@ -1,4 +1,4 @@
-
+/*Général*/
 *{
     text-decoration: none;
     color: white;
@@ -10,61 +10,52 @@ body{
     font-family: "Gill Sans", sans-serif;
 }
 
-#corpPincipal{
+
+/*INDEX.HTML*/
+.corpPincipalIndex{
     text-align: center;
 
     padding-top: 100px;
     padding-bottom: 100px;
 }
 
-
-
-
-
-
-.AlignLeftTitre{
+.AlignLeftTitreIndex{
     text-align: left;
     font-weight: bold;
 }
 
-.AlignLeft{
+.AlignLeftIndex{
     text-align: left;
     font-weight: normal;
 }
 
-
-
-
 /*Tableau avec les images*/
-
-
-
-#computer{
+.computerIndex{
     width: 430px;
     height: 270px;
 
 }
 
-#bycicle{
+.bycicleIndex{
     width: 215px;
     height: 270px;
     margin: 3px;
 }
 
-#poker{
+.pokerIndex{
     width: 215px;
     height: 270px;
 }
 
 
 /*Tableau avec les paragraphes en Latin */
-#tableauP{
+.tableauPIndex{
     /*Taille du tableau*/
     width: 900px;
     margin-bottom: 130px;
 }
 
-.NumeroTab{
+.NumeroTabIndex{
     /*Numero de section dans le tableau*/
     color: #3724a0;
 }
@@ -72,28 +63,28 @@ body{
 
 /*Tableau Utilisateur (truc Watchdogs 2)*/
 
-.cellule2{
+.cellule2Index{
     width: 200px;
     height: 100px;
     background-color: #3724a0;
     color: white;
 }
 
-.cellule3{
+.cellule3Index{
     width: 200px;
     height: 100px;
     color: white;
     background-color: #18a15f;
 }
 
-.cellule4{
+.cellule4Index{
     width: 200px;
     height: 100px;
     color: white;
     background-color: #b91ca8;
 }
 
-.cellule5{
+.cellule5Index{
     width: 200px;
     height: 100px;
     color: white;
@@ -101,7 +92,7 @@ body{
 
 }
 
-.flex-parentPicture{
+.flex-parentPictureIndex{
     padding-top: 20px;
     align-items:center;
     display: flex;
@@ -110,7 +101,7 @@ body{
     gap: 25px;
 }
 
-.SousParti1{
+.SousParti1Index{
     align-items:center;
     display: flex;
     justify-content: center;
@@ -118,7 +109,7 @@ body{
     gap: 20px;
 }
 
-.SousParti2{
+.SousParti2Index{
     align-items:center;
     display: flex;
     justify-content: center;
@@ -126,7 +117,7 @@ body{
     gap: 20px;
 }
 
-.Parti2{
+.Parti2Index{
     align-items:center;
     display: flex;
     justify-content: center;
@@ -134,22 +125,17 @@ body{
     gap: 20px;
 }
 
-
-
-.Watchdogs2{
+.Watchdogs2Index{
     width: 450px;
     height: 225px;
 }
 
-
-.contentPicture{
+.contentPictureIndex{
     margin-bottom: 130px;
 }
 
-
 /*Notre equipe, tableau avec les profils*/
-
-.notreEquipeh2{
+.notreEquipeh2Index{
     margin-bottom: 0;
 }
 
@@ -159,8 +145,7 @@ h3{
     font-weight: normal;
 }
 
-
-.flex-parent{
+.flex-parentIndex{
     padding-top: 20px;
     align-items:center;
     display: flex;
@@ -170,24 +155,24 @@ h3{
 
 }
 
-.profil{
+.profilIndex{
     height: 265px;
     width: 300px;
     background-color: #0d0b26;
 }
 
-.photoProfil{
+.photoProfilIndex{
     border-radius: 50px;
     width: 100px;
     height: 100px;
 }
 
 
-.profilGras{
+.profilGrasIndex{
     font-size: larger;
     font-weight: bold;
 }
 
-.profil{
+.profilIndex{
     font-weight: normal;
 }

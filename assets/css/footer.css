@@ -1,6 +1,4 @@
-
-
-/*INDEX.HTML*/
+/*Général*/
 footer{
     background-color: #0d0b26;
 }
@@ -10,7 +8,6 @@ footer{
     font-size: 25px;
     margin: 15px;
 }
-
 
 .OrangeCharacter{
     color: #e98d24;
@@ -24,7 +21,6 @@ footer{
     flex-direction: row;
     gap: 300px;
 }
-
 
 .informationFooter{
     display: flex;
@@ -42,7 +38,6 @@ footer{
     flex-direction: column;
 }
 
-
 .ListeGeneralFooter{
     list-style: none;
 }
@@ -56,9 +51,6 @@ footer{
     color: white;
     height: 35px;
 }
-
-
-
 
 .copyright{
     font-size: 10px;

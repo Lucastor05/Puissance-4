@@ -1,30 +1,4 @@
-/*Ensemble du header, nav + titre*/
-#head{
-    color: white;
-    background-color: #11102f;
-    background-image: url("../Images/BG2.jpeg");
-    text-align: center;
-    padding-top: 200px;
-    padding-bottom: 200px;
-    background-size: cover;
-}
-
-
-/*Titre h1 et h2*/
-#TitreAccueil{
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size:60px;
-    font-weight: bold;
-}
-
-#TitreSecondaireAccueil{
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: medium;
-    font-weight: normal;
-}
-
+/*Général*/
 /*Barre de Navigation*/
 .topnav {
     position: absolute;
@@ -53,7 +27,7 @@
     color: white;
 }
 
-.topnav a.active {
+.topnavIndex a.active {
     color: #eb9023;
 }
 
@@ -61,9 +35,40 @@
     color: #eb9023;
 }
 
-/* Bouton JOUEZ*/
 
-.boutonPlay{
+/*INDEX.HTML*/
+
+/*Header*/
+/*Titre et photo de fond*/
+.headIndex{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/BG2.jpeg");/*Images de fond*/
+    text-align: center;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-size: cover;
+}
+
+
+/*Titre h1*/
+.TitreAccueilIndex{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:60px;
+    font-weight: bold;
+}
+
+/*Titre h2*/
+.TitreSecondaireAccueilIndex{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: medium;
+    font-weight: normal;
+}
+
+/* Bouton JOUEZ*/
+.boutonPlayIndex{
     color: white;
     background-color: #eb9023;
     border-color: #eb9023;
