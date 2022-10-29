@@ -12,6 +12,7 @@ nav a:hover {
     padding-top: 20px;
     padding-left: 70px;
     padding-right: 70px;
+    padding-bottom: 20px;
 
     display: flex;
     align-items: center;
@@ -118,9 +119,10 @@ nav a:hover {
 .headMemory{
     color: white;
     background-color: #11102f;
+    background-image: url("../Images/backgroundMemory.webp");
     text-align: center;
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-size: cover;
 }
 
