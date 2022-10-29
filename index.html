@@ -13,9 +13,10 @@
 
     <!--Barre de navigation avec les different lien vers les autres pages-->
     <nav class="topnav">
-        <a href="#" class="nomSite">The Tower Of Mermory</a>
+        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
         <div>
-            <a href="index.html" class="active">ACCUEIL</a>
+            <!--Different lien vers les pages-->
+            <a href="index.html" class="activeIndex">ACCUEIL</a>
             <a href="memory.html">JEU</a>
             <a href="scores.html">SCORES</a>
             <a href="contact.html">NOUS CONTACTER</a>
@@ -23,38 +24,39 @@
     </nav>
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
-    <header id="head">
-        <h1 id="TitreAccueil">BIENVENUE DANS <br>NOTRE STUDIO !</h1> 
-        <h2 id="TitreSecondaireAccueil">Venez challenger les cerveaux les plus agiles !</h2>
-        <button class="boutonPlay" type="button" onclick="window.location.href='memory.html'">JOUEZ !</button>
+    <header class="headIndex">
+        <h1 class="TitreAccueilIndex">BIENVENUE DANS <br>NOTRE STUDIO !</h1> 
+        <h2 class="TitreSecondaireAccueilIndex">Venez challenger les cerveaux les plus agiles !</h2>
+        <button class="boutonPlayIndex" type="button" onclick="window.location.href='memory.html'">JOUEZ !</button>
     </header>    
 
-    <div id="corpPincipal">
+    <!--Début du main de la page-->
+    <div class="corpPincipalIndex">
         <!--Corp du site, Zone principal de la page Accueil-->
-        <table align="center" id="tableauImg">
+        <table align="center" class="tableauImgIndex">
             <!--Tableau Avec les trois images comme sur la maquettes-->
             <tr>
-                <td colspan="2"><img src="assets/Images/computer.jpg" id="computer"></td>
-                <td class="spaceBetweenImage"></td>
-                <td><img src="assets/Images/Trotinettes.jpeg" id="bycicle"></td>
-                <td class="spaceBetweenImage"></td>
-                <td><img src="assets/Images/poker.jpg" id="poker"></td>
-                <td class="spaceBetweenImage"></td>
+                <td colspan="2"><img src="assets/Images/computer.jpg" class="computerIndex"></td>
+                <td class="spaceBetweenImageIndex"></td>
+                <td><img src="assets/Images/Trotinettes.jpeg" class="bycicleIndex"></td>
+                <td class="spaceBetweenImageIndex"></td>
+                <td><img src="assets/Images/poker.jpg" class="pokerIndex"></td>
+                <td class="spaceBetweenImageIndex"></td>
             </tr>
         </table>
 
 
-        <table id="tableauP" align="center">
-            <!--Tableau avec les differents paragraphes-->
+        <table class="tableauPIndex" align="center">
+            <!--Tableau avec les differents paragraphes a complété-->
             <tr>
-                <td class="NumeroTab">01</td>
-                <td class="AlignLeftTitre">Lorem ipsum</td>
-                <td class="NumeroTab">02</td>
-                <td class="AlignLeftTitre">Lorem ipsum</td>
-                <td class="NumeroTab">03</td>
-                <td class="AlignLeftTitre">Lorem ipsum</td>
+                <td class="NumeroTabIndex">01</td>
+                <td class="AlignLeftTitreIndex">Lorem ipsum</td>
+                <td class="NumeroTabIndex">02</td>
+                <td class="AlignLeftTitreIndex">Lorem ipsum</td>
+                <td class="NumeroTabIndex">03</td>
+                <td class="AlignLeftTitreIndex">Lorem ipsum</td>
             </tr>
-            <tr class="AlignLeft">
+            <tr class="AlignLeftIndex">
                 <td></td>
                 <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt incidunt dolor in earum recusandae, asperiores, vero numquam deserunt laboriosam dignissimos est obcaecati dolores quia velit dicta rem vel, molestiae esse.</td>
                 <td></td>
@@ -65,28 +67,29 @@
         </table>
 
 
-        <div class="contentPicture">
-            <div class="flex-parentPicture">
-                <div class="Parti1">
-                    <div class="cellule1">
-                        <p><img src="assets/Images/watchdogs.webp" class="Watchdogs2"></p>
+        <!--Informations serveur et joueurs-->
+        <div class="contentPictureIndex">
+            <div class="flex-parentPictureIndex">
+                <div class="Parti1Index">
+                    <div class="cellule1Index">
+                        <p><img src="assets/Images/watchdogs.webp" class="Watchdogs2Index"></p>
                     </div>
                 </div>
-                <div class="Parti2">
-                    <div class="SousParti1">
-                        <div class="cellule2">
-                            <p><strong class="nombreTableau">360</strong><br>Parties jouées</p>
+                <div class="Parti2Index">
+                    <div class="SousParti1Index">
+                        <div class="cellule2Index">
+                            <p><strong class="nombreTableauIndex">360</strong><br>Parties jouées</p>
                         </div>
-                        <div class="cellule3">
-                            <p><strong class="nombreTableau">1020</strong><br>Joueurs connéctés</p>
+                        <div class="cellule3Index">
+                            <p><strong class="nombreTableauIndex">1020</strong><br>Joueurs connéctés</p>
                         </div>
                     </div>
-                    <div class="SousParti2">
-                        <div class="cellule4">
-                            <p><strong class="nombreTableau">10 sec</strong><br>Temps Record</p>
+                    <div class="SousParti2Index">
+                        <div class="cellule4Index">
+                            <p><strong class="nombreTableauIndex">10 sec</strong><br>Temps Record</p>
                         </div>
-                        <div class="cellule5">
-                            <p><strong class="nombreTableau">21 300</strong><br>Joueurs Inscrits</p>
+                        <div class="cellule5Index">
+                            <p><strong class="nombreTableauIndex">21 300</strong><br>Joueurs Inscrits</p>
                         </div>
                     </div>
                 </div>
@@ -96,32 +99,32 @@
 
 
         <!--Debut de la section dedier a la presentation de l'equipe-->
-        <h2 class="notreEquipeh2">Notre equipe</h2>
+        <h2 class="notreEquipeh2Index">Notre equipe</h2>
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
             
-        <div class="content">
-            <div class="flex-parent">
-                <div class="profil">
-                    <p><img src="assets/Images/photo de profil provisoir.png" class="photoProfil"></p>
-                    <p class="profilGras">Mathéo</p>
+        <div class="contentIndex">
+            <div class="flex-parentIndex">
+                <div class="profilIndex">
+                    <p><img src="assets/Images/photo de profil provisoir.png" class="photoProfilIndex"></p>
+                    <p class="profilGrasIndex">Mathéo</p>
                     <p>Developer</p>
                 </div>
-                <div class="profil">
-                    <p><img src="assets/Images/photo de profil provisoir.png" class="photoProfil"></p>
-                    <p class="profilGras">Zineb</p>
+                <div class="profilIndex">
+                    <p><img src="assets/Images/photo de profil provisoir.png" class="photoProfilIndex"></p>
+                    <p class="profilGrasIndex">Zineb</p>
                     <p>Developer</p>
                 </div>
-                <div class="profil">
-                    <p><img src="assets/Images/Profil-Lucas.jpg" class="photoProfil"></p>
-                    <p class="profilGras">Lucas</p>
+                <div class="profilIndex">
+                    <p><img src="assets/Images/Profil-Lucas.jpg" class="photoProfilIndex"></p>
+                    <p class="profilGrasIndex">Lucas</p>
                     <p>Developer</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        
+    <!--Footer de la page-->
+    <footer> 
         <div class="contentFooter">
             <div class="flex-parentFooter">
                 <div class="informationFooter">
