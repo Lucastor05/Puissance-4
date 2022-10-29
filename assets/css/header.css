@@ -107,3 +107,28 @@ nav a:hover {
     width: 130px;
     height: 40px;
 }
+
+
+
+/*MEMORY.HTML*/
+
+
+/*Header*/
+/*Titre et photo de fond*/
+.headMemory{
+    color: white;
+    background-color: #11102f;
+    text-align: center;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    background-size: cover;
+}
+
+
+/*Titre h1*/
+.TitreAccueilMemory{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:60px;
+    font-weight: bold;
+}
