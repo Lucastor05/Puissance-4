@@ -2,13 +2,6 @@
     text-decoration: none;
 }
 
-
-body{
-    background-color: #11102f;
-    color: white;
-    font-family: "Gill Sans", sans-serif;
-}
-
 input{
     background-color: rgba(39,38,69,255);
     width: 30%;
@@ -24,4 +17,15 @@ input{
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
+}
+*{
+    font-family: "Gill Sans", sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    background-color: #11102f;
+    color: white;
+    margin: 0;
 }
