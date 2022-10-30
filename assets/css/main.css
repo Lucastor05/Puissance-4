@@ -8,6 +8,8 @@ body{
     background-color: #11102f;
     color: white;
     font-family: "Gill Sans", sans-serif;
+    margin: 0;
+
 }
 
 
@@ -15,8 +17,9 @@ body{
 .corpPincipalIndex{
     text-align: center;
 
-    padding-top: 100px;
-    padding-bottom: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
 }
 
 .AlignLeftTitreIndex{
@@ -175,4 +178,138 @@ h3{
 
 .profilIndex{
     font-weight: normal;
+}
+
+
+
+/*MEMORY.HTML*/
+
+
+
+.corpPincipalMemory{
+    text-align: center;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+/*Barre avec Les boutons pour la difficulté ainsi que le scores de la partie en cours*/
+
+
+.BarreOutilsUtilisateur{
+    display: flex;
+
+    margin-left: 100px;
+    margin-right: 100px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    background-color: #0d0b26;
+
+}
+
+.DifficultyButton{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 25px;
+
+}
+
+
+.AffichageScores{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 25px;
+
+}
+
+.DifficultyButton button{
+    background-color: #0d0b26;
+    border: none;
+}
+
+.DifficultyButton button:hover{
+    color: #ec9123 ;
+}
+
+
+/*Tableau de jeu*/
+/*Facile*/
+
+.TableauDeJeu{
+    margin-left: 100px;
+    margin-right: 100px;
+    border-top: 20px;
+    border-bottom: 200px;
+    width: 989;
+    height: 989;
+}
+
+.TableauFacile{
+    background-color:#0d0b26;
+    display: flex;
+    row-gap: 3px;
+    column-gap: 3px;
+    justify-content: center;
+}
+
+.TableauFacile tr td img{
+    height: 150px;
+    width: 150px;
+}
+
+.TableauIntermediaire{
+    background-color:#0d0b26;
+    display: flex;
+    row-gap: 3px;
+    column-gap: 3px;
+    justify-content: center;
+}
+
+.TableauIntermediaire tr td img{
+    height: 100px;
+    width: 100px;
+}
+
+.TableauExpert{
+    background-color:#0d0b26;
+    display: flex;
+    row-gap: 3px;
+    column-gap: 3px;
+    justify-content: center;
+}
+
+.TableauExpert tr td img{
+    height: 75px;
+    width: 75px;
+}
+
+.TableauImpossible{
+    background-color:#0d0b26;
+    display: flex;
+    row-gap: 3px;
+    column-gap: 3px;
+    justify-content: center;
+}
+
+.TableauImpossible tr td img{
+    height: 50px;
+    width: 50px;
 }
