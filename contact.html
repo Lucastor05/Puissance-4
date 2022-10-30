@@ -20,20 +20,38 @@
             <a href="contact.html">NOUS CONTACTER</a>
         </div>
     </nav>
-    <header id="Head">
+    <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
+    <header id="HeadContact">
         <H1>NOUS CONTACTER</H1>
     </header>
     <main>
+        <!--Différents Moyens de contact pour téhoriquement nous contacter-->
+            <div class="flex-parentIndex">
+                <div class="ContactIndex">
+                    <p align="center"><img src="assets/Images/logotelephone.jpeg" class="LogoContacterIndex"></p><br>
+                    <p align="center">08 95 90 09 50</p>
+                </div>
+                <div class="ContactIndex">
+                    <p align="center"><img src="assets/Images/mailOrange.jpeg" class="LogoContacterIndex"></p><br>
+                    <p align="center">DonneMoiUneBonneNoteJeMerite@gmail.com</p>
+                    <p align="center">(cette adresse mail existe vraiment mdr)</p>
+                </div>
+                <div class="ContactIndex">
+                    <p align="center"><img src="assets/Images/logolocalisation.jpeg" class="LogoContacterIndex"></p><br>
+                    <p align="center">8 Rue la Chèvre Qui Danse45000 Orléans</p>
+                </div>
+            </div>
+            <!--Formulaire d'envoye de message de la page de contact-->
         <form action="" method="post" align="center"> 
-            <label for="email" class="formulaire"></label><br>
-            <input type="text" id="email" name="email" placeholder="Email" required="Email">
-            <label for="pseudo" class="formulaire"></label><br>
-            <input type="text" id="pseudo" name="pseudo" placeholder ="pseudo" required="Pseudo">
-            <label for="password" class="formulaire"></label><br>
-            <input type="password" id="password" name="password" placeholder ="Mot de passe" required="password">
-            <label for="Cpassword" class="formulaire"></label><br>
-            <input type="password" id="Cpassword" name="Cpassword" placeholder ="Confirmez le mot de passe" required="Cpassword">
-            <button name="Inscription" type="submit" value="HTML" class="InscriptionButton">Inscription</button>
+            <label for="nom"></label>
+            <input type="text" id="Nom" name="Nom" placeholder ="Nom" required="Nom" class="NomContact">
+            <label for="Email"></label>
+            <input type="text" id="email" name="email" placeholder="Email" required="Email"  class="EmailContact">
+            <label for="Sujet"></label><br>
+            <input type="text" id="Sujet" name="Sujet" placeholder ="Sujet" required="Sujet">
+            <label for="Message"></label><br>
+            <input type="text" id="Message" name="Message" placeholder ="Message" required="Message" class="MessageContact"><br>
+            <button name="EnvoieDeFormulaireDeContactButton" type="submit" value="HTML" class="EnvoieDeFormulaireDeContactButton">Envoyer</button>
         </form>
 
 

@@ -1,5 +1,9 @@
+/*css présent sur plusieurs pages*/
 *{
     text-decoration: none;
+    font-family: "Gill Sans", sans-serif;
+    text-decoration: none;
+    color: white;
 }
 
 input{
@@ -7,10 +11,18 @@ input{
     width: 30%;
     padding: 10px 20px;
     margin: 8px 0;  
-    border: 2px solid rgba(39,38,70,255);
+    border: 2px solid rgba(39,38,69,255);
     border-radius: 4px;
     color: white;
 } 
+
+
+body{
+    background-color: #11102f;
+    color: white;
+    margin: 0;
+}
+ /*Page d'inscription*/
 .InscriptionButton{
     background-color: orange;
     border: 2px solid orange;
@@ -18,14 +30,54 @@ input{
     width: 10%;
     padding: 10px 20px;
 }
-*{
-    font-family: "Gill Sans", sans-serif;
-    text-decoration: none;
-    color: white;
+
+
+
+
+
+/*Page contact*/
+
+
+/* 3 Pancartes de la page de Contact*/
+.flex-parentIndex{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+
 }
 
-body{
-    background-color: #11102f;
-    color: white;
-    margin: 0;
+.ContactIndex{
+    height: 265px;
+    width: 300px;
+    background-color: #0d0b26;
+    font-weight: normal;
 }
+
+.LogoContacterIndex{
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+}
+/*Formulaire de la page de Contact*/
+.EnvoieDeFormulaireDeContactButton{
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+}
+.NomContact{
+    width: 195px;
+}
+.MessageContact{
+    height: 150px;
+    word-wrap:break-word;
+}
+.EmailContact{
+    width: 190px;
+}
+
+

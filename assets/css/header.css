@@ -1,13 +1,3 @@
-#Head{
-    color: white;
-    background-color: #11102f;
-    background-image: url("../Images/imagevioletfuturiste.jpeg");
-    font-weight: bold;
-    text-align: center;
-    padding-top: 250px;
-    padding-bottom: 250px;
-    background-size: cover;
-}
 /*Général*/
 /*Barre de Navigation avec place definie*/
 .topnav {
@@ -66,4 +56,28 @@ nav a:hover {
 }
 .topnavAbsolute a {
     color: white;
+}
+
+/*Page d'inscription*/
+#HeadRegister{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/imagevioletfuturiste.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}
+
+/*Page de contact*/
+#HeadContact{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/imageVioletFuturistePageContact.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
 }
