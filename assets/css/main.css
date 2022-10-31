@@ -1,313 +1,538 @@
 /*Général*/
-*{
-    font-family: "Gill Sans", sans-serif;
-    text-decoration: none;
-    color: white;
-}
+    *{
+        /* Initialisation de la page */
+        font-family: "Gill Sans", sans-serif;
+        text-decoration: none;
+        color: white;
+        box-sizing: border-box;
+    }
 
-body{
-    background-color: #11102f;
-    color: white;
-    margin: 0;
-}
+    body{
+        /* Changement du body */
+        background-color: #11102f;
+        color: white;
+        margin: 0;
+    }
 
 
 /*INDEX.HTML*/
-.corpPincipalIndex{
-    text-align: center;
 
-    margin-top: 100px;
-    margin-bottom: 100px;
+    .corpPincipalIndex{
+        text-align: center;
 
-}
+        margin-top: 100px;
+        margin-bottom: 100px;
 
-.AlignLeftTitreIndex{
-    text-align: left;
-    font-weight: bold;
-}
-
-.AlignLeftIndex{
-    text-align: left;
-    font-weight: normal;
-}
-
-/*Tableau avec les images*/
-.computerIndex{
-    width: 430px;
-    height: 270px;
-
-}
-
-.bycicleIndex{
-    width: 215px;
-    height: 270px;
-    margin: 3px;
-}
-
-.pokerIndex{
-    width: 215px;
-    height: 270px;
-}
+    }
 
 
-/*Tableau avec les paragraphes en Latin */
-.tableauPIndex{
-    /*Taille du tableau*/
-    width: 900px;
-    margin-bottom: 130px;
-}
-
-.NumeroTabIndex{
-    /*Numero de section dans le tableau*/
-    color: #3724a0;
-}
+    /* Tableau avec les texte a complete et les images */
 
 
-/*Tableau Utilisateur (truc Watchdogs 2)*/
+        /*Tableau avec les images*/
 
-.cellule2Index{
-    width: 200px;
-    height: 100px;
-    background-color: #3724a0;
-    color: white;
-}
+            .computerIndex{
+                /* Positionnement de la premiere image representant un ordinateur */
+                width: 430px;
+                height: 270px;
 
-.cellule3Index{
-    width: 200px;
-    height: 100px;
-    color: white;
-    background-color: #18a15f;
-}
+            }
 
-.cellule4Index{
-    width: 200px;
-    height: 100px;
-    color: white;
-    background-color: #b91ca8;
-}
+            .bycicleIndex{
+                /* Positionnement de la seconde image representant un homme sur une trotinnette */
+                width: 215px;
+                height: 270px;
+                margin: 3px;
+            }
 
-.cellule5Index{
-    width: 200px;
-    height: 100px;
-    color: white;
-    background-color: #ec9123;
-
-}
-
-.flex-parentPictureIndex{
-    padding-top: 20px;
-    align-items:center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 25px;
-}
-
-.SousParti1Index{
-    align-items:center;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.SousParti2Index{
-    align-items:center;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.Parti2Index{
-    align-items:center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.Watchdogs2Index{
-    width: 450px;
-    height: 225px;
-}
-
-.contentPictureIndex{
-    margin-bottom: 130px;
-}
-
-/*Notre equipe, tableau avec les profils*/
-.notreEquipeh2Index{
-    margin-bottom: 0;
-}
-
-h3{
-    margin-top: 10px;
-    font-size: 13px;
-    font-weight: normal;
-}
-
-.flex-parentIndex{
-    padding-top: 20px;
-    align-items:center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 50px;
-
-}
-
-.profilIndex{
-    height: 265px;
-    width: 300px;
-    background-color: #0d0b26;
-}
-
-.photoProfilIndex{
-    border-radius: 50px;
-    width: 100px;
-    height: 100px;
-}
+            .pokerIndex{
+                /* positionnement de la troisieme image representant des cartes */
+                width: 215px;
+                height: 270px;
+            }
 
 
-.profilGrasIndex{
-    font-size: larger;
-    font-weight: bold;
-}
+        /*Tableau avec les paragraphes en Latin */
 
-.profilIndex{
-    font-weight: normal;
-}
+            .AlignLeftTitreIndex{
+                /* Aligne les textes à gauche et mets en gras*/
+                text-align: left;
+                font-weight: bold;
+            }
+
+            .AlignLeftIndex{
+                /* Aligne a gauche et laisse le texte en normal */
+                text-align: left;
+                font-weight: normal;
+            }
+
+            .tableauPIndex{
+                /*Taille du tableau*/
+                width: 900px;
+                margin-bottom: 130px;
+            }
+
+            .NumeroTabIndex{
+                /*Numero de section dans le tableau*/
+                color: #3724a0;
+            }
+
+
+    /*Tableau Utilisateur (truc Watchdogs 2)*/
+
+        .contentPictureIndex{
+            margin-bottom: 130px;
+        }
+
+        .flex-parentPictureIndex{
+            /* Positionnement de l'ensemble, comprent l'images watchdogs ainsi que les 4 carrés*/
+            padding-top: 20px;
+            align-items:center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .Watchdogs2Index{
+            /* Ajustement de l'image watchdogs */
+            width: 450px;
+            height: 225px;
+        }
+
+        .Parti2Index{
+            /* Position des 4 petites images */
+            align-items:center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .SousParti1Index{
+            /* Positionnement de la partie avec la cellule 2 et 3 */
+            align-items:center;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .SousParti2Index{
+            /* Positionnement de la partie avec la cellule 4 et 5 */
+            align-items:center;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .cellule2Index{
+            /* Changement de la case avec le nombre de parties jouées */
+            width: 200px;
+            height: 100px;
+            background-color: #3724a0;
+            color: white;
+        }
+
+        .cellule3Index{
+            /* Changement de la case avec le nombre de joueurs connéctés */
+            width: 200px;
+            height: 100px;
+            color: white;
+            background-color: #18a15f;
+        }
+
+        .cellule4Index{
+            /* Changement de la case avec le temps records du joueur */
+            width: 200px;
+            height: 100px;
+            color: white;
+            background-color: #b91ca8;
+        }
+
+        .cellule5Index{
+            /* Changement de la case avec le nombre de joueurs inscrits */
+            width: 200px;
+            height: 100px;
+            color: white;
+            background-color: #ec9123;
+
+        }
+               
+    /*Notre equipe, tableau avec les profils*/
+        .notreEquipeh2Index{
+            margin-bottom: 0;
+        }
+
+        h3{
+            /* Modification du titre: "Notre Equipes */
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        .flex-parentIndex{
+            /* Positionnement des 3 profils*/
+            padding-top: 20px;
+            align-items:center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 50px;
+
+        }
+
+        .profilIndex{
+            /* Positionnement et modif des preofils*/
+            height: 265px;
+            width: 300px;
+            background-color: #0d0b26;
+        }
+
+        .photoProfilIndex{
+            /* Modification des photos de profils (aspect ronde) */
+            border-radius: 50px;
+            width: 100px;
+            height: 100px;
+        }
+
+
+        .profilGrasIndex{
+            /* texte en gras dans le profil*/
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .profilIndex{
+            /* texte normal dans le profil */
+            font-weight: normal;
+        }
 
 
 
 /*MEMORY.HTML*/
 
+    .corpPincipalMemory{
+        /* Modification de l'ensemble de la page */
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    /*Barre avec Les boutons pour la difficulté ainsi que le scores de la partie en cours*/
+
+        .BarreOutilsUtilisateurMemory{
+            /* Positionnement de la barre utilisateur */
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            align-items:center;
+            flex-direction: row;
+            justify-content: space-between;
+            box-sizing: border-box;
+            background-color: #0d0b26;
+        }
+
+        .DifficultyButtonMemory{
+            /* Positionnement des differents boutons de difficulté */
+            display: flex;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+            align-items:center;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 25px;
+        }
 
 
-.corpPincipalMemory{
-    text-align: center;
+        .AffichageScoresMemory{
+            /* Positionnement du scoreboard */
+            display: flex;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+            align-items:center;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 25px;
+        }
 
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-/*Barre avec Les boutons pour la difficulté ainsi que le scores de la partie en cours*/
+        .DifficultyButtonMemory button{
+            /* Modification des boutons*/
+            background-color: #0d0b26;
+            border: none;
+        }
 
-
-.BarreOutilsUtilisateur{
-    display: flex;
-    margin-left: 100px;
-    margin-right: 100px;
-    align-items:center;
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-between;
-    box-sizing: border-box;
-
-    background-color: #0d0b26;
-
-}
-
-.DifficultyButton{
-    display: flex;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 100px;
-    padding-right: 100px;
-    align-items:center;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 25px;
-
-}
+        .DifficultyButtonMemory button:hover{
+            /* changement de la couleur du bouton lorsque l'utilisateur place sa sourie dessus*/
+            color: #ec9123 ;
+        }
 
 
-.AffichageScores{
-    display: flex;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 100px;
-    padding-right: 100px;
-    align-items:center;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 25px;
+    /*Tableau de jeu*/
 
-}
+        .TableauDeJeuMemory{
+            /* Positionnement de l'espace de jeu */
+            margin-left: 100px;
+            margin-right: 100px;
+            border-top: 20px;
+            border-bottom: 200px;
+            width: 989;
+            height: 989;
+        }
 
-.DifficultyButton button{
-    background-color: #0d0b26;
-    border: none;
-}
+        /*Facile*/
 
-.DifficultyButton button:hover{
-    color: #ec9123 ;
-}
+            .TableauFacileMemory{
+                /* Positionnement de la grille */
+                background-color:#0d0b26;
+                display: flex;
+                row-gap: 3px;
+                column-gap: 3px;
+                justify-content: center;
+            }
+
+            .TableauFacileMemory tr td img{
+                /* Ajustement taille des images*/
+                height: 150px;
+                width: 150px;
+            }
+        
+        /* Intermediaire */
+        
+            .TableauIntermediaireMemory{
+                /* Positionnement de la grille */
+                background-color:#0d0b26;
+                display: flex;
+                row-gap: 3px;
+                column-gap: 3px;
+                justify-content: center;
+            }
+
+            .TableauIntermediaireMemory tr td img{
+                /* Ajustement taille des images*/
+                height: 100px;
+                width: 100px;
+            }
+
+        /* Expert */
+
+            .TableauExpertMemory{
+                /* Positionnement de la grille */
+                background-color:#0d0b26;
+                display: flex;
+                row-gap: 3px;
+                column-gap: 3px;
+                justify-content: center;
+            }
+
+            .TableauExpertMemory tr td img{
+                /* Ajustement taille des images*/
+                height: 75px;
+                width: 75px;
+            }
 
 
-/*Tableau de jeu*/
-/*Facile*/
+        /* Impossible */
 
-.TableauDeJeu{
-    margin-left: 100px;
-    margin-right: 100px;
-    border-top: 20px;
-    border-bottom: 200px;
-    width: 989;
-    height: 989;
-}
+            .TableauImpossibleMemory{
+                /* Positionnement de la grille */
+                background-color:#0d0b26;
+                display: flex;
+                row-gap: 3px;
+                column-gap: 3px;
+                justify-content: center;
+            }
 
-.TableauFacile{
-    background-color:#0d0b26;
-    display: flex;
-    row-gap: 3px;
-    column-gap: 3px;
-    justify-content: center;
-}
+            .TableauImpossibleMemory tr td img{
+                /* Ajustement taille des images*/
+                height: 50px;
+                width: 50px;
+            }
 
-.TableauFacile tr td img{
-    height: 150px;
-    width: 150px;
-}
+/*SCORES.HTML*/
 
-.TableauIntermediaire{
-    background-color:#0d0b26;
-    display: flex;
-    row-gap: 3px;
-    column-gap: 3px;
-    justify-content: center;
-}
+    .corpPincipalScores{
 
-.TableauIntermediaire tr td img{
-    height: 100px;
-    width: 100px;
-}
+        margin: 100px;
+        
+    }
 
-.TableauExpert{
-    background-color:#0d0b26;
-    display: flex;
-    row-gap: 3px;
-    column-gap: 3px;
-    justify-content: center;
-}
+    /* Barre avec recherche et triage */
 
-.TableauExpert tr td img{
-    height: 75px;
-    width: 75px;
-}
+        .BarreOutilsUtilisateurScores{
+            /* Positionnement de la barre d'outils comprennant la barre de recherche ainsi que le trie */
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-bottom: 10px;
 
-.TableauImpossible{
-    background-color:#0d0b26;
-    display: flex;
-    row-gap: 3px;
-    column-gap: 3px;
-    justify-content: center;
-}
+        }
 
-.TableauImpossible tr td img{
-    height: 50px;
-    width: 50px;
-}
+        /* Search Barre*/
+
+            .SearchBarScores{
+                /* Positionnement de la barre de recherche */
+                display: flex;
+                align-items: center;
+                max-width: 450px;
+                background-color: #0d0b26;
+                padding: 20px;
+                border-radius: 10px;
+
+            }
+
+            .SearchBarScores img{
+                /* Positionnement de l'image de la barre de recherche */
+                width: 20px;
+                position: relative;
+                top: 2px;
+            }
+
+            .SearchBarScores input{
+                /* Modification de la barre de recherche */
+                width: 100%;
+                height: 30px;
+                font-size: 18px;
+                background-color: #11102f;
+                outline: 0;
+                border: 0;
+                border-radius: 30px;
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .SearchBarScores input::placeholder{
+                /* Changement de la couleur du texte present dans la barre de recherche */
+                color: white;
+            }
+
+            .SearchBarScores input:hover{
+                background-color: #0d0b26;
+            }
+
+        
+        /* Trie */
+            
+        .dropdownScore {
+            display: flex;
+            position: relative;
+        }
+
+        .dropdown-contentScore {
+            width: 240px;
+            height: 70px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: #0d0b26;
+            padding: 20px;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+        .dropdownScore:hover .dropdown-contentScore {
+            display: block;       
+        }
+        
+        .dropdown-contentScore select {
+            display: block;       
+            color: white;
+            background-color: #11102f;       
+            padding: 5px;       
+            text-decoration: none;
+            border: none;     
+            width: 100%;   
+            border-radius: 10px;
+            font-size: 15px;
+            outline: 0;
+        }
+
+        .dropdown-contentScore select:hover {
+            color: #ec9123;       
+            background-color: #0d0b26;      
+        }
+
+
+    /* Titre */
+
+        h2.TitleScores{
+            /* Modification du titre: "Les meilleurs scores" */
+            margin-top: 15px;
+            margin-bottom: 0;
+            padding: 20px;
+            background-color: #0d0b26;
+        }
+
+
+    /* Tableau des Scores */
+
+        /* En-tête du tableau */
+
+            .TableScore {
+                /* Positionnement de l'en-tête */
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                background-color: #0d0b26;
+                padding: 15px 10px;
+            }
+
+            .TableScore , p{
+                /* Ajoue d'une bordure interne à l'en-tête */
+                padding: 0 15px;
+            }
+
+            .tableTitleScores{
+                /* Ajoue d'une bordure interne dans chaque case de l'en-tête */
+                font-size: 16px;
+                padding: 10px 15px 20px;
+            }
+
+
+        /* Tableau avec les resultat */
+
+            .table-resultScores{
+                /* Positionnement des resultat en colonne */
+                display: grid;
+                grid-column: 1 / -1;
+            }
+
+            .container-itemScore{
+                /* Positionnement des resultat */
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                align-items: center;
+                padding: 15px 10px;
+                background-color: #0d0b26;
+            }
+
+            .container-itemScore:nth-child(odd){
+                /* Faire un tableau Zébré*/
+                background-color: #11102f;
+            }
+
+
+
+
+        /* User Info */
+
+            .table-resultUserScores{
+                /* Positionnement de la grille entiere */
+                display: grid;
+                grid-column: 1 / -1;
+                margin: 30px 0;
+            }
+
+            .container-UseritemScore{
+                /* Positionnement des items dans la grille */
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                align-items: center;
+                padding: 15px 10px;
+                background-color: #0d0b26;
+            }
+
+            
