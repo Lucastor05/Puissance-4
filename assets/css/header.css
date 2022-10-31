@@ -92,3 +92,14 @@ nav a:hover {
     padding-bottom: 250px;
     background-size: cover;
 }
+/*page myaccount*/
+#HeadMyAccount{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/Ville-futuriste-image-violet.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}

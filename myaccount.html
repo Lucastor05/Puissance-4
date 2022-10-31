@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'inscription</title>
+    <title>Profil du joueur</title>
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/footer.css">
@@ -22,22 +22,33 @@
         </div>
     </nav>
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
-    <header id="HeadRegister">
-            <H1>INSCRIPTION</H1>
+    <header id="HeadMyAccount">
+            <H1>MON ESPACE</H1>
     </header>
 
-    <!--Formulaire d'inscription-->
     <main>
+        <!--Formulaire de changement de mail-->
         <form action="" method="post" align="center"> 
-            <label for="email" class="formulaire"></label><br>
-            <input type="text" id="email" name="email" placeholder="Email" required="Email">
-            <label for="Pseudo" class="formulaire"></label><br>
-            <input type="text" id="Pseudo" name="Pseudo" placeholder ="Pseudo" required="Pseudo">
+            <label for="ancienEmail" class="formulaire"></label><br>
+            <input type="text" id="ancienEmail" name="ancienEmail" placeholder="Ancien Email" required="ancienEmail">
+            <label for="nouvelEmail" class="formulaire"></label><br>
+            <input type="text" id="nouvelEmail" name="nouvelEmail" placeholder ="Nouvel Email" required="nouvelEmail">
             <label for="password" class="formulaire"></label><br>
             <input type="password" id="password" name="password" placeholder ="Mot de passe" required="password">
             <label for="Cpassword" class="formulaire"></label><br>
             <input type="password" id="Cpassword" name="Cpassword" placeholder ="Confirmez le mot de passe" required="Cpassword"><br>
-            <button name="Inscription" type="submit" value="HTML" class="InscriptionButton">Inscription</button>
+            <button name="MAJEmail" type="submit" value="HTML" class="MAJEmailButton">Mise à jour</button>
+        </form>
+
+        <!--Formulaire de changement de mot de passe-->
+        <form action="" method="post" align="center">
+            <label for="ancienPassword" class="formulaire"></label><br>
+            <input type="ancienPassword" id="ancienPassword" name="ancienPassword" placeholder ="Ancien mot de passe" required="ancienPassword">
+            <label for="nouveauPassword" class="formulaire"></label><br>
+            <input type="nouveauPassword" id="nouveauPassword" name="nouveauPassword" placeholder ="Nouveau mot de passe" required="nouveauPassword">
+            <label for="Cpassword" class="formulaire"></label><br>
+            <input type="password" id="Cpassword" name="Cpassword" placeholder ="Confirmez le nouveau mot de passe" required="Cpassword"><br>
+            <button name="MyAccount" type="submit" value="HTML" class="MyAccountButton">Création de la page mon espace</button>
         </form>
     </main>
 

@@ -89,3 +89,20 @@ body{
     width: 10%;
     padding: 10px 20px;
 }
+/*page "my account"*/
+/*formulaire de changement d'email*/
+.MAJEmailButton{
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+}
+/*formulaire de changement de mot de passe*/
+.MyAccountButton{
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+}
