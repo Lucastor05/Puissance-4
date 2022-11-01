@@ -29,14 +29,23 @@ body{
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-
+.main-register{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
 
 
 
 
 /*Page contact*/
 
+.main-contact{
+    margin-top:40px;
+    margin-bottom: 30px;
+}
 
 /* 3 Pancartes de la page de Contact*/
 .flex-parentIndex{
@@ -68,16 +77,27 @@ body{
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .NomContact{
-    width: 195px;
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .MessageContact{
     height: 150px;
     word-wrap:break-word;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .EmailContact{
-    width: 190px;
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire-contact{
+    padding: 20px;
 }
 
 /*Page de Login*/
@@ -88,8 +108,22 @@ body{
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.main-login{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 /*page "my account"*/
+.main-myaccount{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 /*formulaire de changement d'email*/
 .MAJEmailButton{
     background-color: orange;
@@ -97,12 +131,16 @@ body{
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 /*formulaire de changement de mot de passe*/
 .MyAccountButton{
     background-color: orange;
     border: 2px solid orange;
     border-radius: 4px;
-    width: 10%;
+    width: 150px;
     padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
