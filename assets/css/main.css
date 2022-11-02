@@ -24,8 +24,8 @@ body{
 }
  /*Page d'inscription*/
 .InscriptionButton{
-    background-color: orange;
-    border: 2px solid orange;
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
@@ -69,11 +69,12 @@ body{
     border-radius: 50px;
     width: 100px;
     height: 100px;
+    background-color: #e98d24;
 }
 /*Formulaire de la page de Contact*/
 .EnvoieDeFormulaireDeContactButton{
-    background-color: orange;
-    border: 2px solid orange;
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
@@ -103,8 +104,8 @@ body{
 /*Page de Login*/
 
 .LoginButton{
-    background-color: orange;
-    border: 2px solid orange;
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
@@ -126,8 +127,8 @@ body{
 }
 /*formulaire de changement d'email*/
 .MAJEmailButton{
-    background-color: orange;
-    border: 2px solid orange;
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
     border-radius: 4px;
     width: 10%;
     padding: 10px 20px;
@@ -136,8 +137,8 @@ body{
 }
 /*formulaire de changement de mot de passe*/
 .MyAccountButton{
-    background-color: orange;
-    border: 2px solid orange;
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
     border-radius: 4px;
     width: 150px;
     padding: 10px 20px;
