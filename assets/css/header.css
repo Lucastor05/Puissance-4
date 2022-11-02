@@ -22,8 +22,15 @@
                 padding-right: 70px;
                 padding-bottom: 20px;
 
-                display: flex;
-                align-items: center;
+            }
+
+
+        /*Barre de navigation en absolue, donc n'as pas de place definie*/
+            .topnavAbsolute {
+                position: fixed;
+                padding-top: 20px;
+                padding-left: 70px;
+                padding-right: 70px;
 
                 justify-content: space-between;
                 width: 100%;
@@ -77,56 +84,101 @@
                 color: white;
             }
 
+/*Page d'inscription*/
+#HeadRegister{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/imagevioletfuturiste.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}
+
+/*Page de contact*/
+#HeadContact-contact{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/imageVioletFuturistePageContact.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}
+/*Page de Login*/
+#HeadLogin{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/Ville-Futuriste-Violet.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}
+/*page myaccount*/
+#HeadMyAccount{
+    color: white;
+    background-color: #11102f;
+    background-image: url("../Images/Ville-futuriste-image-violet.jpeg");
+    font-weight: bold;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-size: cover;
+}
 
 /*INDEX.HTML*/
 
     /* Header */
         
-        .headIndex{
-            /* Titre et photo de fond */
-            color: white;
-            background-color: #11102f;
-            background-image: url("../Images/BG2.jpeg");/*Images de fond*/
-            text-align: center;
-            padding-top: 200px;
-            padding-bottom: 200px;
-            background-size: cover;
-        }
+    .headIndex{
+        /* Titre et photo de fond */
+        color: white;
+        background-color: #11102f;
+        background-image: url("../Images/BG2.jpeg");/*Images de fond*/
+        text-align: center;
+        padding-top: 200px;
+        padding-bottom: 200px;
+        background-size: cover;
+    }
 
-        .TitreAccueilIndex{
-            /* Positionnement du h1 de la page */
-            margin-top: 0;
-            margin-bottom: 0;
-            font-size:60px;
-            font-weight: bold;
-        }
+    .TitreAccueilIndex{
+        /* Positionnement du h1 de la page */
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size:60px;
+        font-weight: bold;
+    }
 
-        /*Titre h2*/
-        .TitreSecondaireAccueilIndex{
-            /* Positionnement du h2 de  la page */
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: medium;
-            font-weight: normal;
-        }
+    /*Titre h2*/
+    .TitreSecondaireAccueilIndex{
+        /* Positionnement du h2 de  la page */
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: medium;
+        font-weight: normal;
+    }
 
-        .boutonPlayIndex{
-            /* Positionnement du bouton jouez */
-            color: white;
-            background-color: #eb9023;
-            border-color: #eb9023;
-            border: none;
-            border-radius: 2px;
-            width: 130px;
-            height: 40px;
-        }
+    .boutonPlayIndex{
+        /* Positionnement du bouton jouez */
+        color: white;
+        background-color: #eb9023;
+        border-color: #eb9023;
+        border: none;
+        border-radius: 2px;
+        width: 130px;
+        height: 40px;
+    }
 
 
 
 /*MEMORY.HTML*/
 
 
-/*Header*/
+    /*Header*/
 
     .headMemory{
         /*Titre et photo de fond*/
