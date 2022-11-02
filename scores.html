@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="chat.html">
     <title>Scores</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
         <div class="BarreOutilsUtilisateurScores">
             <div class="SearchBarScores">
                 <label for="searchScores">
-                    <img src="assets/Images/search.svg">
+                    <img src="assets/Images/search-bar-01.svg" class="iconSearchBar">
                 </label>
                 <input type="text" id="searchScores" placeholder="Search for a player">
             </div>
@@ -91,6 +92,55 @@
 
 
 
+        <div class="chatcontainer">
+            <div class="contentChat">
+                <div class="bandeauChat">
+                    <img src="assets/Images/chat-118.svg">
+                    <h1 class="titreChat">Chat Général</h1>
+                </div>
+    
+    
+                <div class="messageChat">
+                    <div class="Mymessage">
+                        <p class="sendBy">Moi</p>
+                        <p class="meChat">Hello</p>
+                        <p class="dateChat">Aujourd'hui à 18h</p>
+                    </div>
+                    <div class="sentByOthers">
+                        <div class="containerImage">
+                            <img src="assets/Images/photo de profil provisoir.png">
+                        </div>
+                        <div class="message">
+                            <p class="sendBy">Arthur</p>
+                            <p class="otherChat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, nulla quo? Neque a facere sunt? Aspernatur in aut totam, quaerat laudantium dolorem cum earum sed, id quia illo ducimus odio.</p>
+                            <p class="dateChat">Aujourd'hui à 18h</p>
+                        </div>   
+                    </div>
+                    <div class="sentByOthers">
+                        <div class="containerImage">
+                            <img src="assets/Images/photo de profil provisoir.png">
+                        </div>
+                        <div class="message">
+                            <p class="sendBy">Arthur</p>
+                            <p class="otherChat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, nulla quo? Neque a facere sunt? Aspernatur in aut totam, quaerat laudantium dolorem cum earum sed, id quia illo ducimus odio.</p>
+                            <p class="dateChat">Aujourd'hui à 18h</p>
+                        </div>   
+                    </div>
+                    
+                </div>
+    
+                <div>
+                    <form action="/action_page.php" class="form-container">
+                        <input placeholder="Votre Message..." name="msg" required class="MessageBarChat"></input>
+                        <button type="submit" class="buttonSendChat">Envoyez</button>
+                      </form>
+                </div>
+                
+            </div>
+            <div class="buttonOpen">
+                <img src="assets/Images/chat-118.svg" class="LogoOpenChat">
+            </div>
+        </div>
 
     </main>
 
@@ -119,11 +169,11 @@
 
                     <!--Images Reseaux sociaux-->
                     <div class="reseauSociauxLogo">
-                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/LogoFacebook.jpeg" alt="Facebook" class="Lfacebook"></a>
-                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/LogoTwitter.jpeg" alt="Twiter" class="Ltwitter"></a>
-                        <a href="https://www.google.fr/"><img src="assets/Images/logogoogleorange.jpeg" alt="Google" class="Lgoogle"></a>
-                        <a href="https://www.pinterest.fr/"><img src="assets/Images/logopinterest.jpeg" alt="pinterest" class="Lpinterest"></a>
-                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/logoInstagram.jpeg" alt="instagram" class="Linstagram"></a>
+                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/facebook.svg" class="Lfacebook"></a>
+                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/twitter.svg" class="Ltwitter"></a>
+                        <a href="https://www.google.fr/"><img src="assets/Images/google.svg"class="Lgoogle"></a>
+                        <a href="https://www.pinterest.fr/"><img src="assets/Images/pinterest" class="Lpinterest"></a>
+                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
                     </div>
                 </div>
                 <div class="TowerMemoryFooter">

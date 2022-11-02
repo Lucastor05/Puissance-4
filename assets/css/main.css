@@ -159,6 +159,7 @@
             background-color: #ec9123;
 
         }
+        
                
     /*Notre equipe, tableau avec les profils*/
         .notreEquipeh2Index{
@@ -415,6 +416,11 @@
                 background-color: #0d0b26;
             }
 
+            .iconSearchBar{
+                background-color: #0d0b26;
+                color: white;
+            }
+
         
         /* Trie */
             
@@ -536,25 +542,28 @@
             }
 
 
-    /* Chat */
+    /* CHAT */
 
 
         .chatcontainer{
-            position: absolute;
-            width: 300px;
-            height: 600px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            text-align: left;
+
             margin: 0;
         }
 
         .contentChat{
-            display: flex;
+            display: block;
             width: auto;
             flex-direction: column;
-            height: 600px;
+            height: auto;
             margin: 0;
         }
 
         .bandeauChat{
+            /* Positionnement des blocks */
             display: flex;
             background-color: #4172ff;
             align-items: center;
@@ -568,7 +577,15 @@
             border-top-right-radius: 10px;
         }
 
+        .bandeauChat img{
+            /* Logo Chat general */
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
         .messageChat{
+            /* Blocks avec les textos */
             background-color: white;
             height: 500px;
             width: 300px;
@@ -578,7 +595,20 @@
             gap: 10px;
         }
 
+        .containerImage{
+            /* container avec Images de profils messages*/
+            padding-top: 20px;
+            padding-right: 5px;
+        }
+
+        .containerImage img{
+            /* Modifications des images */
+            width: 30px;
+            height: 30px;
+        }
+
         .form-container{
+            /* Container avec le formulaire et le bouton envoyer */
             background-color: white;
             display: flex;
             height: auto;
@@ -593,9 +623,10 @@
 
 
         .meChat{
+            /* Message envoyer par l'utilisateur */
             background-color: #3d71ff;
-            color: white;
             text-align: right;
+            color: white;
             border-radius: 10px;
             padding: 10px;
             margin-top: 0;
@@ -603,7 +634,9 @@
         }
 
         .otherChat{
+            /* Message envoyez par les autres membres */
             background-color: #f4f8fb;
+            font-size: 15px;
             color: #afb0b2;
             border-radius: 10px;
             padding: 10px;
@@ -612,28 +645,33 @@
         }
 
         .titreChat{
+            /* */
             font-size: 15px;
             text-align: right;
         }
 
         .sentByOthers{
+            /* Message envoyez par les autres */
             display: flex;
         }
 
         .sendBy{
+            /* Nom de la personne qui a envoyer le chat */
             color: #afb0b2;
             font-size: 10px;
             margin-bottom: 0;
         }
 
         .dateChat{
+            /* Date a laquelle le chat a ete envoye */
             color: #afb0b2;
             font-size: 10px;
             margin-top: 0;
         }
 
 
-        .MessageChat{
+        .MessageBarChat{
+            /*  */
             background-color: white;
             color: black;
             outline: 0;
@@ -641,12 +679,12 @@
             border-radius: 5px;
             height: 40px;
             width: 70%;
+            padding: 5px 10px;
             
         }
 
-        .MessageChat::placeholder{
+        .MessageBarChat::placeholder{
             color: #afb0b2;
-            padding: 5px 10px;
         }
 
         .buttonSendChat{
@@ -662,13 +700,17 @@
         }
 
 
+        .buttonOpen{
+            text-align: right;
+            margin-top: 5px;
+        }
 
-        .buttonOpenChat{
-            border: 0;
-            margin: 10px;
-            padding: 0;
+
+        .LogoOpenChat{
+            background-color: #3d71ff;
             border-radius: 999px;
-            height: 50px;
             width: 50px;
+            height: 50px;
         }
             
+
