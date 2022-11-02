@@ -61,20 +61,30 @@ footer{
 .Lfacebook{
     width: 30px;
     height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
 }
 .Ltwitter{
     width: 30px;
     height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
 }
 .Lgoogle{
     width: 30px;
     height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
 }
 .Lpinterest{
     width: 30px;
     height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
 }
 .Linstagram{
     width: 30px;
     height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
 }
