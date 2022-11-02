@@ -1,69 +1,100 @@
 /*Général*/
-    footer{
-        /* Modification de la couleur de fond du footer */
-        background-color: #0d0b26;
-    }
+footer{
+    /* Modification de la couleur de fond du footer */
+    background-color: #0d0b26;
+}
 
-    .TitreFooter{
-        /* Modifications des 2 titres du footer */
-        font-weight: bold;
-        font-size: 25px;
-        margin: 15px;
-    }
+.TitreFooter{
+    /* Modifications des 2 titres du footer */
+    font-weight: bold;
+    font-size: 25px;
+    margin: 15px;
+}
 
-    .OrangeCharacter{
-        /* Mets en oranges les characteresdevants etre en oranges*/
-        color: #e98d24;
-    }
+.OrangeCharacter{
+    /* Mets en oranges les characteresdevants etre en oranges*/
+    color: #e98d24;
+}
 
-    .flex-parentFooter{
-        /* Positionnement des 2 parties du footer */
-        padding-top: 100px;
-        padding-bottom: 100px;
-        padding-left: 200px;
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-        gap: 300px;
-    }
+.flex-parentFooter{
+    /* Positionnement des 2 parties du footer */
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 200px;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    gap: 300px;
+}
 
-    .informationFooter{
-        /* Positionnement de la colonne information */
-        display: flex;
-        flex-direction: column;
+.informationFooter{
+    /* Positionnement de la colonne information */
+    display: flex;
+    flex-direction: column;
 
-    }
+}
 
-    .informationFooter p{
-        /* modification des textes dans la colonnes information*/
-        margin: 10px;
-        font-size: smaller;
-    }
+.informationFooter p{
+    /* modification des textes dans la colonnes information*/
+    margin: 10px;
+    font-size: smaller;
+}
 
-    .TowerMemoryFooter{
-        /* Positionnement de la colonne Tower Of Memory */
-        display: flex;
-        flex-direction: column;
-    }
+.TowerMemoryFooter{
+    /* Positionnement de la colonne Tower Of Memory */
+    display: flex;
+    flex-direction: column;
+}
 
-    .ListeGeneralFooter{
-        /* Enleve les decoration de liste dans le footer*/
-        list-style: none;
-    }
+.ListeGeneralFooter{
+    /* Enleve les decoration de liste dans le footer*/
+    list-style: none;
+}
 
-    .ListeGeneralFooter li::before{
-        /* Rajoute des puces a la liste dans le footer et change la couleur */
-        content: "• ";
-        color: #e98d24;
-    }
+.ListeGeneralFooter li::before{
+    /* Rajoute des puces a la liste dans le footer et change la couleur */
+    content: "• ";
+    color: #e98d24;
+}
 
-    .listeFooter{
-        /* Changement des liste dans le footer */
-        color: white;
-        height: 35px;
-    }
+.listeFooter{
+    /* Changement des liste dans le footer */
+    color: white;
+    height: 35px;
+}
 
-    .copyright{
-        /* Partie copyright */
-        font-size: 10px;
-    }
+.copyright{
+    /* Partie copyright */
+    font-size: 10px;
+}
+
+.Lfacebook{
+    width: 30px;
+    height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
+}
+.Ltwitter{
+    width: 30px;
+    height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
+}
+.Lgoogle{
+    width: 30px;
+    height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
+}
+.Lpinterest{
+    width: 30px;
+    height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
+}
+.Linstagram{
+    width: 30px;
+    height: 30px;
+    background-color: #e98d24;
+    border-radius: 999px;
+}
