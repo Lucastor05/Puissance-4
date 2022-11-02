@@ -23,6 +23,7 @@
         padding-left: 200px;
         display: flex;
         flex-direction: row;
+        text-align: left;
         gap: 300px;
     }
 
