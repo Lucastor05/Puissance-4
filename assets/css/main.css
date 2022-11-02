@@ -1,0 +1,148 @@
+/*css présent sur plusieurs pages*/
+*{
+    text-decoration: none;
+    font-family: "Gill Sans", sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+input{
+    background-color: rgba(39,38,69,255);
+    width: 30%;
+    padding: 10px 20px;
+    margin: 8px 0;  
+    border: 2px solid rgba(39,38,69,255);
+    border-radius: 4px;
+    color: white;
+} 
+
+
+body{
+    background-color: #11102f;
+    color: white;
+    margin: 0;
+}
+ /*Page d'inscription*/
+.InscriptionButton{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.main-register{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+
+
+
+/*Page contact*/
+/*css general*/
+.main-contact{
+    margin-top:40px;
+    margin-bottom: 30px;
+}
+
+/* 3 Pancartes de la page de Contact*/
+.flex-parentIndex{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.ContactIndex{
+    height: 265px;
+    width: 300px;
+    background-color: #0d0b26;
+    font-weight: normal;
+}
+
+.LogoContacterIndex{
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: #e98d24;
+}
+/*Formulaire de la page de Contact*/
+.EnvoieDeFormulaireDeContactButton{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.NomContact{
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.MessageContact{
+    height: 150px;
+    word-wrap:break-word;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.EmailContact{
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire-contact{
+    padding: 20px;
+}
+
+/*Page de Login*/
+
+.LoginButton{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.main-login{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*page "my account"*/
+.main-myaccount{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*formulaire de changement d'email*/
+.MAJEmailButton{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*formulaire de changement de mot de passe*/
+.MyAccountButton{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 150px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+

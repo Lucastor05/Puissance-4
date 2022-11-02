@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Des Contactes</title>
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+    <nav class="topnavAbsolute">
+        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
+        <div>
+            <!--Different lien vers les pages-->
+            <a href="index.html">ACCUEIL</a>
+            <a href="memory.html">JEU</a>
+            <a href="scores.html">SCORES</a>
+            <a href="contact.html" class="active">NOUS CONTACTER</a>
+        </div>
+    </nav>
+    <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
+    <header id="HeadContact">
+        <H1>NOUS CONTACTER</H1>
+    </header>
+    <main class="main-contact">
+        <!--Différents Moyens de contact pour téhoriquement nous contacter-->
+            <div class="flex-parentIndex">
+                <div class="ContactIndex">
+                    <p align="center"><img src="assets/Images/telephone.svg" class="LogoContacterIndex"></p><br>
+                    <p align="center">08 95 90 09 50</p>
+                    <p align="center">ma reconnaissance éternel au mec qui appel mdr</p> 
+                </div>
+                <div class="ContactIndex">
+                    <p align="center"><img src="assets/Images/email.svg" class="LogoContacterIndex"></p><br>
+                    <p align="center">donnemoiunebonnenotejemerite@gmail.com</p>
+                    <p align="center">(cette adresse mail existe vraiment mdr)</p>
+                </div>
+                <div class="ContactIndex">
+                    <p align="center"><img src="assets/Images/map.svg" class="LogoContacterIndex"></p><br>
+                    <p align="center">8 Rue la Chèvre Qui Danse45000 Orléans</p>
+                </div>
+            </div>
+
+            <!--Formulaire d'envoye de message de la page de contact-->
+        <form action="" method="post" align="center" class="formulaire-contact"> 
+            <label for="nom"></label>
+            <input type="text" id="Nom" name="Nom" placeholder ="Nom" required class="NomContact">
+            <label for="Email"></label>
+            <input type="text" id="email" name="email" placeholder="Email" required  class="EmailContact">
+            <label for="Sujet"></label><br>
+            <input type="text" id="Sujet" name="Sujet" placeholder ="Sujet" required>
+            <label for="Message"></label><br>
+            <input type="text" id="Message" name="Message" placeholder ="Message" required class="MessageContact"><br>
+            <button name="EnvoieDeFormulaireDeContactButton" type="submit" value="HTML" class="EnvoieDeFormulaireDeContactButton">Envoyer</button>
+        </form>
+
+        <div class="chatcontainer">
+            <div class="contentChat">
+                <div class="bandeauChat">
+                    <img src="#">
+                    <h1 class="titreChat">Chat Général</h1>
+                </div>
+    
+    
+                <div class="messageChat">
+                    <div class="Mymessage">
+                        <p class="sendBy">Moi</p>
+                        <p class="meChat">Hello</p>
+                        <p class="dateChat">Aujourd'hui à 18h</p>
+                    </div>
+                    <div class="sentByOthers">
+                        <div class="containerImage">
+                            <img src="#">
+                        </div>
+                        <div class="message">
+                            <p class="sendBy">Arthur</p>
+                            <p class="otherChat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, nulla quo? Neque a facere sunt? Aspernatur in aut totam, quaerat laudantium dolorem cum earum sed, id quia illo ducimus odio.</p>
+                            <p class="dateChat">Aujourd'hui à 18h</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <form action="/action_page.php" class="form-container">
+                        <input placeholder="Votre Message..." name="msg" required class="MessageChat"></input>
+                        <button type="submit" class="buttonSendChat">Envoyez</button>
+                      </form>
+                </div>
+                
+            </div>
+    
+            <button class="buttonOpenChat" onclick=""><img src="#" class="logoOpenChat"></button>
+        </div>
+    </main>
+
+
+    <footer> 
+        <div class="contentFooter">
+            <div class="flex-parentFooter">
+                <div class="informationFooter">
+                    <h2 class="TitreFooter">Information</h2>
+                    <p>Quisque commodo facilisis purus, interdum voluptat arcu viverra sed.</p>
+                    <p><strong class="OrangeCharacter">Tèl</strong> : 06 00 00 00 00</p>
+                    <p><strong class="OrangeCharacter">Email</strong> : addressmail@gmail.com</p>
+                    <p><strong class="OrangeCharacter">Location</strong> : Paris</p>
+
+
+                    <!--Images Reseaux sociaux-->
+                    <div class="reseauSociauxLogo">
+                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/facebook.svg" class="Lfacebook"></a>
+                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/twitter.svg" class="Ltwitter"></a>
+                        <a href="https://www.google.fr/"><img src="assets/Images/google.svg" class="Lgoogle"></a>
+                        <a href="https://www.pinterest.fr/"><img src="assets/Images/pinterest.svg" class="Lpinterest"></a>
+                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
+                    </div>
+                </div>
+                <div class="TowerMemoryFooter">
+                    <h2 class="TitreFooter">Power Of Memory</h2>
+                    <ul class="ListeGeneralFooter">
+                        <li class="listeFooter"><a href="memory.html">Jouez !</a></li>
+                        <li class="listeFooter"><a href="scores.html">Les scores</a></li>
+                        <li class="listeFooter"><a href="contact.html">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright © 2022 Tous droits réservés</p>
+    </footer>
+</body>
+</html>
