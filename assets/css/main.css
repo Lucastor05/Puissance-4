@@ -546,6 +546,7 @@
 
 
         .chatcontainer{
+            /* Container avec le chat et l'image pour l'ouvrir */
             position: fixed;
             bottom: 10px;
             right: 10px;
@@ -555,6 +556,7 @@
         }
 
         .contentChat{
+            /* Chat general, message et barre de message + bouton */
             display: block;
             width: auto;
             flex-direction: column;
@@ -671,7 +673,7 @@
 
 
         .MessageBarChat{
-            /*  */
+            /*  Barre de message */
             background-color: white;
             color: black;
             outline: 0;
@@ -684,10 +686,12 @@
         }
 
         .MessageBarChat::placeholder{
+            /* Messagfe dans la barre */
             color: #afb0b2;
         }
 
         .buttonSendChat{
+            /* Bouton envoyez */
             color: black;
             background-color: white;
             border: 0;
@@ -696,17 +700,20 @@
         }
 
         .buttonSendChat:hover{
+            /* Bouton envoyez lorsque la souris est dessus */
             background-color: #f4f8fb;
         }
 
 
         .buttonOpen{
+            /* Image pour ouvrir le chat */
             text-align: right;
             margin-top: 5px;
         }
 
 
         .LogoOpenChat{
+            /* Image du chat */
             background-color: #3d71ff;
             border-radius: 999px;
             width: 50px;
