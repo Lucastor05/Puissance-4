@@ -749,6 +749,7 @@ input{
         /* Modifications des images */
         width: 30px;
         height: 30px;
+        border-radius: 999px;
     }
 
     .form-container{
