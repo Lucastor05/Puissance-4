@@ -10,7 +10,7 @@ emailEntrez = email que l'utilisateur entrera dans le site (dans les inputs)
 /* Story 2 */
 
 INSERT INTO `Utilisateur` (`Email`, `Mot_de_passe`, `Pseudo`, `Date_et_heure_inscription`) 
-    VALUES ('mail@mail.fr', ';admin', 'admin', '2022-11-14');
+    VALUES ('mail@mail.fr', ';admin', 'admin', NOW());
 
 /* Story 3 */
 
@@ -48,21 +48,19 @@ FROM Score
 INNER JOIN Jeu ON Score.Identifiant_du_jeu = Jeu.Identifiant 
 INNER JOIN Utilisateur ON Utilisateur.Identifiant = Score.Identifiant_du_joueur
 WHERE Filtre = resultatVoulu
-ORDER BY Jeu.Nom_du_jeu ASC, Score.Difficulte_de_la_partie, Score.Score_de_la_partie
+ORDER BY Jeu.Nom_du_jeu , Score.Difficulte_de_la_partie, Score.Score_de_la_partie
 
 /* Story 8 */
 
-SELECT Score.Score_de_la_partie
-FROM Score
-
 /* Si existe */
 UPDATE Score
-SET Score_de_la_partie = 'nouveau score'
+SET Score_de_la_partie = 'nouveau score' AND Date_et_heure_de_la_partie = NOW()
 WHERE Identifiant = iduser
 
 /* Si existe pas */
 INSERT INTO `Score` (`Identifiant_du_joueur`, `Identifiant_du_jeu`, `Difficulte_de_la_partie`, `Score_de_la_partie`, `Date_et_heure_de_la_partie`) 
     VALUES (idUser, gameID, GameDifficulty, 'NouveauScore', NOW());
+
 
 /* Story 9 */
 
