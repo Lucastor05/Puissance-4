@@ -24,7 +24,6 @@ WHERE Identifiant = iduser AND Mot_de_passe = mdpEntrezDansForm
 
 /* Story 4 */
 
-
 SELECT *
 FROM Utilisateur
 WHERE emailEntrez = Email AND mdpEntrezDansForm = Mot_de_passe
@@ -41,7 +40,6 @@ FROM Score
 INNER JOIN Jeu ON Score.Identifiant_du_jeu = Jeu.Identifiant 
 INNER JOIN Utilisateur ON Utilisateur.Identifiant = Score.Identifiant_du_joueur
 ORDER BY Jeu.Nom_du_jeu, Score.Difficulte_de_la_partie, Score.Score_de_la_partie
-
 
 /* Story 7 */
 
@@ -60,12 +58,11 @@ FROM Score
 /* Si existe */
 UPDATE Score
 SET Score_de_la_partie = 'nouveau score'
-WHERE Identifiant =' id user'
+WHERE Identifiant = iduser
 
 /* Si existe pas */
 INSERT INTO `Score` (`Identifiant_du_joueur`, `Identifiant_du_jeu`, `Difficulte_de_la_partie`, `Score_de_la_partie`, `Date_et_heure_de_la_partie`) 
     VALUES (idUser, gameID, GameDifficulty, 'NouveauScore', NOW());
-
 
 /* Story 9 */
 
@@ -76,4 +73,3 @@ INSERT INTO `Message` (`Identifiant`, `Identifiant_du_jeu`, `Identifiant_de_expÃ
 SELECT Message.Identifiant_de_expediteur , Message.Message, Message.Date_et_heure_du_message
 FROM Message 
 WHERE Message.Date_et_heure_du_message >= NOW() - INTERVAL 1 DAY;
-
