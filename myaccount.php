@@ -1,3 +1,6 @@
+<?php
+include 'assets/includes/database.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +18,11 @@
         <a href="#" class="nomSite">The Tower Of Mermory</a>
 
         <div class="topnav-right">
-            <a href="index.html">ACCUEIL</a>
-            <a href="memory.html">JEU</a>
-            <a href="scores.html">SCORES</a>
-            <a href="contact.html">NOUS CONTACTER</a>
-            <a href ="myaccount.html" class="active">MON ESPACE</a>
+            <a href="index.php">ACCUEIL</a>
+            <a href="memory.php">JEU</a>
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php">NOUS CONTACTER</a>
+            <a href ="myaccount.php" class="active">MON ESPACE</a>
         </div>
     </nav>
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
@@ -76,9 +79,9 @@
                 <div class="TowerMemoryFooter">
                     <h2 class="TitreFooter">Power Of Memory</h2>
                     <ul class="ListeGeneralFooter">
-                        <li class="listeFooter"><a href="memory.html">Jouez !</a></li>
-                        <li class="listeFooter"><a href="scores.html">Les scores</a></li>
-                        <li class="listeFooter"><a href="contact.html">Nous contacter</a></li>
+                        <li class="listeFooter"><a href="memory.php">Jouez !</a></li>
+                        <li class="listeFooter"><a href="scores.php">Les scores</a></li>
+                        <li class="listeFooter"><a href="contact.php">Nous contacter</a></li>
                     </ul>
                 </div>
             </div>
