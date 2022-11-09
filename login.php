@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +11,49 @@
 </head>
 <body>
 
-    <?php
+<?php
     require_once 'view/header.inc.php';
+    include 'init_session.php';
+    include 'assets/includes/database.inc.php';
 
-    if($error === false && isset($email)){
 
+
+    $error = false;
+
+    if(isset($_POST['Connexion'])) {
+
+        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){ 
+            $email = $_POST['email'];
+
+        }else{
+            echo 'Email invalide';
+            $error = true;
+        }
+
+        if(strlen($_POST['password']) > 8){ 
+            $password = $_POST['password'];
+        }else{
+            echo 'password invalide';
+            $error = true;
+        }
+
+        if(!$error){
+           $requeteLogin = 'SELECT * FROM Utilisateur WHERE Email = ? AND Mot_de_passe = ?';
+            $requeteStatment = $conn->prepare($requeteLogin);
+            $requeteStatment->execute([$email, $password]);
+            $requete = $requeteStatment->fetch();
+
+            if(!empty($requete)){
+                $_SESSION['user'] = $requete;
+                header('Location: index.php');
+                exit();   
+            }else{
+                echo 'Email ou mot de passe invalide';
+            } 
+        
+        }
     }
+
     ?>
 
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
