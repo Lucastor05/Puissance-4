@@ -1,12 +1,868 @@
-
-body{
-    background-color: 15, 14, 46;
+footer{
+    background-color: rgba(14, 11, 38);
+}
+/*Général*/
+*{
+    /* Initialisation de la page */
+    font-family: "Gill Sans", sans-serif;
+    text-decoration: none;
+    color: white;
+    box-sizing: border-box;
 }
 
-header{
+body{
+    /* Changement du body */
+    background-color: rgba(15, 14, 46);
+    color: white;
+    margin: 0;
+}
+
+input{
+    background-color: rgba(39,38,69,255);
+    width: 30%;
+    padding: 10px 20px;
+    margin: 8px 0;  
+    border: 2px solid rgba(39,38,69,255);
+    border-radius: 4px;
+    color: white;
+} 
+
+ /*Page d'inscription*/
+.InscriptionButton-register{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.main-register{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.formulaire-register{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+
+/*Page contact*/
+/*css general*/
+.main-contact{
+    margin-top:40px;
+    margin-bottom: 30px;
+}
+
+/* 3 Pancartes de la page de Contact*/
+.flex-parentIndex-contact{
+    padding-top: 20px;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.ContactIndex-contact{
+    height: 265px;
+    width: 300px;
+    background-color: #0d0b26;
+    font-weight: normal;
+}
+
+.LogoContacterIndex-contact{
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: #e98d24;
+}
+/*Formulaire de la page de Contact*/
+.EnvoieDeFormulaireDeContactButton-contact{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.NomContact-contact{
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.MessageContact-contact{
+    height: 150px;
+    word-wrap:break-word;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.EmailContact-contact{
+    width: 185px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire-contact{
+    padding: 20px;
+
+}
+/*Page de Login*/
+
+.LoginButton-login{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.main-login{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire-login{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*page "my account"*/
+.main-myaccount{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.formulaire-myaccount{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*formulaire de changement d'email*/
+.MAJEmailButton-myaccount{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 10%;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*formulaire de changement de mot de passe*/
+.MyAccountSpaceButton-myaccount{
+    background-color: #e98d24;
+    border: 2px solid #e98d24;
+    border-radius: 4px;
+    width: 150px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*INDEX.HTML*/
+
+.corpPincipalIndex{
+    text-align: center;
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+
+
+/* Tableau avec les texte a complete et les images */
+
+
+    /*Tableau avec les images*/
+
+        .computerIndex{
+            /* Positionnement de la premiere image representant un ordinateur */
+            width: 430px;
+            height: 270px;
+
+        }
+
+        .bycicleIndex{
+            /* Positionnement de la seconde image representant un homme sur une trotinnette */
+            width: 215px;
+            height: 270px;
+            margin: 3px;
+        }
+
+        .pokerIndex{
+            /* positionnement de la troisieme image representant des cartes */
+            width: 215px;
+            height: 270px;
+        }
+
+
+/*Tableau avec les paragraphes en Latin */
+
+        .AlignLeftTitreIndex{
+            /* Aligne les textes à gauche et mets en gras*/
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .AlignLeftIndex{
+            /* Aligne a gauche et laisse le texte en normal */
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .tableauPIndex{
+            /*Taille du tableau*/
+            width: 900px;
+            margin-bottom: 130px;
+        }
+
+        .NumeroTabIndex{
+            /*Numero de section dans le tableau*/
+            color: #3724a0;
+        }
+
+
+/*Tableau Utilisateur (truc Watchdogs 2)*/
+
+    .contentPictureIndex{
+        margin-bottom: 130px;
+    }
+
+    .flex-parentPictureIndex{
+        /* Positionnement de l'ensemble, comprent l'images watchdogs ainsi que les 4 carrés*/
+        padding-top: 20px;
+        align-items:center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .Watchdogs2Index{
+        /* Ajustement de l'image watchdogs */
+        width: 450px;
+        height: 225px;
+    }
+
+    .Parti2Index{
+        /* Position des 4 petites images */
+        align-items:center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .SousParti1Index{
+        /* Positionnement de la partie avec la cellule 2 et 3 */
+        align-items:center;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .SousParti2Index{
+        /* Positionnement de la partie avec la cellule 4 et 5 */
+        align-items:center;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .cellule2Index{
+        /* Changement de la case avec le nombre de parties jouées */
+        width: 200px;
+        height: 100px;
+        background-color: #3724a0;
+        color: white;
+    }
+
+    .cellule3Index{
+        /* Changement de la case avec le nombre de joueurs connéctés */
+        width: 200px;
+        height: 100px;
+        color: white;
+        background-color: #18a15f;
+    }
+
+    .cellule4Index{
+        /* Changement de la case avec le temps records du joueur */
+        width: 200px;
+        height: 100px;
+        color: white;
+        background-color: #b91ca8;
+    }
+
+    .cellule5Index{
+        /* Changement de la case avec le nombre de joueurs inscrits */
+        width: 200px;
+        height: 100px;
+        color: white;
+        background-color: #ec9123;
+
+    }
+    
+           
+/*Notre equipe, tableau avec les profils*/
+    .notreEquipeh2Index{
+        margin-bottom: 0;
+    }
+
+    h3{
+        /* Modification du titre: "Notre Equipes */
+        margin-top: 10px;
+        font-size: 13px;
+        font-weight: normal;
+    }
+
+    .flex-parentIndex{
+        /* Positionnement des 3 profils*/
+        padding-top: 20px;
+        align-items:center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+
+    }
+
+    .profilIndex{
+        /* Positionnement et modif des preofils*/
+        height: 265px;
+        width: 300px;
+        background-color: #0d0b26;
+    }
+
+    .photoProfilIndex{
+        /* Modification des photos de profils (aspect ronde) */
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .profilGrasIndex{
+        /* texte en gras dans le profil*/
+        font-size: larger;
+        font-weight: bold;
+    }
+
+    .profilIndex{
+        /* texte normal dans le profil */
+        font-weight: normal;
+    }
+
+
+
+/*MEMORY.HTML*/
+
+.corpPincipalMemory{
+    /* Modification de l'ensemble de la page */
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/*Barre avec Les boutons pour la difficulté ainsi que le scores de la partie en cours*/
+
+    .BarreOutilsUtilisateurMemory{
+        /* Positionnement de la barre utilisateur */
+        display: flex;
+        margin-left: 100px;
+        margin-right: 100px;
+        align-items:center;
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: border-box;
+        background-color: #0d0b26;
+    }
+
+    .DifficultyButtonMemory{
+        /* Positionnement des differents boutons de difficulté */
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+        align-items:center;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 25px;
+    }
+
+
+    .AffichageScoresMemory{
+        /* Positionnement du scoreboard */
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+        align-items:center;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 25px;
+    }
+
+    .DifficultyButtonMemory button{
+        /* Modification des boutons*/
+        background-color: #0d0b26;
+        border: none;
+    }
+
+    .DifficultyButtonMemory button:hover{
+        /* changement de la couleur du bouton lorsque l'utilisateur place sa sourie dessus*/
+        color: #ec9123 ;
+    }
+
+
+/*Tableau de jeu*/
+
+    .TableauDeJeuMemory{
+        /* Positionnement de l'espace de jeu */
+        margin-left: 100px;
+        margin-right: 100px;
+        border-top: 20px;
+        border-bottom: 200px;
+        width: 989;
+        height: 989;
+    }
+
+    /*Facile*/
+
+        .TableauFacileMemory{
+            /* Positionnement de la grille */
+            background-color:#0d0b26;
+            display: flex;
+            row-gap: 3px;
+            column-gap: 3px;
+            justify-content: center;
+        }
+
+        .TableauFacileMemory tr td img{
+            /* Ajustement taille des images*/
+            height: 150px;
+            width: 150px;
+        }
+    
+    /* Intermediaire */
+    
+        .TableauIntermediaireMemory{
+            /* Positionnement de la grille */
+            background-color:#0d0b26;
+            display: flex;
+            row-gap: 3px;
+            column-gap: 3px;
+            justify-content: center;
+        }
+
+        .TableauIntermediaireMemory tr td img{
+            /* Ajustement taille des images*/
+            height: 100px;
+            width: 100px;
+        }
+
+    /* Expert */
+
+        .TableauExpertMemory{
+            /* Positionnement de la grille */
+            background-color:#0d0b26;
+            display: flex;
+            row-gap: 3px;
+            column-gap: 3px;
+            justify-content: center;
+        }
+
+        .TableauExpertMemory tr td img{
+            /* Ajustement taille des images*/
+            height: 75px;
+            width: 75px;
+        }
+
+
+    /* Impossible */
+
+        .TableauImpossibleMemory{
+            /* Positionnement de la grille */
+            background-color:#0d0b26;
+            display: flex;
+            row-gap: 3px;
+            column-gap: 3px;
+            justify-content: center;
+        }
+
+        .TableauImpossibleMemory tr td img{
+            /* Ajustement taille des images*/
+            height: 50px;
+            width: 50px;
+        }
+
+/*SCORES.HTML*/
+
+.corpPincipalScores{
+
+    margin: 100px;
     
 }
 
-footer{
-    background-color: 14, 11, 38;
-}
+/* Barre avec recherche et triage */
+
+    .BarreOutilsUtilisateurScores{
+        /* Positionnement de la barre d'outils comprennant la barre de recherche ainsi que le trie */
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        margin-bottom: 10px;
+
+    }
+
+    /* Search Barre*/
+
+        .SearchBarScores{
+            /* Positionnement de la barre de recherche */
+            display: flex;
+            align-items: center;
+            max-width: 450px;
+            background-color: #0d0b26;
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+        .SearchBarScores img{
+            /* Positionnement de l'image de la barre de recherche */
+            width: 20px;
+            position: relative;
+            top: 2px;
+        }
+
+        .SearchBarScores input{
+            /* Modification de la barre de recherche */
+            width: 100%;
+            height: 30px;
+            font-size: 18px;
+            background-color: #11102f;
+            outline: 0;
+            border: 0;
+            border-radius: 30px;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        .SearchBarScores input::placeholder{
+            /* Changement de la couleur du texte present dans la barre de recherche */
+            color: white;
+        }
+
+        .SearchBarScores input:hover{
+            background-color: #0d0b26;
+        }
+
+        .iconSearchBar{
+            background-color: #0d0b26;
+            color: white;
+        }
+
+    
+    /* Trie */
+        
+    .dropdownScore {
+        display: flex;
+        position: relative;
+    }
+
+    .dropdown-contentScore {
+        width: 240px;
+        height: 70px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        background-color: #0d0b26;
+        padding: 20px;
+        margin-left: 20px;
+        border-radius: 10px;
+    }
+
+    .dropdownScore:hover .dropdown-contentScore {
+        display: block;       
+    }
+    
+    .dropdown-contentScore select {
+        display: block;       
+        color: white;
+        background-color: #11102f;       
+        padding: 5px;       
+        text-decoration: none;
+        border: none;     
+        width: 100%;   
+        border-radius: 10px;
+        font-size: 15px;
+        outline: 0;
+    }
+
+    .dropdown-contentScore select:hover {
+        color: #ec9123;       
+        background-color: #0d0b26;      
+    }
+
+
+/* Titre */
+
+    h2.TitleScores{
+        /* Modification du titre: "Les meilleurs scores" */
+        margin-top: 15px;
+        margin-bottom: 0;
+        padding: 20px;
+        background-color: #0d0b26;
+    }
+
+
+/* Tableau des Scores */
+
+    /* En-tête du tableau */
+
+        .TableScore {
+            /* Positionnement de l'en-tête */
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background-color: #0d0b26;
+            padding: 15px 10px;
+        }
+
+        .TableScore , p{
+            /* Ajoue d'une bordure interne à l'en-tête */
+            padding: 0 15px;
+        }
+
+        .tableTitleScores{
+            /* Ajoue d'une bordure interne dans chaque case de l'en-tête */
+            font-size: 16px;
+            padding: 10px 15px 20px;
+        }
+
+
+    /* Tableau avec les resultat */
+
+        .table-resultScores{
+            /* Positionnement des resultat en colonne */
+            display: grid;
+            grid-column: 1 / -1;
+        }
+
+        .container-itemScore{
+            /* Positionnement des resultat */
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: center;
+            padding: 15px 10px;
+            background-color: #0d0b26;
+        }
+
+        .container-itemScore:nth-child(odd){
+            /* Faire un tableau Zébré*/
+            background-color: #11102f;
+        }
+
+
+
+
+    /* User Info */
+
+        .table-resultUserScores{
+            /* Positionnement de la grille entiere */
+            display: grid;
+            grid-column: 1 / -1;
+            margin: 30px 0;
+        }
+
+        .container-UseritemScore{
+            /* Positionnement des items dans la grille */
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: center;
+            padding: 15px 10px;
+            background-color: #0d0b26;
+        }
+
+
+/* CHAT */
+
+
+    .chatcontainer{
+        /* Container avec le chat et l'image pour l'ouvrir */
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        text-align: left;
+
+        margin: 0;
+    }
+
+    .contentChat{
+        /* Chat general, message et barre de message + bouton */
+        display: block;
+        width: auto;
+        flex-direction: column;
+        height: auto;
+        margin: 0;
+    }
+
+    .bandeauChat{
+        /* Positionnement des blocks */
+        display: flex;
+        background-color: #4172ff;
+        align-items: center;
+        color: white;
+        flex-direction: row;
+        gap: 5px;
+        height: 50px;
+        width: 300px;
+        padding: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .bandeauChat img{
+        /* Logo Chat general */
+        width: 20px;
+        height: 20px;
+        color: white;
+    }
+
+    .messageChat{
+        /* Blocks avec les textos */
+        background-color: white;
+        height: 500px;
+        width: 300px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .containerImage{
+        /* container avec Images de profils messages*/
+        padding-top: 20px;
+        padding-right: 5px;
+    }
+
+    .containerImage img{
+        /* Modifications des images */
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+    }
+
+    .form-container{
+        /* Container avec le formulaire et le bouton envoyer */
+        background-color: white;
+        display: flex;
+        height: auto;
+        flex-direction: row;
+        padding: 0 20px 20px;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+
+    .meChat{
+        /* Message envoyer par l'utilisateur */
+        background-color: #3d71ff;
+        text-align: right;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .otherChat{
+        /* Message envoyez par les autres membres */
+        background-color: #f4f8fb;
+        font-size: 15px;
+        color: #afb0b2;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .titreChat{
+        /* */
+        font-size: 15px;
+        text-align: right;
+    }
+
+    .sentByOthers{
+        /* Message envoyez par les autres */
+        display: flex;
+    }
+
+    .sendBy{
+        /* Nom de la personne qui a envoyer le chat */
+        color: #afb0b2;
+        font-size: 10px;
+        margin-bottom: 0;
+    }
+
+    .dateChat{
+        /* Date a laquelle le chat a ete envoye */
+        color: #afb0b2;
+        font-size: 10px;
+        margin-top: 0;
+    }
+
+
+    .MessageBarChat{
+        /*  Barre de message */
+        background-color: white;
+        color: black;
+        outline: 0;
+        border: 1px #afb0b2 solid;
+        border-radius: 5px;
+        height: 40px;
+        width: 70%;
+        padding: 5px 10px;
+        
+    }
+
+    .MessageBarChat::placeholder{
+        /* Messagfe dans la barre */
+        color: #afb0b2;
+    }
+
+    .buttonSendChat{
+        /* Bouton envoyez */
+        color: black;
+        background-color: white;
+        border: 0;
+        height: 40px;
+        width: 25%;
+    }
+
+    .buttonSendChat:hover{
+        /* Bouton envoyez lorsque la souris est dessus */
+        background-color: #f4f8fb;
+    }
+
+
+    .buttonOpen{
+        /* Image pour ouvrir le chat */
+        text-align: right;
+        margin-top: 5px;
+    }
+
+
+    .LogoOpenChat{
+        /* Image du chat */
+        background-color: #3d71ff;
+        border-radius: 999px;
+        width: 50px;
+        height: 50px;
+    }
+>>>>>>> main
