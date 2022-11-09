@@ -38,7 +38,7 @@
         }
 
         if(!$error){
-           $requeteLogin = 'SELECT * FROM Utilisateur WHERE Email = ? AND Mot_de_passe = ?';
+            $requeteLogin = 'SELECT * FROM Utilisateur WHERE Email = ? AND Mot_de_passe = ?';
             $requeteStatment = $conn->prepare($requeteLogin);
             $requeteStatment->execute([$email, $password]);
             $requete = $requeteStatment->fetch();
