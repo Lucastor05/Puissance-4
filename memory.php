@@ -16,20 +16,21 @@
     include 'assets/includes/database.inc.php';
     include 'init_session.php';
 
-    $pseudoUser = $_SESSION['user']['Pseudo'];
     $id_user = $_SESSION['user']['Identifiant'];
 
-    if(isset($_POST['buttonSendChat']) && !empty($_POST['messageInput'])){
+    if(isset($_POST['buttonChat'])){
 
         $message = $_POST['messageInput'];
 
         $requeteSendMesage = 'INSERT INTO `Message` (`Identifiant_du_jeu`, `Identifiant_de_expediteur`, `Message`, `Date_et_heure_du_message`) VALUES (2, ?, ?, NOW());';
         $requeteSendMessageStatment = $conn->prepare($requeteSendMesage);
         $requeteSendMessageStatment->execute([$id_user, $message]);
+
+        header('Location: memory.php'); 
+        exit();
     }
 
 
-    echo $pseudoUser;
     ?>
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
@@ -62,7 +63,6 @@
     
     
                 <div class="messageChat">
-
                     <?php
                     
                     $requeteallMessages = 'SELECT Utilisateur.Pseudo, Utilisateur.Identifiant , Message.Message, Message.Date_et_heure_du_message
@@ -72,13 +72,23 @@
                     $allMessages = $conn -> prepare($requeteallMessages);
                     $allMessages -> execute();
 
-                    while($msg = $allMessages -> fetch()){
-                        if($msg['Identifiant'] == $id_user){
 
+                    while($msg = $allMessages -> fetch()){
+                        if($msg['Identifiant'] == $id_user){                           
                     ?>
                             <p class="sendBy"><?php echo $msg['Pseudo']?> </p>
                             <p class="meChat"><?php echo $msg['Message']?> </p>
-                            <p class="dateChat"><?php echo date_create($msg['Date_et_heure_du_message'])->format('H:i:s')?> </p>
+                    <?php
+                    if(date_create($msg['Date_et_heure_du_message'])->format('d') ==  date("d", time())){
+                    ?>
+                            <p class="dateChat"><?php echo "Aujourd'hui à " . date_create($msg['Date_et_heure_du_message'])->format('H') . " heures." ?></p>
+                    <?php
+                    }else{
+                    ?>
+                            <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . " heures." ?></p>
+                    <?php
+                    }                   
+                    ?>
                     <?php
                         }else{
                         ?>
@@ -91,13 +101,11 @@
                         }
                     }
                     ?>
-                    
-                </div>
-    
+                </div>    
                 <div>
-                    <form action="memory.php" class="form-container" method="POST">
+                    <form action="" class="form-container" method="POST">
                         <input placeholder="Votre Message..." name="messageInput" required class="MessageBarChat"></input>
-                        <button type="submit" class="buttonSendChat" name="buttonSendChat">Envoyez</button>
+                        <button type="submit" class="buttonSendChat" name="buttonChat">Envoyez</button>
                       </form>
                 </div>
                 
