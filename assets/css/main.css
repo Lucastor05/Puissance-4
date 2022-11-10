@@ -728,7 +728,7 @@ input{
         color: white;
     }
 
-    .messageChat{
+    #messageChat{
         /* Blocks avec les textos */
         background-color: white;
         height: 500px;

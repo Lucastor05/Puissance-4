@@ -64,7 +64,7 @@
     
                 <div class="messageChat">
                     <?php
-                    
+
                     $requeteallMessages = 'SELECT Utilisateur.Pseudo, Utilisateur.Identifiant , Message.Message, Message.Date_et_heure_du_message
                     FROM Message 
                     INNER JOIN Utilisateur ON Utilisateur.Identifiant = Message.Identifiant_de_expediteur
@@ -74,20 +74,26 @@
 
 
                     while($msg = $allMessages -> fetch()){
-                        if($msg['Identifiant'] == $id_user){                           
+                        if($msg['Identifiant'] == $id_user){
+                            
                     ?>
                             <p class="sendBy"><?php echo $msg['Pseudo']?> </p>
                             <p class="meChat"><?php echo $msg['Message']?> </p>
+
+
                     <?php
                     if(date_create($msg['Date_et_heure_du_message'])->format('d') ==  date("d", time())){
+
+                    
                     ?>
-                            <p class="dateChat"><?php echo "Aujourd'hui à " . date_create($msg['Date_et_heure_du_message'])->format('H') . " heures." ?></p>
+                            <p class="dateChat"><?php echo "Aujourd'hui à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
                     <?php
                     }else{
                     ?>
-                            <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . " heures." ?></p>
+                            <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
                     <?php
-                    }                   
+                    }
+                    
                     ?>
                     <?php
                         }else{
@@ -101,7 +107,9 @@
                         }
                     }
                     ?>
-                </div>    
+                    
+                </div>
+    
                 <div>
                     <form action="" class="form-container" method="POST">
                         <input placeholder="Votre Message..." name="messageInput" required class="MessageBarChat"></input>
