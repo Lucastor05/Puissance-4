@@ -1,3 +1,7 @@
+<?php
+session_start();
+include 'assets/includes/database.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +19,11 @@
         <a href="#" class="nomSite">The Tower Of Mermory</a>
 
         <div class="topnav-right">
-            <a href="index.html">ACCUEIL</a>
-            <a href="memory.html">JEU</a>
-            <a href="scores.html">SCORES</a>
-            <a href="contact.html">NOUS CONTACTER</a>
-            <a href ="myaccount.html" class="active">MON ESPACE</a>
+            <a href="index.php">ACCUEIL</a>
+            <a href="memory.php">JEU</a>
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php">NOUS CONTACTER</a>
+            <a href ="myaccount.php" class="active">MON ESPACE</a>
         </div>
     </nav>
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
@@ -35,12 +39,69 @@
             <label for="nouvelEmail"></label><br>
             <input type="text" id="nouvelEmail" name="nouvelEmail" placeholder ="Nouvel Email" required="nouvelEmail" class="formulaire-myaccount">
             <label for="password"></label><br>
-            <input type="password" id="password" name="password" placeholder ="Mot de passe" required="password" class="formulaire-myaccount">
+            <input type="password" id="password" name="password" placeholder ="Mot de passe" required="password" class="formulaire-myaccount" maxlength="">
             <label for="Cpassword"></label><br>
             <input type="password" id="Cpassword" name="Cpassword" placeholder ="Confirmez le mot de passe" required="Cpassword" class="formulaire-myaccount"><br>
             <button name="MAJEmail" type="submit" value="HTML" class="MAJEmailButton-myaccount">Mise à jour</button>
         </form>
 
+        <p align="center">
+		<?php
+		if (!empty($_POST)) {
+			$point = strpos($_POST['ancienEmail'], ".");
+			$aroba = strpos($_POST['ancienEmail'], "@");
+			if ($point === false)
+				echo 'Votre ancien Email doit comporter un point.';
+			else if ($aroba === false)
+				echo 'Votre ancien Email doit comporter un arobase.';
+			else
+				echo 'Votre ancien Email  ' . $_POST['ancienEmail'] . ' est valide.';
+		} else {
+			echo 'Veuillez saisir votre ancien Email dans le champ prévu à cette effet.';
+		}
+		?>
+		</p>
+
+        <p align="center">
+        <?php
+		if (!empty($_POST)) {
+			$point = strpos($_POST['nouvelEmail'], ".");
+			$aroba = strpos($_POST['nouvelEmail'], "@");
+			if ($point === false)
+				echo 'Votre nouvel Email doit comporter un point.';
+			else if ($aroba === false)
+				echo 'Votre nouvel Email doit comporter un arobase.';
+			else
+				echo 'Votre nouvel Email ' . $_POST['nouvelEmail'] . ' est valide.';
+		} else {
+			echo 'Veuillez saisir un  nouvel Email dans le champ prévu à cette effet.';
+		}
+		?>
+		</p>
+
+        <?php
+        $mdplength = strlen($_POST['password']);
+            if($mdplength >= 8)
+            {
+                 }
+            else
+            {
+                $erreur = "Votre mot de passe doit contenir 8 caractères minimum.";
+            }
+        ?>
+
+        <?php
+        $Cmdplength = strlen($_POST['Cpassword']);
+            if($Cmdplength >= 8)
+            {
+                 }
+            else
+            {
+                $erreur = "Votre mot de passe doit contenir 8 caractères minimum.";
+            }
+            ?>
+
+        
         <!--Formulaire de changement de mot de passe-->
         <form action="" method="post" align="center">
             <label for="ancienPassword"></label><br>
@@ -76,9 +137,9 @@
                 <div class="TowerMemoryFooter">
                     <h2 class="TitreFooter">Power Of Memory</h2>
                     <ul class="ListeGeneralFooter">
-                        <li class="listeFooter"><a href="memory.html">Jouez !</a></li>
-                        <li class="listeFooter"><a href="scores.html">Les scores</a></li>
-                        <li class="listeFooter"><a href="contact.html">Nous contacter</a></li>
+                        <li class="listeFooter"><a href="memory.php">Jouez !</a></li>
+                        <li class="listeFooter"><a href="scores.php">Les scores</a></li>
+                        <li class="listeFooter"><a href="contact.php">Nous contacter</a></li>
                     </ul>
                 </div>
             </div>
