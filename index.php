@@ -1,3 +1,16 @@
+<?php
+
+require 'assets/include/database.inc.php';
+
+/*number of rows utilisateur/pseudo
+who's connected? last connection
+time record, scores ???
+games played ????*/
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,14 +26,14 @@
 
     <!--Barre de navigation avec les different lien vers les autres pages-->
     <nav class="topnavAbsolute">
-        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
+        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
         <div>
             <!--Different lien vers les pages-->
-            <a href="index.html" class="active">ACCUEIL</a><!--Class active represente la page sur laquelle on est dans la barre de navigation donc si dans autre page que main a change de plavce@-->
-            <a href="memory.html">JEU</a>
-            <a href="scores.html">SCORES</a>
-            <a href="contact.html">NOUS CONTACTER</a>
-            <a href="myaccount.html">MON ESPACE</a>
+            <a href="index.php" class="active">ACCUEIL</a><!--Class active represente la page sur laquelle on est dans la barre de navigation donc si dans autre page que main a change de plavce@-->
+            <a href="memory.php">JEU</a>
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php">NOUS CONTACTER</a>
+            <a href="myaccount.php">MON ESPACE</a>
         </div>
     </nav>
         
@@ -157,7 +170,6 @@
         </div>
 
         <p class="copyright">Copyright © 2022 Tous droits réservés</p>
->>>>>>> main
     </footer>
 </body>
 </html>

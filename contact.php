@@ -11,14 +11,14 @@
 </head>
 <body>
     <nav class="topnavAbsolute">
-        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
+        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
         <div>
             <!--Different lien vers les pages-->
-            <a href="index.html">ACCUEIL</a>
-            <a href="memory.html">JEU</a>
-            <a href="scores.html">SCORES</a>
-            <a href="contact.html" class="active">NOUS CONTACTER</a>
-            <a href ="myaccount.html">MON ESPACE</a>
+            <a href="index.php">ACCUEIL</a>
+            <a href="memory.php">JEU</a>
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php" class="active">NOUS CONTACTER</a>
+            <a href ="myaccount.php">MON ESPACE</a>
         </div>
     </nav>
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
