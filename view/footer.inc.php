@@ -19,7 +19,7 @@
                         <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
                     </div>
                 </div>
-                <div class="TowerMemoryFooter">
+                <div>
                     <h2 class="TitreFooter">Power Of Memory</h2>
                     <ul class="ListeGeneralFooter">
                         <li class="listeFooter"><a href="memory.php">Jouez !</a></li>

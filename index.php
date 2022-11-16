@@ -13,33 +13,10 @@
 
     <?php
     require 'view/header.inc.php';
+    include 'init_session.php';
+    include 'assets/includes/database.inc.php'
 
 
-    // Souvent on identifie cet objet par la variable $conn ou $db
-
-    /*try{
-        $mysqlConnection = new PDO(
-            'mysql:host=localhost;dbname=Puissance-4;charset=utf8',
-            'root',
-            'root'
-        );
-    }
-    catch (Exception $e)
-    {
-            die('Erreur : ' . $e->getMessage());
-    }
-
-    $sqlQuery = 'SELECT pseudo FROM Utilisateur WHERE Identifiant = 4';
-    $recipesStatement = $mysqlConnection->prepare($sqlQuery);
-    $recipesStatement->execute();
-    $recipes = $recipesStatement->fetchAll();
-
-    // On affiche chaque recette une à une
-    foreach ($recipes as $recipe) {
-    ?>
-        <p><?php echo $recipe['pseudo']; ?></p>
-    <?php
-    }*/
     ?>
 
 
@@ -84,7 +61,7 @@
                 <td></td>
                 <td>Bien que le jeu Memory soit initialement un jeu de société, ici, vous pouvez y jouez gratuitement sur tout vos appareil !</td>
                 <td></td>
-                <td>The Tower Of Memory est un jeu qui mélange hasard et déduction, idéal pour faire travailler la mémoire tout en s’amusant !</td>
+                <td>The Power Of Memory est un jeu qui mélange hasard et déduction, idéal pour faire travailler la mémoire tout en s’amusant !</td>
                 <td></td>
                 <td>Le joueur retourne deux cartes. Si les images sont identiques, il gagne la paire constituée et rejoue. Si les images sont différentes, elles reprennent leur place initial face cachée. La partie est terminée lorsque toutes les cartes ont été assemblées par paires.</td>
             </tr>

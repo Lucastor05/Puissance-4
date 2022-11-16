@@ -14,6 +14,7 @@
 
     <?php
     require_once 'view/header.inc.php';
+    include 'init_session.php';
     ?>
 
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->

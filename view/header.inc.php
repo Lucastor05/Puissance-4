@@ -19,7 +19,7 @@ function absolute() {
 ?>
 
 <nav <?php echo absolute(); ?>>
-    <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
+    <a href="memory.php" class="nomSite">The Power Of Mermory</a>
     <div class="divnav">
         <!--Different lien vers les pages-->
         <a <?php echo active('/index.php'); ?> href="index.php">ACCUEIL</a>

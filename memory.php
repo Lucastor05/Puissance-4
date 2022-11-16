@@ -35,7 +35,7 @@
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
     <header class="headMemory">
-        <h1 class="TitreAccueilMemory">THE TOWER OF <br>MEMORY !</h1> 
+        <h1 class="TitreAccueilMemory">THE POWER OF <br>MEMORY !</h1> 
     </header>    
 
 
@@ -62,7 +62,7 @@
                 </div>
     
     
-                <div class="messageChat">
+                <div id="messageChat">
                     <?php
 
                     $requeteallMessages = 'SELECT Utilisateur.Pseudo, Utilisateur.Identifiant , Message.Message, Message.Date_et_heure_du_message
@@ -77,6 +77,7 @@
                         if($msg['Identifiant'] == $id_user){
                             
                     ?>
+                        <div class="SendByMe">
                             <p class="sendBy"><?php echo $msg['Pseudo']?> </p>
                             <p class="meChat"><?php echo $msg['Message']?> </p>
 
@@ -91,22 +92,42 @@
                     }else{
                     ?>
                             <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
+                        
                     <?php
                     }
                     
                     ?>
+                        </div>
                     <?php
                         }else{
                         ?>
+                        <div class="photo-otherMessage">
+                            <div class="containerImage">
+                                <img src="assets/Images/PhotoProfilProv.jpg">
+                            </div>
                             <div class="message">
                                 <p class="sendBy"><?php echo $msg['Pseudo']?></p>
                                 <p class="otherChat"><?php echo $msg['Message']?></p>
-                                <p class="dateChat"><?php echo date_create($msg['Date_et_heure_du_message'])->format('H:i:s')?> </p>
-                            </div>
-                    <?php
+                                <?php
+                        if(date_create($msg['Date_et_heure_du_message'])->format('d') ==  date("d", time())){
+
+                        
+                        ?>
+                                <p class="dateChat"><?php echo "Aujourd'hui à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
+                        <?php
+                        }else{
+                        ?>
+                                <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
+                        <?php
                         }
-                    }
-                    ?>
+                        
+                        ?>
+                                </div>
+                            </div>
+                        <?php
+                            }
+                        }
+                        ?>
                     
                 </div>
     

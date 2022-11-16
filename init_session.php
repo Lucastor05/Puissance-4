@@ -2,8 +2,12 @@
 session_start();
 
 
-if($_SESSION['user'] == null){
-    header('Location: login.php');
-    exit();   
+if(empty($_SESSION['user'])){
+    if($_SERVER["PHP_SELF"] != '/login.php'){
+        header('Location: login.php');
+        exit();
+    }
 }
+
+
 ?>

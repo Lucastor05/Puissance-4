@@ -62,4 +62,13 @@ INSERT INTO `Score` (`Identifiant_du_joueur`, `Identifiant_du_jeu`, `Difficulte_
     VALUES (idUser, gameID, GameDifficulty, 'NouveauScore', NOW());
 
 
+/* Story 9 */
 
+INSERT INTO `Message` (`Identifiant`, `Identifiant_du_jeu`, `Identifiant_de_expéditeur`, `Message`, `Date_et_heure_du_message`) VALUES (NULL, GameID, UserID, MessageUser, NOW());
+
+/* Story 10 */
+
+SELECT Message.Identifiant_de_expediteur , Message.Message, Message.Date_et_heure_du_message
+FROM Message 
+WHERE Message.Date_et_heure_du_message >= NOW() - INTERVAL 1 DAY;
+ORDER BY Date_et_heure_du_message
