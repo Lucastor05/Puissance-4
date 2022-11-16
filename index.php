@@ -24,6 +24,7 @@ games played ????*/
 </head>
 <body>
 
+<<<<<<< HEAD
     <!--Barre de navigation avec les different lien vers les autres pages-->
     <nav class="topnavAbsolute">
         <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
@@ -36,12 +37,26 @@ games played ????*/
             <a href="myaccount.php">MON ESPACE</a>
         </div>
     </nav>
+=======
+    <?php
+    require 'view/header.inc.php';
+    include 'init_session.php';
+    include 'assets/includes/database.inc.php'
+
+
+    ?>
+
+
+    
+
+    
+>>>>>>> Lucas
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
     <header class="headIndex">
         <h1 class="TitreAccueilIndex">BIENVENUE DANS <br>NOTRE STUDIO !</h1> 
         <h2 class="TitreSecondaireAccueilIndex">Venez challenger les cerveaux les plus agiles !</h2>
-        <button class="boutonPlayIndex" type="button" onclick="window.location.href='memory.html'">JOUEZ !</button>
+        <button class="boutonPlayIndex" type="button" onclick="window.location.href='memory.php'">JOUEZ !</button>
     </header>    
 
     <!--Début du main de la page-->
@@ -74,7 +89,7 @@ games played ????*/
                 <td></td>
                 <td>Bien que le jeu Memory soit initialement un jeu de société, ici, vous pouvez y jouez gratuitement sur tout vos appareil !</td>
                 <td></td>
-                <td>The Tower Of Memory est un jeu qui mélange hasard et déduction, idéal pour faire travailler la mémoire tout en s’amusant !</td>
+                <td>The Power Of Memory est un jeu qui mélange hasard et déduction, idéal pour faire travailler la mémoire tout en s’amusant !</td>
                 <td></td>
                 <td>Le joueur retourne deux cartes. Si les images sont identiques, il gagne la paire constituée et rejoue. Si les images sont différentes, elles reprennent leur place initial face cachée. La partie est terminée lorsque toutes les cartes ont été assemblées par paires.</td>
             </tr>
@@ -137,39 +152,8 @@ games played ????*/
         </div>
     </main>
 
-    <!--Footer de la page-->
-    <footer> 
-        <div class="contentFooter">
-            <div class="flex-parentFooter">
-                <div class="informationFooter">
-                    <h2 class="TitreFooter">Information</h2>
-                    <p>Quisque commodo facilisis purus, interdum voluptat arcu viverra sed.</p>
-                    <p><strong class="OrangeCharacter">Tèl</strong> : 06 00 00 00 00</p>
-                    <p><strong class="OrangeCharacter">Email</strong> : addressmail@gmail.com</p>
-                    <p><strong class="OrangeCharacter">Location</strong> : Paris</p>
-
-
-                    <!--Images Reseaux sociaux-->
-                    <div class="reseauSociauxLogo">
-                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/facebook.svg" class="Lfacebook"></a>
-                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/twitter.svg" class="Ltwitter"></a>
-                        <a href="https://www.google.fr/"><img src="assets/Images/google.svg"class="Lgoogle"></a>
-                        <a href="https://www.pinterest.fr/"><img src="assets/Images/pinterest.svg" class="Lpinterest"></a>
-                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
-                    </div>
-                </div>
-                <div class="TowerMemoryFooter">
-                    <h2 class="TitreFooter">Power Of Memory</h2>
-                    <ul class="ListeGeneralFooter">
-                        <li class="listeFooter"><a href="memory.html">Jouez !</a></li>
-                        <li class="listeFooter"><a href="scores.html">Les scores</a></li>
-                        <li class="listeFooter"><a href="contact.html">Nous contacter</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <p class="copyright">Copyright © 2022 Tous droits réservés</p>
-    </footer>
+    <?php
+    require_once 'view/footer.inc.php';
+    ?>
 </body>
 </html>
