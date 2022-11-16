@@ -1,18 +1,3 @@
-<?php
-
-if(!empty($_POST['tri'])){
-    $selected = $_POST['Fruit'];
-    echo 'You have chosen: ' . $selected;
-} else {
-    echo 'Please select the value.';
-}
-
-
-
-
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +41,8 @@ if(!empty($_POST['tri'])){
         }
     }
 
-
+    $filterTrie = 'Identifiant_du_jeu';
+    $filterOrdre = 'DESC'
     
 
 
@@ -78,23 +64,22 @@ if(!empty($_POST['tri'])){
             </form>
                 
             <div class="dropdownScore">
-                <form>
-                    <select name="tri" class="triage" id="dropdown-contentScore">
+                <form action="" method="post" class="mb-3">
+                <div class="select-block">
+                    <select class="dropdownSelect" name="trie">
                         <option value="NomJeuScores">Nom de jeu</option>
                         <option value="pseudoScore">Pseudo</option>
                         <option value="DifficultyScore">Difficulté</option>
                         <option value="TempsScore">Temps</option>
                         <option value="dateScore">Date</option>
                     </select>
-                </form>
-                <form>
-                    <select name="Ordre" class="triage" id="dropdown-contentScore">
+                    <select class="dropdownSelect" name="Ordre" class="triage" id="dropdown-contentScore">
                         <option name="CroissantScore">Croissant</option>
-                        <option name="DecroissantScore">Décroissant</option>
+                        <option name="DecroissantScore">Decroissant</option>
                     </select>
+                </div>
+                <input class="inputSelectScore" type="submit" name="submit" vlaue="Choose options">
                 </form>
-                    
-                
             </div>
         </div>
 
@@ -120,12 +105,7 @@ if(!empty($_POST['tri'])){
         $userScore -> execute([$id_user]);
         $uScore = $userScore -> fetch();
 
-        $requeteAllScore= 'SELECT Jeu.Nom_du_jeu, Utilisateur.Pseudo, Score.Difficulte_de_la_partie, Score.Score_de_la_partie, Score.Date_et_heure_de_la_partie
-        FROM Score
-        INNER JOIN Jeu ON Score.Identifiant_du_jeu = Jeu.Identifiant 
-        INNER JOIN Utilisateur ON Utilisateur.Identifiant = Score.Identifiant_du_joueur';
-        $Score = $conn -> prepare($requeteAllScore);
-        $Score -> execute();
+        
 
 
 
@@ -173,8 +153,8 @@ if(!empty($_POST['tri'])){
                 <?php
                 
                 if(isset($_POST['search'])){
-
                     if(PseudoExiste($conn, $_POST['search'])){
+
                         $SearchUser= 'SELECT Jeu.Nom_du_jeu, Utilisateur.Pseudo, Score.Difficulte_de_la_partie, Score.Score_de_la_partie, Score.Date_et_heure_de_la_partie FROM Score INNER JOIN Jeu ON Score.Identifiant_du_jeu = Jeu.Identifiant  INNER JOIN Utilisateur ON Utilisateur.Identifiant = Score.Identifiant_du_joueur WHERE Utilisateur.Pseudo = ?';
                         $Search = $conn -> prepare($SearchUser);
                         $Search -> execute([$_POST['search']]);
@@ -187,6 +167,15 @@ if(!empty($_POST['tri'])){
                             <p><?= date_create($tabSearch['Date_et_heure_de_la_partie'])->format('d/m/Y')  ?></p>
                         <?php
                     }else{
+
+                        $requeteAllScore= 'SELECT Jeu.Nom_du_jeu, Utilisateur.Pseudo, Score.Difficulte_de_la_partie, Score.Score_de_la_partie, Score.Date_et_heure_de_la_partie
+                        FROM Score
+                        INNER JOIN Jeu ON Score.Identifiant_du_jeu = Jeu.Identifiant 
+                        INNER JOIN Utilisateur ON Utilisateur.Identifiant = Score.Identifiant_du_joueur
+                        ORDER BY '. $filterTrie . ' ' . $filterOrdre;
+                        $Score = $conn -> prepare($requeteAllScore);
+                        $Score -> execute();
+
                         while($AllScore = $Score -> fetch()){
                             ?>
                                 <p><?= $AllScore['Nom_du_jeu'];  ?></p>
@@ -199,6 +188,47 @@ if(!empty($_POST['tri'])){
                     }
 
                 }else{
+
+
+                    if(isset($_POST["trie"])){
+
+                        if($_POST["trie"] == "NomJeuScores"){
+                            $filterTrie = "Identifiant_du_jeu";
+                        }elseif($_POST["trie"] == "pseudoScore"){
+                            $filterTrie = "Identifiant_du_joueur";
+                        }elseif($_POST["trie"] == "DifficultyScore"){
+                            $filterTrie = "Difficulte_de_la_partie";
+                        }elseif($_POST["trie"] == "TempsScore"){
+                            $filterTrie = "Score_de_la_partie";
+                        }elseif($_POST["trie"] == "dateScore"){
+                            $filterTrie = "Date_et_heure_de_la_partie";
+                        }
+
+                        if(isset($_POST["Ordre"])){
+                            if($_POST["Ordre"] == "Croissant"){
+                                $filterOrdre = "ASC";
+                            }else{
+                                $filterOrdre = "DESC";
+                            }
+                        }
+
+                    }elseif(isset($_POST["Ordre"])){
+                        if($_POST["Ordre"] == "Croissant"){
+                            $filterOrdre = "ASC";
+                        }else{
+                            $filterOrdre = "DESC";
+                        }
+                    }
+
+                    $requeteAllScore= 'SELECT Jeu.Nom_du_jeu, Utilisateur.Pseudo, Score.Difficulte_de_la_partie, Score.Score_de_la_partie, Score.Date_et_heure_de_la_partie
+                    FROM Score
+                    INNER JOIN Jeu ON Score.Identifiant_du_jeu = Jeu.Identifiant 
+                    INNER JOIN Utilisateur ON Utilisateur.Identifiant = Score.Identifiant_du_joueur
+                    ORDER BY '. $filterTrie . ' ' . $filterOrdre;
+
+                    $Score = $conn -> prepare($requeteAllScore);
+                    $Score -> execute();
+
                     while($AllScore = $Score -> fetch()){
                     ?>
                         <p><?= $AllScore['Nom_du_jeu'];  ?></p>
@@ -208,7 +238,8 @@ if(!empty($_POST['tri'])){
                         <p><?= date_create($AllScore['Date_et_heure_de_la_partie'])->format('d/m/Y');  ?></p>
                     <?php
                     }
-                    }
+                }
+            
                     
                     ?>
                 
