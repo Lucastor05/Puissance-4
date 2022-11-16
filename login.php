@@ -45,12 +45,11 @@
 
             if(!empty($requete)){
                 $_SESSION['user'] = $requete;
-                header('Location: index.php');
-                exit();   
+            //    header('Location: index.php');
+            //    exit();   
             }else{
                 echo 'Email ou mot de passe invalide';
             } 
-        
         }
     }
 
