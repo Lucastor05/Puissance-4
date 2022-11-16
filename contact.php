@@ -60,6 +60,55 @@ include 'assets/includes/database.inc.php';
             <input type="text" id="Message" name="Message" placeholder ="Message" required class="MessageContact-contact"><br>
             <button name="EnvoieDeFormulaireDeContactButton" type="submit" value="HTML" class="EnvoieDeFormulaireDeContactButton-contact">Envoyer</button>
         </form>
+        <?php
+
+        $erreur = false;
+
+
+		if (isset($_POST['EnvoieDeFormulaireDeContactButton'])) {
+            //filtre de mail pour qu'il soit correct
+			if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $Email = $_POST['email'];
+            }else{
+                $erreur = true;
+                $erreur='Email invalide';
+
+            }
+            //filtre de nom pour que le champ 'nom' ne soit pas vides pendant l'envoie de formulaire
+            if (empty($_POST['Nom'])){
+                $erreur = true;
+                $erreur="le champ Nom n'est pas rempli";
+            }else{
+                $Nom = $_POST['Nom'];
+            }
+            //filtre de sujet pour que le champ 'sujet' ne soit pas vides pendant l'envoie de formulaire
+            if (empty($_POST['Sujet'])){
+                $Sujet = $_POST['Sujet'];
+            }else{
+                $erreur = true;
+                $erreur="le champ Sujet n'est pas rempli";
+            }
+            //filtre de message pour que le champ 'message' fasse + de 15 caracteres pendant l'envoie de formulaire
+
+            $Cmdplength = strlen($_POST['Message']);
+            if($Cmdplength >= 15){
+                $Message = $_POST['Message'];
+            }else{
+                $erreur = true;
+                $erreur = "Votre Message doit contenir 15 caractères minimum.";
+            }
+
+            if(!$erreur){
+                $retour=mail('donnemoiunebonnenotejemerite@gmail.com', $Sujet, $Message, $Email);
+                if($retour){
+                    echo'Votre message a bien ete envoyer';
+                }
+                header('Location: login.php');
+                exit;   
+            }
+        }
+
+        ?>
 
     </main>
 
