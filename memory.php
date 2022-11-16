@@ -11,23 +11,10 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-    <!--Barre de navigation avec les different lien vers les autres pages-->
-    <nav class="topnav">
-        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
-        <div>
-            <!--Different lien vers les pages-->
-            <a href="index.php">ACCUEIL</a>
-            <a href="memory.php" class="active">JEU</a><!--Class active represente la page sur laquelle on est dans la barre de navigation donc si dans autre page que memory a change de plavce@-->
-            <a href="scores.php">SCORES</a>
-            <a href="contact.php">NOUS CONTACTER</a>
-            <a href="myaccount.php">MON ESPACE</a>
-=======
     <?php
     require_once 'view/header.inc.php';
     include 'assets/includes/database.inc.php';
     include 'init_session.php';
->>>>>>> Lucas
 
     $id_user = $_SESSION['user']['Identifiant'];
 

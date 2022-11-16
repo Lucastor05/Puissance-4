@@ -24,20 +24,6 @@ games played ????*/
 </head>
 <body>
 
-<<<<<<< HEAD
-    <!--Barre de navigation avec les different lien vers les autres pages-->
-    <nav class="topnavAbsolute">
-        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
-        <div>
-            <!--Different lien vers les pages-->
-            <a href="index.php" class="active">ACCUEIL</a><!--Class active represente la page sur laquelle on est dans la barre de navigation donc si dans autre page que main a change de plavce@-->
-            <a href="memory.php">JEU</a>
-            <a href="scores.php">SCORES</a>
-            <a href="contact.php">NOUS CONTACTER</a>
-            <a href="myaccount.php">MON ESPACE</a>
-        </div>
-    </nav>
-=======
     <?php
     require 'view/header.inc.php';
     include 'init_session.php';
@@ -45,12 +31,7 @@ games played ????*/
 
 
     ?>
-
-
     
-
-    
->>>>>>> Lucas
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
     <header class="headIndex">

@@ -10,19 +10,6 @@
     <link rel="stylesheet" href="assets/css/footer.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <nav class="topnavAbsolute">
-        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
-        <div>
-            <!--Different lien vers les pages-->
-            <a href="index.php">ACCUEIL</a>
-            <a href="memory.php">JEU</a>
-            <a href="scores.php">SCORES</a>
-            <a href="contact.php" class="active">NOUS CONTACTER</a>
-            <a href ="myaccount.php">MON ESPACE</a>
-        </div>
-    </nav>
-=======
 
 
     <?php
@@ -30,7 +17,6 @@
     include 'init_session.php';
     ?>
 
->>>>>>> Lucas
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
     <header id="HeadContact-contact">
         <H1>NOUS CONTACTER</H1>

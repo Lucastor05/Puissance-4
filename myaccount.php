@@ -15,17 +15,6 @@
     include 'init_session.php';
     ?>
 
-<<<<<<< HEAD
-        <div class="topnav-right">
-            <a href="index.php">ACCUEIL</a>
-            <a href="memory.php">JEU</a>
-            <a href="scores.php">SCORES</a>
-            <a href="contact.php">NOUS CONTACTER</a>
-            <a href ="myaccount.php" class="active">MON ESPACE</a>
-        </div>
-    </nav>
-=======
->>>>>>> Lucas
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
     <header id="HeadMyAccount">
             <H1>MON ESPACE</H1>
