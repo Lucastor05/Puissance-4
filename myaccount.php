@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD:myaccount.php
 session_start();
 include 'assets/includes/database.inc.php';
 
@@ -6,6 +7,9 @@ include 'assets/includes/database.inc.php';
 
 $idUserMyAccount = 4;
 
+=======
+include 'assets/includes/database.inc.php';
+>>>>>>> 64caf21f9c829b897243103e147f1922c2540d68:myaccount.html
 ?>
 <!DOCTYPE html>
 <html lang="en">
