@@ -1,3 +1,7 @@
+<?php
+include 'assets/includes/database.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +15,14 @@
 </head>
 <body>
     <nav class="topnavAbsolute">
-        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
+        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
         <div>
             <!--Different lien vers les pages-->
-            <a href="index.html">ACCUEIL</a>
-            <a href="memory.html">JEU</a>
-            <a href="scores.html">SCORES</a>
-            <a href="contact.html" class="active">NOUS CONTACTER</a>
-            <a href ="myaccount.html">MON ESPACE</a>
+            <a href="index.php">ACCUEIL</a>
+            <a href="memory.php">JEU</a>
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php" class="active">NOUS CONTACTER</a>
+            <a href ="myaccount.php">MON ESPACE</a>
         </div>
     </nav>
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
@@ -56,6 +60,55 @@
             <input type="text" id="Message" name="Message" placeholder ="Message" required class="MessageContact-contact"><br>
             <button name="EnvoieDeFormulaireDeContactButton" type="submit" value="HTML" class="EnvoieDeFormulaireDeContactButton-contact">Envoyer</button>
         </form>
+        <?php
+
+        $erreur = false;
+
+
+		if (isset($_POST['EnvoieDeFormulaireDeContactButton'])) {
+            //filtre de mail pour qu'il soit correct
+			if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $Email = $_POST['email'];
+            }else{
+                $erreur = true;
+                $erreur='Email invalide';
+
+            }
+            //filtre de nom pour que le champ 'nom' ne soit pas vides pendant l'envoie de formulaire
+            if (empty($_POST['Nom'])){
+                $erreur = true;
+                $erreur="le champ Nom n'est pas rempli";
+            }else{
+                $Nom = $_POST['Nom'];
+            }
+            //filtre de sujet pour que le champ 'sujet' ne soit pas vides pendant l'envoie de formulaire
+            if (empty($_POST['Sujet'])){
+                $Sujet = $_POST['Sujet'];
+            }else{
+                $erreur = true;
+                $erreur="le champ Sujet n'est pas rempli";
+            }
+            //filtre de message pour que le champ 'message' fasse + de 15 caracteres pendant l'envoie de formulaire
+
+            $Cmdplength = strlen($_POST['Message']);
+            if($Cmdplength >= 15){
+                $Message = $_POST['Message'];
+            }else{
+                $erreur = true;
+                $erreur = "Votre Message doit contenir 15 caractères minimum.";
+            }
+
+            if(!$erreur){
+                $retour=mail('donnemoiunebonnenotejemerite@gmail.com', $Sujet, $Message, $Email);
+                if($retour){
+                    echo'Votre message a bien ete envoyer';
+                }
+                header('Location: login.php');
+                exit;   
+            }
+        }
+
+        ?>
 
     </main>
 
@@ -83,9 +136,9 @@
                 <div class="TowerMemoryFooter">
                     <h2 class="TitreFooter">Power Of Memory</h2>
                     <ul class="ListeGeneralFooter">
-                        <li class="listeFooter"><a href="memory.html">Jouez !</a></li>
-                        <li class="listeFooter"><a href="scores.html">Les scores</a></li>
-                        <li class="listeFooter"><a href="contact.html">Nous contacter</a></li>
+                        <li class="listeFooter"><a href="memory.php">Jouez !</a></li>
+                        <li class="listeFooter"><a href="scores.php">Les scores</a></li>
+                        <li class="listeFooter"><a href="contact.php">Nous contacter</a></li>
                     </ul>
                 </div>
             </div>
