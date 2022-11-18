@@ -82,7 +82,7 @@ include 'assets/includes/database.inc.php';
             if(!$erreur){
                 $requeteChangeMail = 'UPDATE Utilisateur SET Email = ? WHERE Identifiant = ? AND  Mot_de_passe = ?';
                 $requeteUpdateMail = $conn -> prepare($requeteChangeMail);
-                $requeteUpdateMail -> execute([$NewEmail, $idUserMyAccount, $password]);
+                $requeteUpdateMail -> execute([$NewEmail, $idUserMyAccount, hash("sha256", $password)]);
             }
         }
 
@@ -131,7 +131,7 @@ include 'assets/includes/database.inc.php';
             if(!$erreur){
                 $requeteChangePassword = 'UPDATE Utilisateur SET Mot_de_passe = ? WHERE Identifiant =?';
                 $requeteUpdatePassword = $conn -> prepare($requeteChangePassword);
-                $requeteUpdatePassword -> execute([$NewPass, $idUserMyAccount,]);
+                $requeteUpdatePassword -> execute([hash('sha256',$NewPass), $idUserMyAccount,]);
             }
         }
 

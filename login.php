@@ -45,7 +45,7 @@ include 'assets/includes/database.inc.php';
         if(!$error){
             $requeteLogin = 'SELECT * FROM Utilisateur WHERE Email = ? AND Mot_de_passe = ?';
             $requeteStatment = $conn->prepare($requeteLogin);
-            $requeteStatment->execute([$email, $password]);
+            $requeteStatment->execute([$email, hash('sha256',$password)]);
             $requete = $requeteStatment->fetch();
 
             if(!empty($requete)){
