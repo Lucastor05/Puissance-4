@@ -1,87 +1,75 @@
 <?php
  include 'assets/includes/database.inc.php';
 
- $email = 'Email';
- $pseudo = 'Pseudo';
- $mdp = 'Mot_de_passe';
- $mdp2 = '';
- $error = '';
+ $error = false;
 
 
     //recuperer les donnees du formulaire dans des variables
     //faire le insert en bdd pdo
 
-    if(filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)){
-        $email = $_POST['Email'];
-    }else{
-        $error = true;
-        echo 'Email invalide';
+    if(isset($_POST['Inscription'])){   
+
+        if(isset($_POST['email'])){
+            if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $email = $_POST['email'];
+            }else{
+                $error = true;
+                echo 'Email invalide';
+            }
+        }else{
+            $error = true;
+        }
+        
+
+        if(isset($_POST['Pseudo'])){
+            if (strlen($_POST['Pseudo']) < 4)
+            {$error=true;
+            }else{
+                $pseudo = $_POST['Pseudo'];
+            }
+        }else{
+            $error = true;
+        }
+
+
+        if(isset($_POST['password'])){
+            $password = $_POST['password'];
+
+            $uppercase = preg_match('@[A-Z]@', $password);
+            $lowercase = preg_match('@[a-z]@', $password);
+            $number    = preg_match('@[0-9]@', $password);
+            $specialChars = preg_match('@[^\w]@', $password);
+            if(!$uppercase || !$lowercase || !$number || !$specialChars || mb_strlen($password) < 8) {
+                $error = true;
+                echo 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre, un caractère spécial et doit contenir au moins 8 caractères';
+            }
+            
+        }else{
+            $error = true;
+        }
+    
+
+        if(isset($_POST['password']) && isset($_POST['Cpassword'])){
+            if($_POST['password'] != $_POST['Cpassword']){
+                $error = true;
+            }
+        }else{
+            $error = true;
+        }
+
+
+        if(!$error){
+            $new_mdp= hash('sha256',$password);
+
+            $statement = $conn->prepare('INSERT INTO utilisateur (Email, Pseudo, Mot_de_passe, Date_et_heure_inscription) VALUES (?, ?, ?, NOW())');
+            $statement->execute([$email, $pseudo, $new_mdp]);
+
+            header('Location: login.php');
+            exit();
+        }
     }
     
 
-    if (empty($pseudo))
-    {$error[]="Veuillez entrer un pseudo";
-        else if (strlen($pseudo) > 4)
-        {$error[]="Pseudo doit contenir au moins 4 caractères";
-        }
-    }
-
-    else if (empty($mdp))
-        {$error[]="veuillez entrer un mot de passe";
-        }
-
-    $password = 'user-input-pass';
-
-    // Validate password strength
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $number    = preg_match('@[0-9]@', $password);
-    $specialChars = preg_match('@[^\w]@', $password);
-
-    if(!$uppercase || !$lowercase || !$number || !$specialChars || mb_strlen($password) < 8) {
-        echo 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre, un caractère spécial et doit contenir au moins 8 caractères';
-    }else if {
-        echo 'Strong password.';
-    }
-
-    if (empty($mdp2))
-    {$error[]="veuillez entrer la confirmation du mot de passe";
-    }
-    
-    function validatepassword($mdp, $mdp2)
-    {if ($mdp2 === $mdp)
-        {return true;
-        }
-        else
-        {$error[]="Les mots de passes ne sont pas pareils";
-        }
-    }
-
-
-    if (!isset($error))
-    {
-            $new_mdp= password_hash($mdp, PASSWORD_DEFAULT);
-
-            $statement = $db->prepare('INSERT INTO utilisateur (Email, Pseudo, Mot_de_passe)
-            VALUES (:Email, :Pseudo, :Mot_de_passe)');
-            if($statement->execute(array(':Email'=>$email,
-                                     ':Pseudo'=>$pseudo,
-                                     ':Mot_de_passe'=>$mdp)));
-        {$register="Vous êtes connecté";
-        /* ini_set("display_errors", 1);
-         error_reporting(E_all);
-         $from= "addressmail@gmail.com";
-         $to= 'Email';
-         $subject = "The tower of memory";
-         $message = "You are now connected. Welcome to The tower of memory";
-         $headers = "From:" .$from;
-         mail($to, $subject, $message, $headers);
-         echo "Un email a été envoyé sur votre boite mail";
-        }
-        else
-        {echo 'imposible d\'envoyer un email';} */
-        }
-    }
 ?>
 
 <!DOCTYPE html>
