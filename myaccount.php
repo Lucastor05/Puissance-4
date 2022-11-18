@@ -1,7 +1,7 @@
 <?php
 include 'assets/includes/database.inc.php';
 
-$idUserMyAccount = 4;
+
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,9 @@ $idUserMyAccount = 4;
     <?php
     require_once 'view/header.inc.php';
     include 'init_session.php';
+
+    $idUserMyAccount = $_SESSION['user']['Identifiant'];
+
     ?>
 
 
