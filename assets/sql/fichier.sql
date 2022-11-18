@@ -71,4 +71,3 @@ INSERT INTO `Message` (`Identifiant`, `Identifiant_du_jeu`, `Identifiant_de_expÃ
 SELECT Message.Identifiant_de_expediteur , Message.Message, Message.Date_et_heure_du_message
 FROM Message 
 WHERE Message.Date_et_heure_du_message >= NOW() - INTERVAL 1 DAY;
-ORDER BY Date_et_heure_du_message

@@ -1,3 +1,7 @@
+<?php
+include 'assets/includes/database.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +14,17 @@
     <link rel="stylesheet" href="assets/css/footer.css">
 </head>
 <body>
-
-
-    <?php
-    require_once 'view/header.inc.php';
-    include 'init_session.php';
-    ?>
-
+    <nav class="topnavAbsolute">
+        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
+        <div>
+            <!--Different lien vers les pages-->
+            <a href="index.php">ACCUEIL</a>
+            <a href="memory.php">JEU</a>
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php" class="active">NOUS CONTACTER</a>
+            <a href ="myaccount.php">MON ESPACE</a>
+        </div>
+    </nav>
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
     <header id="HeadContact-contact">
         <H1>NOUS CONTACTER</H1>
@@ -52,12 +60,90 @@
             <input type="text" id="Message" name="Message" placeholder ="Message" required class="MessageContact-contact"><br>
             <button name="EnvoieDeFormulaireDeContactButton" type="submit" value="HTML" class="EnvoieDeFormulaireDeContactButton-contact">Envoyer</button>
         </form>
+        <?php
+
+        $erreur = false;
+
+
+		if (isset($_POST['EnvoieDeFormulaireDeContactButton'])) {
+            //filtre de mail pour qu'il soit correct
+			if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $Email = $_POST['email'];
+            }else{
+                $erreur = true;
+                $erreur='Email invalide';
+
+            }
+            //filtre de nom pour que le champ 'nom' ne soit pas vides pendant l'envoie de formulaire
+            if (empty($_POST['Nom'])){
+                $erreur = true;
+                $erreur="le champ Nom n'est pas rempli";
+            }else{
+                $Nom = $_POST['Nom'];
+            }
+            //filtre de sujet pour que le champ 'sujet' ne soit pas vides pendant l'envoie de formulaire
+            if (empty($_POST['Sujet'])){
+                $Sujet = $_POST['Sujet'];
+            }else{
+                $erreur = true;
+                $erreur="le champ Sujet n'est pas rempli";
+            }
+            //filtre de message pour que le champ 'message' fasse + de 15 caracteres pendant l'envoie de formulaire
+
+            $Cmdplength = strlen($_POST['Message']);
+            if($Cmdplength >= 15){
+                $Message = $_POST['Message'];
+            }else{
+                $erreur = true;
+                $erreur = "Votre Message doit contenir 15 caractères minimum.";
+            }
+
+            if(!$erreur){
+                $retour=mail('donnemoiunebonnenotejemerite@gmail.com', $Sujet, $Message, $Email);
+                if($retour){
+                    echo'Votre message a bien ete envoyer';
+                }
+                header('Location: login.php');
+                exit;   
+            }
+        }
+
+        ?>
 
     </main>
 
 
-    <?php
-    require_once 'view/footer.inc.php';
-    ?>
+    <footer> 
+        <div class="contentFooter">
+            <div class="flex-parentFooter">
+                <div class="informationFooter">
+                    <h2 class="TitreFooter">Information</h2>
+                    <p>Quisque commodo facilisis purus, interdum voluptat arcu viverra sed.</p>
+                    <p><strong class="OrangeCharacter">Tèl</strong> : 06 00 00 00 00</p>
+                    <p><strong class="OrangeCharacter">Email</strong> : addressmail@gmail.com</p>
+                    <p><strong class="OrangeCharacter">Location</strong> : Paris</p>
+
+
+                    <!--Images Reseaux sociaux-->
+                    <div class="reseauSociauxLogo">
+                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/facebook.svg" class="Lfacebook"></a>
+                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/twitter.svg" class="Ltwitter"></a>
+                        <a href="https://www.google.fr/"><img src="assets/Images/google.svg" class="Lgoogle"></a>
+                        <a href="https://www.pinterest.fr/"><img src="assets/Images/pinterest.svg" class="Lpinterest"></a>
+                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
+                    </div>
+                </div>
+                <div class="TowerMemoryFooter">
+                    <h2 class="TitreFooter">Power Of Memory</h2>
+                    <ul class="ListeGeneralFooter">
+                        <li class="listeFooter"><a href="memory.php">Jouez !</a></li>
+                        <li class="listeFooter"><a href="scores.php">Les scores</a></li>
+                        <li class="listeFooter"><a href="contact.php">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright © 2022 Tous droits réservés</p>
+    </footer>
 </body>
 </html>

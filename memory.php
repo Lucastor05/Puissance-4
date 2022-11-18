@@ -11,31 +11,23 @@
 </head>
 <body>
 
-    <?php
-    require_once 'view/header.inc.php';
-    include 'assets/includes/database.inc.php';
-    include 'init_session.php';
+    <!--Barre de navigation avec les different lien vers les autres pages-->
+    <nav class="topnav">
+        <a href="memory.php" class="nomSite">The Tower Of Mermory</a>
+        <div>
+            <!--Different lien vers les pages-->
+            <a href="index.php">ACCUEIL</a>
+            <a href="memory.php" class="active">JEU</a><!--Class active represente la page sur laquelle on est dans la barre de navigation donc si dans autre page que memory a change de plavce@-->
+            <a href="scores.php">SCORES</a>
+            <a href="contact.php">NOUS CONTACTER</a>
+            <a href="myaccount.php">MON ESPACE</a>
 
-    $id_user = $_SESSION['user']['Identifiant'];
-
-    if(isset($_POST['buttonChat'])){
-
-        $message = $_POST['messageInput'];
-
-        $requeteSendMesage = 'INSERT INTO `Message` (`Identifiant_du_jeu`, `Identifiant_de_expediteur`, `Message`, `Date_et_heure_du_message`) VALUES (2, ?, ?, NOW());';
-        $requeteSendMessageStatment = $conn->prepare($requeteSendMesage);
-        $requeteSendMessageStatment->execute([$id_user, $message]);
-
-        header('Location: memory.php'); 
-        exit();
-    }
-
-
-    ?>
+        </div>
+    </nav>
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
     <header class="headMemory">
-        <h1 class="TitreAccueilMemory">THE POWER OF <br>MEMORY !</h1> 
+        <h1 class="TitreAccueilMemory">THE TOWER OF <br>MEMORY !</h1> 
     </header>    
 
 
@@ -62,79 +54,39 @@
                 </div>
     
     
-                <div id="messageChat">
-                    <?php
-
-                    $requeteallMessages = 'SELECT Utilisateur.Pseudo, Utilisateur.Identifiant , Message.Message, Message.Date_et_heure_du_message
-                    FROM Message 
-                    INNER JOIN Utilisateur ON Utilisateur.Identifiant = Message.Identifiant_de_expediteur
-                    WHERE Message.Date_et_heure_du_message >= NOW() - INTERVAL 1 DAY;';
-                    $allMessages = $conn -> prepare($requeteallMessages);
-                    $allMessages -> execute();
-
-
-                    while($msg = $allMessages -> fetch()){
-                        if($msg['Identifiant'] == $id_user){
-                            
-                    ?>
-                        <div class="SendByMe">
-                            <p class="sendBy"><?php echo $msg['Pseudo']?> </p>
-                            <p class="meChat"><?php echo $msg['Message']?> </p>
-
-
-                    <?php
-                    if(date_create($msg['Date_et_heure_du_message'])->format('d') ==  date("d", time())){
-
-                    
-                    ?>
-                            <p class="dateChat"><?php echo "Aujourd'hui à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
-                    <?php
-                    }else{
-                    ?>
-                            <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
-                        
-                    <?php
-                    }
-                    
-                    ?>
+                <div class="messageChat">
+                    <div class="Mymessage">
+                        <p class="sendBy">Moi</p>
+                        <p class="meChat">Hello</p>
+                        <p class="dateChat">Aujourd'hui à 18h</p>
+                    </div>
+                    <div class="sentByOthers">
+                        <div class="containerImage">
+                            <img src="assets/Images/PhotoProfilProv.jpg">
                         </div>
-                    <?php
-                        }else{
-                        ?>
-                        <div class="photo-otherMessage">
-                            <div class="containerImage">
-                                <img src="assets/Images/PhotoProfilProv.jpg">
-                            </div>
-                            <div class="message">
-                                <p class="sendBy"><?php echo $msg['Pseudo']?></p>
-                                <p class="otherChat"><?php echo $msg['Message']?></p>
-                                <?php
-                        if(date_create($msg['Date_et_heure_du_message'])->format('d') ==  date("d", time())){
-
-                        
-                        ?>
-                                <p class="dateChat"><?php echo "Aujourd'hui à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
-                        <?php
-                        }else{
-                        ?>
-                                <p class="dateChat"><?php echo "Hier à " . date_create($msg['Date_et_heure_du_message'])->format('H') . "h" ?></p>
-                        <?php
-                        }
-                        
-                        ?>
-                                </div>
-                            </div>
-                        <?php
-                            }
-                        }
-                        ?>
+                        <div class="message">
+                            <p class="sendBy">Arthur</p>
+                            <p class="otherChat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, nulla quo? Neque a facere sunt? Aspernatur in aut totam, quaerat laudantium dolorem cum earum sed, id quia illo ducimus odio.</p>
+                            <p class="dateChat">Aujourd'hui à 18h</p>
+                        </div>   
+                    </div>
+                    <div class="sentByOthers">
+                        <div class="containerImage">
+                            <img src="assets/Images/PhotoProfilProv.jpg">
+                        </div>
+                        <div class="message">
+                            <p class="sendBy">Arthur</p>
+                            <p class="otherChat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, nulla quo? Neque a facere sunt? Aspernatur in aut totam, quaerat laudantium dolorem cum earum sed, id quia illo ducimus odio.</p>
+                            <p class="dateChat">Aujourd'hui à 18h</p>
+                        </div>   
+                    </div>
                     
                 </div>
     
                 <div>
-                    <form action="" class="form-container" method="POST">
-                        <input placeholder="Votre Message..." name="messageInput" required class="MessageBarChat"></input>
-                        <button type="submit" class="buttonSendChat" name="buttonChat">Envoyez</button>
+                    <form action="/action_page.php" class="form-container">
+                        <input placeholder="Votre Message..." name="msg" required class="MessageBarChat"></input>
+                        <button type="submit" class="buttonSendChat">Envoyez</button>
                       </form>
                 </div>
                 
@@ -888,8 +840,37 @@
 
 
     <!--Footer de la page-->
-    <?php
-    require_once 'view/footer.inc.php';
-    ?>
+    <footer> 
+        <div class="contentFooter">
+            <div class="flex-parentFooter">
+                <div class="informationFooter">
+                    <h2 class="TitreFooter">Information</h2>
+                    <p>Quisque commodo facilisis purus, interdum voluptat arcu viverra sed.</p>
+                    <p><strong class="OrangeCharacter">Tèl</strong> : 06 00 00 00 00</p>
+                    <p><strong class="OrangeCharacter">Email</strong> : addressmail@gmail.com</p>
+                    <p><strong class="OrangeCharacter">Location</strong> : Paris</p>
+
+
+                    <!--Images Reseaux sociaux-->
+                    <div class="reseauSociauxLogo">
+                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/facebook.svg" class="Lfacebook"></a>
+                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/twitter.svg" class="Ltwitter"></a>
+                        <a href="https://www.google.fr/"><img src="assets/Images/google.svg"class="Lgoogle"></a>
+                        <a href="https://www.pinterest.fr/"><img src="assets/Images/pinterest.svg" class="Lpinterest"></a>
+                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
+                    </div>
+                </div>
+                <div class="TowerMemoryFooter">
+                    <h2 class="TitreFooter">Power Of Memory</h2>
+                    <ul class="ListeGeneralFooter">
+                        <li class="listeFooter"><a href="memory.html">Jouez !</a></li>
+                        <li class="listeFooter"><a href="scores.html">Les scores</a></li>
+                        <li class="listeFooter"><a href="contact.html">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright © 2022 Tous droits réservés</p>
+    </footer>
 </body>
 </html>
