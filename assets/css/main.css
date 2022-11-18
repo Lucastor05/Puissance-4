@@ -635,9 +635,6 @@ input{
         margin-bottom: 0;
         padding: 20px;
         background-color: #0d0b26;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-
     }
 
 
@@ -753,7 +750,7 @@ input{
         color: white;
     }
 
-    #messageChat{
+    .messageChat{
         /* Blocks avec les textos */
         background-color: white;
         height: 500px;
@@ -761,23 +758,13 @@ input{
         padding: 15px;
         display: flex;
         flex-direction: column;
-        box-sizing: border-box;
-        overflow: hidden scroll;
-    }
-
-    .photo-otherMessage{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
+        gap: 10px;
     }
 
     .containerImage{
         /* container avec Images de profils messages*/
         padding-top: 20px;
         padding-right: 5px;
-        display: flex;
-        top: 10px;
-        width: auto;
     }
 
     .containerImage img{
@@ -801,24 +788,16 @@ input{
         border-bottom-right-radius: 10px;
     }
 
-    .SendByMe{
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-
 
     .meChat{
         /* Message envoyer par l'utilisateur */
         background-color: #3d71ff;
+        text-align: right;
         color: white;
         border-radius: 10px;
         padding: 10px;
         margin-top: 0;
         margin-bottom: 0;
-        width: 100%;
     }
 
     .otherChat{

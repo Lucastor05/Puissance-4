@@ -1,8 +1,6 @@
 <?php
 include 'assets/includes/database.inc.php';
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -46,6 +46,7 @@
 
 
     ?>
+
      <!--Titre de la pages avec sous titre et lien vers le jeu-->
      <header class="headScores">
         <h1 class="TitreAccueilScores">Les Scores !</h1> 
@@ -54,19 +55,19 @@
     <main class="corpPincipalScores">
 
         <div class="BarreOutilsUtilisateurScores">
-            <form method="POST" action="" class="SearchBarScores">
+            <div class="SearchBarScores">
                 <label for="searchScores">
-                <img src="assets/Images/SearchBar.svg" class="iconSearchBar">
+                    <img src="assets/Images/SearchBar.svg" class="iconSearchBar">
                 </label>
-                <input type="text" id="searchScores" name="search" placeholder="Search for a player">
-            </form>
-                
+                <input type="text" id="searchScores" placeholder="Search for a player">
+            </div>
+
             <div class="dropdownScore">
                 <form action="" method="post" class="mb-3">
                 <div class="select-block">
                     <select class="dropdownSelect" name="trie">
                         <option value="NomJeuScores">Nom de jeu</option>
-                        <option value="pseudoScore">Pseudo</option>
+                        <option value="psuedoScore">Pseudo</option>
                         <option value="DifficultyScore">Difficulté</option>
                         <option value="TempsScore">Temps</option>
                         <option value="dateScore">Date</option>

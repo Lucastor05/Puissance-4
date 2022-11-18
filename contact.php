@@ -18,7 +18,6 @@ include 'assets/includes/database.inc.php';
     require_once 'view/header.inc.php';
     include 'init_session.php';
     ?>
-
     <!--Le id sert pour le css et surtout pour mettre une ipmage de fond derriere le h1-->
     <header id="HeadContact-contact">
         <H1>NOUS CONTACTER</H1>
@@ -106,10 +105,9 @@ include 'assets/includes/database.inc.php';
 
     </main>
 
-
-
     <?php
     require_once 'view/footer.inc.php';
     ?>
+
 </body>
 </html>
