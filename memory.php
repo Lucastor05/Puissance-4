@@ -17,8 +17,8 @@
 
 
 
-        let difficulty;
-        let theme;
+        let difficulty = "";
+        let theme = 0;
 
 
         function themeButton(valeur){
@@ -93,15 +93,15 @@
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn">Choisir une difficulté</button>
                     <div id="myDropdownDifficulty" class="dropdown-content">
-                    <a onclick="difficultyButton('Facile')">Facile</a>
-                    <a onclick="difficultyButton('Intermediaire')">Intermediaire</a>
-                    <a onclick="difficultyButton('Expert')">Expert</a>
-                    <a onclick="difficultyButton('Impossible')">Impossible</a>
+                    <a class="Facile" onclick="difficultyButton('Facile')">Facile</a>
+                    <a class="Intermediaire" onclick="difficultyButton('Intermediaire')">Intermediaire</a>
+                    <a class="Expert" onclick="difficultyButton('Expert')">Expert</a>
+                    <a class="Impossible" onclick="difficultyButton('Impossible')">Impossible</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
-                    <button onclick="myFunction2()" class="dropbtn">Choisir une difficulté</button>
+                    <button onclick="myFunction2()" class="dropbtn">Choisir un thème</button>
                     <div id="myDropdownTheme" class="dropdown-content">
                     <a onclick="themeButton(1);">Theme 1</a>
                     <a onclick="themeButton(2);">Theme 2</a>
@@ -116,27 +116,61 @@
             <p id="timerScore">Score</p>
             <script>
                 function StartGame(){
-                    let secondes = 0;
-                    let minutes = 0;
-                    let heure = 0;
+                    if(theme === 0 || difficulty === ""){
+                        alert('Vous devez definir la difficulté ET le thème');
+                    }else{
+                        let secondes = 0;
+                        let minutes = 0;
+                        let heure = 0;
 
-                    const counter = document.getElementById('timerScore');
+                        const counter = document.getElementById('timerScore');
 
-                    function timer() {
-                        counter.innerText = minutes + ':' + secondes;
-                        if(secondes == 60){
-                        minutes++;
-                        secondes = 0;
+                        function timer() {
+                            counter.innerText = minutes + ':' + secondes;
+                            if(secondes == 59){
+                            minutes++;
+                            secondes = 0;
+                            }
+
+                            if(minutes == 59){
+                            minutes = 0;
+                            heure ++;
+                            }
+
+                            secondes++;
+                        }
+                        setInterval(timer, 1000);
+
+                        const Facile = document.querySelector('.TableauFacileMemory');
+                        const Intermediaire = document.querySelector('.TableauIntermediaireMemory');
+                        const Expert = document.querySelector('.TableauExpertMemory');
+                        const Impossible = document.querySelector('.TableauImpossibleMemory');
+
+
+                        //affiche la grille celon la difficulté
+                        if(difficulty === 'Facile'){
+                            Facile.style.display = "flex";
+
+                        }else if(difficulty === 'Intermediaire'){
+                            Intermediaire.style.display = "flex";
+
+                        }else if(difficulty === 'Expert'){
+                            Expert.style.display = "flex";
+
+                        }else if(difficulty === 'Impossible'){
+                            Impossible.style.display = "flex";
+                            
                         }
 
-                        if(minutes == 60){
-                        minutes = 0;
-                        heure ++;
-                        }
+                        //genere les images
+                        if(theme === 1){
 
+                        }else if(theme === 2){
+                            
+                        }else if(theme === 3){
+                            
+                        }
                     }
-
-                    setInterval(timer(), 1000);
                 }
                 
 
