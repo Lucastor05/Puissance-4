@@ -12,11 +12,6 @@
 <body>
 
     <script>
-
-        
-
-
-
         let difficulty = "";
         let theme = 0;
 
@@ -53,8 +48,6 @@
             }
             }
         }
-        
-
     </script>
 
     <?php
