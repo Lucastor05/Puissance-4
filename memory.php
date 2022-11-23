@@ -119,6 +119,7 @@
                     if(theme === 0 || difficulty === ""){
                         alert('Vous devez definir la difficulté ET le thème');
                     }else{
+                        let millisecondes = 0;
                         let secondes = 0;
                         let minutes = 0;
                         let heure = 0;
@@ -126,20 +127,56 @@
                         const counter = document.getElementById('timerScore');
 
                         function timer() {
-                            counter.innerText = minutes + ':' + secondes;
-                            if(secondes == 59){
+
+                            if(secondes < 10){
+                                if(minutes < 10){
+                                    if(millisecondes < 10){
+                                        counter.innerText = "0"+minutes + ':0' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = "0"+minutes + ':0' + secondes + ":" + millisecondes;
+                                    }
+                                    
+                                }else{
+                                    if(millisecondes < 10){
+                                        counter.innerText = minutes + ':0' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = minutes + ':0' + secondes + ":" + millisecondes;
+                                    }
+                                }
+                            }else{
+                                if(minutes < 10){
+                                    if(millisecondes < 10){
+                                        counter.innerText = "0"+minutes + ':' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = "0"+minutes + ':' + secondes + ":" + millisecondes;
+                                    }
+                                }else{
+                                    if(millisecondes < 10){
+                                        counter.innerText = minutes + ':' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = minutes + ':' + secondes + ":" + millisecondes;
+                                    }
+                                }
+                            }
+                            
+                            if(millisecondes > 99){
+                                secondes++;
+                                millisecondes = 0;
+                            }
+
+                            if(secondes == 60){
                             minutes++;
                             secondes = 0;
                             }
 
-                            if(minutes == 59){
+                            if(minutes == 60){
                             minutes = 0;
                             heure ++;
                             }
 
-                            secondes++;
+                            millisecondes++;
                         }
-                        setInterval(timer, 1000);
+                        setInterval(timer, 10);
 
                         const Facile = document.querySelector('.TableauFacileMemory');
                         const Intermediaire = document.querySelector('.TableauIntermediaireMemory');
