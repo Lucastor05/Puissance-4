@@ -48,8 +48,12 @@ include 'assets/includes/database.inc.php';
             $requeteStatment->execute([$email, hash('sha256',$password)]);
             $requete = $requeteStatment->fetch();
 
+            
+
             if(!empty($requete)){
                 $_SESSION['user'] = $requete;
+                $dateDerniereConnection = $conn -> prepare('UPDATE Utilisateur SET Date_et_heure_de_la_derniere_connexion = NOW() WHERE Identifiant = ?');
+                $dateDerniereConnection -> execute([$requete['Identifiant']]);
                 header('Location: index.php');
                 exit();   
             }else{
