@@ -88,7 +88,7 @@
                             <p><strong class="nombreTableauIndex"><?= $nbrPartieJoueeTableau['nbr_partie_joue']; ?></strong><br>Parties jouées</p>
                         </div>
                         <div class="cellule3Index">
-                            <p><strong class="nombreTableauIndex"><?= $nbrJoueurConnecteTableau['nbr']; ?></strong><br>Joueurs connéctés</p>
+                            <p><strong class="nombreTableauIndex">1</strong><br>Joueurs connéctés</p>
                         </div>
                     </div>
                     <div class="SousParti2Index">
