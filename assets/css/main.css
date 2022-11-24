@@ -365,55 +365,83 @@ input{
 
 /*Barre avec Les boutons pour la difficulté ainsi que le scores de la partie en cours*/
 
-    .BarreOutilsUtilisateurMemory{
-        /* Positionnement de la barre utilisateur */
+    .BarGame{
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-left: 100px;
         margin-right: 100px;
-        align-items:center;
-        flex-direction: row;
-        justify-content: space-between;
-        box-sizing: border-box;
         background-color: #0d0b26;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 20px;
+
     }
 
-    .DifficultyButtonMemory{
-        /* Positionnement des differents boutons de difficulté */
-        display: flex;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 100px;
-        padding-right: 100px;
-        align-items:center;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 25px;
-    }
-
-
-    .AffichageScoresMemory{
-        /* Positionnement du scoreboard */
-        display: flex;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 100px;
-        padding-right: 100px;
-        align-items:center;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 25px;
-    }
-
-    .DifficultyButtonMemory button{
-        /* Modification des boutons*/
+    /* Dropdown Button */
+    .dropbtn {
         background-color: #0d0b26;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
         border: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    
+    /* Dropdown button on hover & focus */
+    .dropbtn:hover, .dropbtn:focus {
+        color: #e98d24;
+        background-color: #11102f;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
     }
 
-    .DifficultyButtonMemory button:hover{
-        /* changement de la couleur du bouton lorsque l'utilisateur place sa sourie dessus*/
-        color: #ec9123 ;
+    .startGame{
+        background-color: #0d0b26;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
     }
+
+    .startGame:hover{
+        color: #e98d24;
+        background-color: #11102f;
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #11102f;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {color: #e98d24;}
+    
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {
+        display:block;
+    }
+
 
 
 /*Tableau de jeu*/
@@ -433,10 +461,13 @@ input{
         .TableauFacileMemory{
             /* Positionnement de la grille */
             background-color:#0d0b26;
-            display: flex;
+            display: none;
             row-gap: 3px;
             column-gap: 3px;
             justify-content: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
         }
 
         .TableauFacileMemory tr td img{
@@ -450,11 +481,12 @@ input{
         .TableauIntermediaireMemory{
             /* Positionnement de la grille */
             background-color:#0d0b26;
-            display: flex;
+            display: none;
             row-gap: 3px;
             column-gap: 3px;
             justify-content: center;
-        }
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;        }
 
         .TableauIntermediaireMemory tr td img{
             /* Ajustement taille des images*/
@@ -467,10 +499,12 @@ input{
         .TableauExpertMemory{
             /* Positionnement de la grille */
             background-color:#0d0b26;
-            display: flex;
+            display: none;
             row-gap: 3px;
             column-gap: 3px;
             justify-content: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;       
         }
 
         .TableauExpertMemory tr td img{
@@ -485,10 +519,12 @@ input{
         .TableauImpossibleMemory{
             /* Positionnement de la grille */
             background-color:#0d0b26;
-            display: flex;
+            display: none;
             row-gap: 3px;
             column-gap: 3px;
             justify-content: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
 
         .TableauImpossibleMemory tr td img{

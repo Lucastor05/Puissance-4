@@ -11,6 +11,45 @@
 </head>
 <body>
 
+    <script>
+        let difficulty = "";
+        let theme = 0;
+
+
+        function themeButton(valeur){
+            theme = valeur;
+        }
+
+        function difficultyButton(valeur){
+            difficulty = valeur;
+        }
+
+
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdownDifficulty").classList.toggle("show");
+        }
+
+        function myFunction2() {
+            document.getElementById("myDropdownTheme").classList.toggle("show");
+        }
+        
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                }
+            }
+            }
+        }
+    </script>
+
     <?php
     require_once 'view/header.inc.php';
     include 'assets/includes/database.inc.php';
@@ -41,19 +80,134 @@
 
     <main class="corpPincipalMemory">
 
-        <div class="BarreOutilsUtilisateurMemory">
-            <div class="DifficultyButtonMemory">
-                <button type="button" onclick="">Facile</button><!--Affiche grille 5x5-->
-                <button type="button" onclick="">Intermédiaire</button><!--Affiche grille 8x8-->
-                <button type="button" onclick="">Expert</button><!--Affiche grille 12x12-->
-                <button type="button" onclick="">Impossible</button><!--Affiche grille 20x20-->
+        <div class="BarGame">
+            <div class="dropDown-buttonStart">
+
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Choisir une difficulté</button>
+                    <div id="myDropdownDifficulty" class="dropdown-content">
+                    <a class="Facile" onclick="difficultyButton('Facile')">Facile</a>
+                    <a class="Intermediaire" onclick="difficultyButton('Intermediaire')">Intermediaire</a>
+                    <a class="Expert" onclick="difficultyButton('Expert')">Expert</a>
+                    <a class="Impossible" onclick="difficultyButton('Impossible')">Impossible</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button onclick="myFunction2()" class="dropbtn">Choisir un thème</button>
+                    <div id="myDropdownTheme" class="dropdown-content">
+                    <a onclick="themeButton(1);">Theme 1</a>
+                    <a onclick="themeButton(2);">Theme 2</a>
+                    <a onclick="themeButton(3);">Theme 3</a>
+                    </div>
+                </div>
+
+                <button onclick="StartGame();" class="startGame">Lancer la partie</button>
+
             </div>
-            <div class="AffichageScoresMemory">
-                <p>TIMER SCORES</p>
-            </div>
+
+            <p id="timerScore">Score</p>
+            <script>
+                function StartGame(){
+                    if(theme === 0 || difficulty === ""){
+                        alert('Vous devez definir la difficulté ET le thème');
+                    }else{
+                        let millisecondes = 0;
+                        let secondes = 0;
+                        let minutes = 0;
+                        let heure = 0;
+
+                        const counter = document.getElementById('timerScore');
+
+                        function timer() {
+
+                            if(secondes < 10){
+                                if(minutes < 10){
+                                    if(millisecondes < 10){
+                                        counter.innerText = "0"+minutes + ':0' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = "0"+minutes + ':0' + secondes + ":" + millisecondes;
+                                    }
+                                    
+                                }else{
+                                    if(millisecondes < 10){
+                                        counter.innerText = minutes + ':0' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = minutes + ':0' + secondes + ":" + millisecondes;
+                                    }
+                                }
+                            }else{
+                                if(minutes < 10){
+                                    if(millisecondes < 10){
+                                        counter.innerText = "0"+minutes + ':' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = "0"+minutes + ':' + secondes + ":" + millisecondes;
+                                    }
+                                }else{
+                                    if(millisecondes < 10){
+                                        counter.innerText = minutes + ':' + secondes + ":0" + millisecondes;
+                                    }else{
+                                        counter.innerText = minutes + ':' + secondes + ":" + millisecondes;
+                                    }
+                                }
+                            }
+                            
+                            if(millisecondes > 99){
+                                secondes++;
+                                millisecondes = 0;
+                            }
+
+                            if(secondes == 60){
+                            minutes++;
+                            secondes = 0;
+                            }
+
+                            if(minutes == 60){
+                            minutes = 0;
+                            heure ++;
+                            }
+
+                            millisecondes++;
+                        }
+                        setInterval(timer, 10);
+
+                        const Facile = document.querySelector('.TableauFacileMemory');
+                        const Intermediaire = document.querySelector('.TableauIntermediaireMemory');
+                        const Expert = document.querySelector('.TableauExpertMemory');
+                        const Impossible = document.querySelector('.TableauImpossibleMemory');
+
+
+                        //affiche la grille celon la difficulté
+                        if(difficulty === 'Facile'){
+                            Facile.style.display = "flex";
+
+                        }else if(difficulty === 'Intermediaire'){
+                            Intermediaire.style.display = "flex";
+
+                        }else if(difficulty === 'Expert'){
+                            Expert.style.display = "flex";
+
+                        }else if(difficulty === 'Impossible'){
+                            Impossible.style.display = "flex";
+                            
+                        }
+
+                        //genere les images
+                        if(theme === 1){
+
+                        }else if(theme === 2){
+                            
+                        }else if(theme === 3){
+                            
+                        }
+                    }
+                }
+                
+
+            </script>
+
         </div>
     
-
         <div class="chatcontainer">
             <div class="contentChat">
                 <div class="bandeauChat">

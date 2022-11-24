@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,19 +11,24 @@
     <title>Accueil</title>
 </head>
 <body>
+    <?php
+    include 'assets/includes/database.inc.php';
+    include 'init_session.php';
+    include 'view/header.inc.php';
 
-    <!--Barre de navigation avec les different lien vers les autres pages-->
-    <nav class="topnavAbsolute">
-        <a href="memory.html" class="nomSite">The Tower Of Mermory</a>
-        <div>
-            <!--Different lien vers les pages-->
-            <a href="index.php" class="active">ACCUEIL</a><!--Class active represente la page sur laquelle on est dans la barre de navigation donc si dans autre page que main a change de plavce@-->
-            <a href="memory.php">JEU</a>
-            <a href="scores.php">SCORES</a>
-            <a href="contact.php">NOUS CONTACTER</a>
-            <a href="myaccount.php">MON ESPACE</a>
-        </div>
-    </nav>
+    $nbrPartieJouee = $conn -> prepare('SELECT nbr_partie_joue FROM Utilisateur WHERE Identifiant = ?');
+    $nbrPartieJouee -> execute([$_SESSION['user']['Identifiant']]);
+    $nbrPartieJoueeTableau = $nbrPartieJouee ->fetch();
+
+    $meilleurScore = $conn -> prepare('SELECT score.Score_de_la_partie FROM Score WHERE score.Identifiant_du_joueur = ?');
+    $meilleurScore -> execute([$_SESSION['user']['Identifiant']]);
+    $meilleurScoreTableau = $meilleurScore -> fetchAll();
+
+
+    $Joueurinscrit = $conn -> prepare('SELECT Identifiant FROM Utilisateur');
+    $Joueurinscrit -> execute();
+    $JoueurinscritTableau = $Joueurinscrit -> fetchAll();
+    ?>
         
     <!--Titre de la pages avec sous titre et lien vers le jeu-->
     <header class="headIndex">
@@ -79,18 +85,18 @@
                 <div class="Parti2Index">
                     <div class="SousParti1Index">
                         <div class="cellule2Index">
-                            <p><strong class="nombreTableauIndex">360</strong><br>Parties jouées</p>
+                            <p><strong class="nombreTableauIndex"><?= $nbrPartieJoueeTableau['nbr_partie_joue']; ?></strong><br>Parties jouées</p>
                         </div>
                         <div class="cellule3Index">
-                            <p><strong class="nombreTableauIndex">1020</strong><br>Joueurs connéctés</p>
+                            <p><strong class="nombreTableauIndex">1</strong><br>Joueurs connéctés</p>
                         </div>
                     </div>
                     <div class="SousParti2Index">
                         <div class="cellule4Index">
-                            <p><strong class="nombreTableauIndex">10 sec</strong><br>Temps Record</p>
+                            <p><strong class="nombreTableauIndex"><?php if(count($meilleurScoreTableau) == 0){?> --:-- <?php }else{ echo $meilleurScore;}; ?></strong><br>Temps Record</p>
                         </div>
                         <div class="cellule5Index">
-                            <p><strong class="nombreTableauIndex">21 300</strong><br>Joueurs Inscrits</p>
+                            <p><strong class="nombreTableauIndex"><?= count($JoueurinscritTableau); ?></strong><br>Joueurs Inscrits</p>
                         </div>
                     </div>
                 </div>
@@ -124,39 +130,8 @@
         </div>
     </main>
 
-    <!--Footer de la page-->
-    <footer> 
-        <div class="contentFooter">
-            <div class="flex-parentFooter">
-                <div class="informationFooter">
-                    <h2 class="TitreFooter">Information</h2>
-                    <p>Quisque commodo facilisis purus, interdum voluptat arcu viverra sed.</p>
-                    <p><strong class="OrangeCharacter">Tèl</strong> : 06 00 00 00 00</p>
-                    <p><strong class="OrangeCharacter">Email</strong> : addressmail@gmail.com</p>
-                    <p><strong class="OrangeCharacter">Location</strong> : Paris</p>
-
-
-                    <!--Images Reseaux sociaux-->
-                    <div class="reseauSociauxLogo">
-                        <a href="https://fr-fr.facebook.com/"><img src="assets/Images/facebook.svg" class="Lfacebook"></a>
-                        <a href="https://twitter.com/?lang=fr"><img src="assets/Images/twitter.svg" class="Ltwitter"></a>
-                        <a href="https://www.google.fr/"><img src="assets/Images/google.svg"class="Lgoogle"></a>
-                        <a href="https://www.pinterest.fr/"><img src="assets/Images/pinterest.svg" class="Lpinterest"></a>
-                        <a href="https://www.instagram.com/?hl=fr"><img src="assets/Images/instagram.svg" class="Linstagram"></a>
-                    </div>
-                </div>
-                <div class="TowerMemoryFooter">
-                    <h2 class="TitreFooter">Power Of Memory</h2>
-                    <ul class="ListeGeneralFooter">
-                        <li class="listeFooter"><a href="memory.php">Jouez !</a></li>
-                        <li class="listeFooter"><a href="scores.php">Les scores</a></li>
-                        <li class="listeFooter"><a href="contact.php">Nous contacter</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <p class="copyright">Copyright © 2022 Tous droits réservés</p>
-    </footer>
+    <?php
+    include 'view/footer.inc.php';
+    ?>
 </body>
 </html>
