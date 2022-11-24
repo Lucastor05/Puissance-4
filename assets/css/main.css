@@ -941,7 +941,7 @@ input{
     height: 50px;
 }
 
-.replaybtn{
+#replaybtn{
     background-color: #e98d24; 
     color: white;
     padding: 16px;

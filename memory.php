@@ -49,7 +49,7 @@
             }
         }
 
-
+        
 
     </script>
 
@@ -165,7 +165,7 @@
                                     }
                                 }
                             }
-                            
+
                             if(millisecondes > 99){
                                 secondes++;
                                 millisecondes = 0;
@@ -182,7 +182,8 @@
                             }
 
                             millisecondes++;
-                        }
+                            }
+
                         setInterval(timer, 10);
 
                         const Facile = document.querySelector('.TableauFacileMemory');
@@ -209,122 +210,122 @@
                         //genere les images
                         if(theme === 1){
                             const budapest = "budapest.jpg",
-Lisbon = "Lisbon.jpeg",
-Londres = "Londres.jpeg";
-MexicoCity = "Mexico_city.jpeg";
-Paris = "Paris.jpeg";
-Rome = "Rome.jpeg";
-Tokyo = "Tokyo.jpeg";
-Washington = "Washington.jpeg";
-const C_BACK = "MemoryVerso.png";
-const config_cards = [budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington, budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington];
-
-/**
-* Randomize un tableau (renvoie un nouveau tableau)
-* @param {string[]} arr
-* @returns {string[]}
-*/
+                            Lisbon = "Lisbon.jpeg",
+                            Londres = "Londres.jpeg";
+                            MexicoCity = "Mexico_city.jpeg";
+                            Paris = "Paris.jpeg";
+                            Rome = "Rome.jpeg";
+                            Tokyo = "Tokyo.jpeg";
+                            Washington = "Washington.jpeg";
+                            const C_BACK = "MemoryVerso.png";
+                            const config_cards = [budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington, budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington];
 
 
-//fonctions 
+                            let previousCard = " ";
+                            let previousIndex = null;
+                            let previousCardElement;
+                            let compteur = 0;
+
+                            const replayBtn = document.getElementById("replaybtn");
+                            const cards = document.querySelectorAll(".card");
+                            const imgUrl = (img) => `assets/Images/Theme_1/${img}`;
 
 
-function melanger(arr) {
-    //melanger le tableau avec les images
-    const copy = [...arr];
-    const result = [];
-    let i = copy.length;
-    while (i > 0) {
-        const cardIndex = Math.floor(Math.random() * copy.length); // 0 et la longueur du tableau (non-comprise)
-        const card = copy.splice(cardIndex, 1)[0];
-        result.push(card);
-        i--;
-    }
-    return result;
-}
-
-function changeImageSrc(element, imageUrl) {
-    element.src = imageUrl;
-}
+                            /**
+                            * Randomize un tableau (renvoie un nouveau tableau)
+                            * @param {string[]} arr
+                            * @returns {string[]}
+                            */
+                            /**
+                            * Fonction pour changer l'image d'un element HTML
+                            * @param {Element} element - Element duquel on va changer l'image
+                            * @param {string} imageUrl - Url de l'image
+                            */
 
 
+                            //fonctions 
 
 
-/**
-* Etat du jeu
-*/
+                            function melanger(arr) {
+                                //melanger le tableau avec les images
+                                const copy = [...arr];
+                                const result = [];
+                                let i = copy.length;
+                                while (i > 0) {
+                                    const cardIndex = Math.floor(Math.random() * copy.length); // 0 et la longueur du tableau (non-comprise)
+                                    const card = copy.splice(cardIndex, 1)[0];
+                                    result.push(card);
+                                    i--;
+                                }
+                                return result;
+                            }
 
-const state = {
-canPlay: true,
-cards: melanger(config_cards),
-};
+                            function changeImageSrc(element, imageUrl) {
+                                element.src = imageUrl;
+                            }
 
+                            function replay() {
+                                if (state.canPlay) {
+                                return;
+                                }
+                                resetCards();
+                                state.cards = melanger(config_cards);
+                                state.canPlay = true;
+                            }
 
-/**
-* Renvoi le chemin complet vers l'image
-*/
-
-const imgUrl = (img) => `assets/Images/Theme_1/${img}`;
-
-/**
-* Fonction pour changer l'image d'un element HTML
-* @param {Element} element - Element duquel on va changer l'image
-* @param {string} imageUrl - Url de l'image
-*/
-
-
-/**
-* Add events listeners to every card
-*/
+                            function resetCards() {
+                                document
+                                .querySelectorAll(".back")
+                                .forEach((imgEl) => changeImageSrc(imgEl, imgUrl(C_BACK)));
+                            }
 
 
 
-let previousCard = " ";
-let previousIndex = null;
-let previousCardElement;
-let compteur = 0;
+                            const state = {
+                            canPlay: true,
+                            cards: melanger(config_cards),
+                            };
 
-const cards = document.querySelectorAll(".card");
-for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("click", function(event){
-        if(compteur <= 16){
-            changeImageSrc(cards[i].querySelector("img"), imgUrl(state.cards[i]));
-            
-            if(previousCard === " "){
 
-                previousCard = state.cards[i];
-                previousCardElement = cards[i];
-                previousIndex = i;
-                console.log('A');
-                
-            }else{
 
-                
+                            for (let i = 0; i < cards.length; i++) {
+                                if (!state.canPlay) return alert("REJOUEZ SVP");
+                                cards[i].addEventListener("click", function(event){
+                                    if(compteur == 16){
+                                        state.canPlay = false;
+                                        compteur = 0;
+                                        previousCard = " ";
+                                        previousIndex = null;
+                                    }else if(compteur <= 16){
+                                        changeImageSrc(cards[i].querySelector("img"), imgUrl(state.cards[i]));
+                                        
+                                        if(previousCard === " "){
 
-                if(state.cards[i] === previousCard){
-                    previousCard = " ";
-                    previousIndex = null;
-                    compteur += 2;
-                    console.log(compteur);
-                }else{
-                    previousCard = " ";
-                    previousIndex = null;
-                    setTimeout(() => {
-                        changeImageSrc(cards[i].querySelector("img"), imgUrl(C_BACK))
-                        changeImageSrc(previousCardElement.querySelector("img"), imgUrl(C_BACK))
-                    }, 800);
-                    console.log('B');
-                    console.log(state.cards[i]);
-                    console.log(state.previousCardElement);
-                }
-            }
-            
-        }else{
-            alert('WIN');
-        }
-    });
-}
+                                            previousCard = state.cards[i];
+                                            previousCardElement = cards[i];
+                                            previousIndex = i;
+                                            
+                                        }else{
 
+                                            if(state.cards[i] === previousCard && i != previousIndex){
+                                                previousCard = " ";
+                                                previousIndex = null;
+                                                compteur += 2;
+                                            }else{
+                                                previousCard = " ";
+                                                previousIndex = null;
+                                                setTimeout(() => {
+                                                    changeImageSrc(cards[i].querySelector("img"), imgUrl(C_BACK))
+                                                    changeImageSrc(previousCardElement.querySelector("img"), imgUrl(C_BACK))
+                                                }, 800);
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+
+
+                            replayBtn.addEventListener("click", replay);
                         }else if(theme === 2){
                             
                         }else if(theme === 3){
@@ -460,7 +461,7 @@ for (let i = 0; i < cards.length; i++) {
 
         </div>
 
-        <button class="replaybtn" style="background-color: orange; color: white; padding: 16px; font-size: 16px; border: none; cursor: pointer; border-radius: 10px;">Replay</button>
+        <button id="replaybtn">Replay</button>
 
 
     </main>
