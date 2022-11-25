@@ -48,6 +48,9 @@
             }
             }
         }
+
+        
+
     </script>
 
     <?php
@@ -67,6 +70,17 @@
 
         header('Location: memory.php'); 
         exit();
+    }
+
+
+    function createTable($taille){
+        for($i = 0; $i < $taille; $i++){
+            echo "<tr>";
+            for($j = 0; $j < $taille; $j++){
+                echo '<td class="card"><img class="back" src="assets/Images/Theme_1/MemoryVerso.png"></td>';
+            }
+            echo "</tr>";
+        }      
     }
 
 
@@ -96,7 +110,7 @@
                 <div class="dropdown">
                     <button onclick="myFunction2()" class="dropbtn">Choisir un thème</button>
                     <div id="myDropdownTheme" class="dropdown-content">
-                    <a onclick="themeButton(1);">Theme 1</a>
+                    <a onclick="themeButton(1);">Capital</a>
                     <a onclick="themeButton(2);">Theme 2</a>
                     <a onclick="themeButton(3);">Theme 3</a>
                     </div>
@@ -108,6 +122,37 @@
 
             <p id="timerScore">Score</p>
             <script>
+
+                
+
+
+                
+
+                const budapest = "Theme_1/budapest.jpg",
+                Lisbon = "Theme_1/Lisbon.jpeg",
+                Londres = "Theme_1/Londres.jpeg";
+                MexicoCity = "Theme_1/Mexico_city.jpeg";
+                Paris = "Theme_1/Paris.jpeg";
+                Rome = "Theme_1/Rome.jpeg";
+                Tokyo = "Theme_1/Tokyo.jpeg";
+                Washington = "Theme_1/Washington.jpeg";
+                Berlin = "Theme_1/berlin.jpeg";
+                Camberra = "Theme_1/canberra.jpeg";
+                Dublin = "Theme_1/dublin.jpg";
+                Helsinki = "Theme_1/helsinki.jpg";
+                Madrid = "Theme_1/madrid.jpeg";
+                Oslo = "Theme_1/oslo.jpeg";
+                Ottawa = "Theme_1/ottawa.jpeg";
+                Prague = "Theme_1/prague.jpeg";
+
+                const C_BACK = "Theme_1/MemoryVerso.png";
+
+
+                const config_cards_Facile_Capital = [budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington, budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington];
+                
+                //manque 16 img pour intermediaire
+                const config_cards_Intermediaire_Capital = [budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington, Berlin, Camberra, Dublin, Helsinki, Madrid, Oslo, Ottawa, Prague, budapest, Lisbon, Londres, MexicoCity, Paris, Rome, Tokyo, Washington, Berlin, Camberra, Dublin, Helsinki, Madrid, Oslo, Ottawa, Prague];
+
                 function StartGame(){
                     if(theme === 0 || difficulty === ""){
                         alert('Vous devez definir la difficulté ET le thème');
@@ -115,7 +160,6 @@
                         let millisecondes = 0;
                         let secondes = 0;
                         let minutes = 0;
-                        let heure = 0;
 
                         const counter = document.getElementById('timerScore');
 
@@ -151,8 +195,8 @@
                                     }
                                 }
                             }
-                            
-                            if(millisecondes > 99){
+
+                            if(millisecondes == 99){
                                 secondes++;
                                 millisecondes = 0;
                             }
@@ -162,14 +206,141 @@
                             secondes = 0;
                             }
 
-                            if(minutes == 60){
-                            minutes = 0;
-                            heure ++;
+                            millisecondes++;
                             }
 
-                            millisecondes++;
+                        let interval = setInterval(timer, 10);
+
+                        function memory(arr_difficulte, maxCompteur){
+
+                            console.log('lancer ?')
+                            let previousCard = " ";
+                            let previousIndex = null;
+                            let previousCardElement;
+                            let compteur = 0;
+
+                            let finalScoreMilli;
+                            let finalScoreSec;
+                            let finalScoreMin;
+
+                            const replayBtn = document.getElementById("replaybtn");
+                            const cards = document.querySelectorAll(".card");
+                            const imgUrl = (img) => `assets/Images/${img}`;
+
+
+                            /**
+                            * Randomize un tableau (renvoie un nouveau tableau)
+                            * @param {string[]} arr
+                            * @returns {string[]}
+                            */
+                            /**
+                            * Fonction pour changer l'image d'un element HTML
+                            * @param {Element} element - Element duquel on va changer l'image
+                            * @param {string} imageUrl - Url de l'image
+                            */
+
+
+                            //fonctions 
+
+
+                            function melanger(arr) {
+                                //melanger le tableau avec les images
+                                const copy = [...arr];
+                                const result = [];
+                                let i = copy.length;
+                                while (i > 0) {
+                                    const cardIndex = Math.floor(Math.random() * copy.length); // 0 et la longueur du tableau (non-comprise)
+                                    const card = copy.splice(cardIndex, 1)[0];
+                                    result.push(card);
+                                    i--;
+                                }
+                                return result;
+                            }
+
+                            function changeImageSrc(element, imageUrl) {
+                                element.src = imageUrl;
+                            }
+
+                            function replay() {
+                                if (state.canPlay) {
+                                return;
+                                }
+                                resetCards();
+                                state.cards = melanger(arr_difficulte);
+                                state.canPlay = true;
+                                let interval = setInterval(timer, 10);
+                            }
+
+                            function resetCards() {
+                                document
+                                .querySelectorAll(".back")
+                                .forEach((imgEl) => changeImageSrc(imgEl, imgUrl(C_BACK)));
+                            }
+
+
+
+                            const state = {
+                            canPlay: true,
+                            cards: melanger(arr_difficulte),
+                            };
+
+
+
+                            for (let i = 0; i < cards.length; i++) {
+                                if (!state.canPlay) {
+                                    return alert("REJOUEZ SVP");
+                                    
+                                }else{
+                                    cards[i].addEventListener("click", function(event){
+                                        if(compteur == maxCompteur){
+                                            state.canPlay = false;
+                                            compteur = 0;
+                                            previousCard = " ";
+                                            previousIndex = null;
+
+                                            resetCards();
+
+                                            let ScoreParti = counter.innerHTML;
+
+                                            alert(ScoreParti);
+                                                
+                                            clearInterval(interval, 0);
+
+                                            
+
+                                        }else if(compteur <= maxCompteur){
+                                            changeImageSrc(cards[i].querySelector("img"), imgUrl(state.cards[i]));
+                                            
+                                            if(previousCard === " "){
+
+                                                previousCard = state.cards[i];
+                                                previousCardElement = cards[i];
+                                                previousIndex = i;
+                                                
+                                            }else{
+
+                                                if(state.cards[i] === previousCard && i != previousIndex){
+                                                    previousCard = " ";
+                                                    previousIndex = null;
+                                                    compteur += 2;
+                                                    console.log(compteur)
+                                                }else{
+                                                    previousCard = " ";
+                                                    previousIndex = null;
+                                                    setTimeout(() => {
+                                                        changeImageSrc(cards[i].querySelector("img"), imgUrl(C_BACK))
+                                                        changeImageSrc(previousCardElement.querySelector("img"), imgUrl(C_BACK))
+                                                    }, 800);
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+
+
+                            replayBtn.addEventListener("click", replay);
                         }
-                        setInterval(timer, 10);
 
                         const Facile = document.querySelector('.TableauFacileMemory');
                         const Intermediaire = document.querySelector('.TableauIntermediaireMemory');
@@ -180,33 +351,64 @@
                         //affiche la grille celon la difficulté
                         if(difficulty === 'Facile'){
                             Facile.style.display = "flex";
+                            if(theme === 1){
+                                memory(config_cards_Facile_Capital, 16);
+                        
+                            }else if(theme === 2){
+                                
+                                
+                            }else if(theme === 3){
+                                
+                            }
 
                         }else if(difficulty === 'Intermediaire'){
                             Intermediaire.style.display = "flex";
+                            if(theme === 1){
+                                memory(config_cards_Intermediaire_Capital, 32)
+                            
+                            }else if(theme === 2){
+                                
+                            }else if(theme === 3){
+                                
+                            }
 
                         }else if(difficulty === 'Expert'){
                             Expert.style.display = "flex";
+                            if(theme === 1){
+                        
+                            
+                            }else if(theme === 2){
+                                
+                            }else if(theme === 3){
+                                
+                            }
 
                         }else if(difficulty === 'Impossible'){
                             Impossible.style.display = "flex";
+                            if(theme === 1){
+                        
+                            
+                            }else if(theme === 2){
+                                
+                            }else if(theme === 3){
+                                
+                            }
                             
                         }
 
                         //genere les images
-                        if(theme === 1){
-
-                        }else if(theme === 2){
-                            
-                        }else if(theme === 3){
-                            
-                        }
+                        
                     }
                 }
                 
 
             </script>
 
+            
+
         </div>
+
+        
     
         <div class="chatcontainer">
             <div class="contentChat">
@@ -301,731 +503,23 @@
         <div class="TableauDeJeuMemory">
             <div class="TableauFacileMemory">
                 <table>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
+                    <?php createTable(4); ?>
                 </table>
             </div>
             <div class="TableauIntermediaireMemory">
                 <table>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
+                    <?php createTable(8); ?>
                 </table>
             </div>
             <div class="TableauExpertMemory">
                 <table>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
+                    <?php createTable(12); ?>
                 </table>
 
             </div>
             <div class="TableauImpossibleMemory">
                 <table>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                        <td><img src="assets/Images/MemoryVerso.png"></td>
-                    </tr>
+                    <?php createTable(20); ?>
                 </table>
 
             </div>
@@ -1034,7 +528,9 @@
 
         </div>
 
-        
+        <button id="replaybtn">Replay</button>
+
+
     </main>
 
 
