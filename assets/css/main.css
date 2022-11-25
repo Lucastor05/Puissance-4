@@ -941,3 +941,12 @@ input{
     height: 50px;
 }
 
+#pasDeCompte{
+    align-items: center;
+    text-align: center;
+}
+
+#pasDeCompte a:hover{
+    color: #e98d24;
+}
+
