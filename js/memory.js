@@ -92,6 +92,6 @@
    * des messages toutes les 3 secondes et qui donne 
    * l'illusion du temps réel.
    */
-  const interval = window.setInterval(getMessages, 3000);
+  
   
   getMessages();

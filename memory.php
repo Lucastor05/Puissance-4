@@ -65,8 +65,7 @@
         $requeteSendMessageStatment = $conn->prepare($requeteSendMesage);
         $requeteSendMessageStatment->execute([$id_user, $message]);
 
-        header('Location: memory.php'); 
-        exit();
+        
     }
 
 
@@ -228,27 +227,17 @@
                         <button type="submit" class="buttonSendChat" name="buttonChat" onClick="postMessage">Envoyez</button>
                       </form>
                 </div>
-                <script src="assets/js/memory.js"></script>
+                <script src="js/memory.js"></script>
 
-                <div id="ScorePartie">
+                
                     
                     
+                
+                <div class="buttonOpen">
+                    <img src="assets/Images/chat-118.svg" class="LogoOpenChat">
                 </div>
-                <!--tentative de score afficher et envoyer
-                <div>
-                <form action="" class="form-container-score" method="POST">            
-                        <input type="hidden" name="scoreInput" id="scoreInput">
-                        <input type="hidden" id="id_user2" value=<?= $_SESSION['user']['Identifiant']?>>
-                    </form>
-                </div>
-                <script src="assets/js/ajaxscore.js"></script>
-                --->
-            </div>
-            <div class="buttonOpen">
-                <img src="assets/Images/chat-118.svg" class="LogoOpenChat">
             </div>
         </div>
-
         <div class="TableauDeJeuMemory">
             <div class="TableauFacileMemory">
                 <table>

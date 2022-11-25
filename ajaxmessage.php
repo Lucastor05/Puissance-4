@@ -10,7 +10,7 @@ $task = "list";
 
 if(array_key_exists("task", $_GET)){
   $task = $_GET['task'];
-}
+} 
 
 if($task == "write"){
   postMessage();
