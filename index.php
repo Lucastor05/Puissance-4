@@ -34,7 +34,7 @@
     <header class="headIndex">
         <h1 class="TitreAccueilIndex">BIENVENUE DANS <br>NOTRE STUDIO !</h1> 
         <h2 class="TitreSecondaireAccueilIndex">Venez challenger les cerveaux les plus agiles !</h2>
-        <button class="boutonPlayIndex" type="button" onclick="window.location.href='memory.html'">JOUEZ !</button>
+        <button class="boutonPlayIndex" type="button"><a href="memory.php">JOUEZ !</a></button>
     </header>    
 
     <!--Début du main de la page-->
