@@ -81,6 +81,10 @@ echo $_SERVER["PHP_SELF"];
             <input type="password" id="password" name="password" placeholder ="Mot de passe" required="password" class="formulaire-login"><br>
             <button name="Connexion" type="submit" value="HTML" class="LoginButton-login">Connexion</button>
         </form>
+        <p id="pasDeCompte">Pas de compte ? <a href="register.php">Creez-en un!</a></p>
+
+
+
     </main>
 
 
