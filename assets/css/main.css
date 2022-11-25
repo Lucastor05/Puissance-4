@@ -941,12 +941,3 @@ input{
     height: 50px;
 }
 
-#replaybtn{
-    background-color: #e98d24; 
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-}

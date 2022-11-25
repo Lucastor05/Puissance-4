@@ -62,7 +62,7 @@
         if(!$error){
             $new_mdp= hash('sha256',$password);
 
-            $statement = $conn->prepare('INSERT INTO utilisateur (Email, Pseudo, Mot_de_passe, Date_et_heure_inscription, nbr_partie_joue) VALUES (?, ?, ?, NOW(), 0)');
+            $statement = $conn->prepare('INSERT INTO utilisateur (Email, Pseudo, Mot_de_passe, Date_et_heure_inscription, nbr_partie_joue) VALUES (?, ?, ?, NOW(),0)');
             $statement->execute([$email, $pseudo, $new_mdp]);
 
             header('Location: login.php');

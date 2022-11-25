@@ -1,5 +1,6 @@
 <?php
 include 'assets/includes/database.inc.php';
+echo $_SERVER["PHP_SELF"];
 ?>
 
 <!DOCTYPE html>
